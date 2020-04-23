@@ -1,0 +1,26 @@
+{
+    "directions-id" : "1234567890abcde",
+    "text" : {
+        "0" : "Preheat the oven to 400 degrees F. Slice potatoes into slices, around 5mm thick. Slice onion finely. Cut leeks in halves, then slice finely and wash thoroughly. Mince garlic. For half of the thyme, strip leaves from their stalks.",
+        "1" : "Add half of thyme with stalks to a baking tray, and drizzle on top around 3 tbsp of olive oil. Place in oven for 4-5 minutes.",
+        "2" : "Push thyme stalks aside and add potato slices to the tray. Cover with olive oil, lay thyme on top, and season with salt and pepper. Return to oven until golden brown, around 20-25 minutes.",
+        "3" : "Meanwhile, heat 2 tbsp olive oil in a large skillet over medium heat. Once the oil is hot, add the onion and cook until caramelized, around 10 minutes.",
+        "4" : "Push the cooked onions to one side of the skillet, and add the pork steaks. Cook until done, around 4-5 minutes on each side or until an internal temperature of 145 F is reached.",
+        "5" : "Transfer steaks and onions to a plate and cover.",
+        "6" : "In the same skillet, add leeks and garlic. Stir, then add remaining thyme leaves, butter and milk. Cook until softened, around 2-4 minutes.",
+        "7" : "Add any resting juice from the pork and season with salt and pepper.",
+        "8" : "To serve, slice the steaks into thin strips, and lay on a bed of potato slices. Then add the leek sauce and caramelized onions around."
+    },
+
+    "time" : {
+        "0" : { "min" : "5", "max" : "5" },
+        "1" : { "min" : "4", "max" : "5" },
+        "2" : { "min" : "20", "max" : "25" },
+        "3" : { "min" : "10", "max" : "10" },
+        "4" : { "min" : "8", "max" : "10" },
+        "5" : { "min" : "2", "max" : "2" },
+        "6" : { "min" : "2", "max" : "4" },
+        "7" : { "min" : "0", "max" : "0" },
+        "8" : { "min" : "0", "max" : "0" }
+    }
+}

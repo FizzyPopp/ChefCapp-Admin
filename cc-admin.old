@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var admin = require('firebase-admin')
+var fs = require('fs')
+var path = require('path')
+var functions = require('firebase-functions')
+
+var app = admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    databaseURL: "https://chef-capp.firebaseio.com"
+})
+
+let db = admin.firestore();
+
+const rtRef= db.collection('recipe-test');
+
+let allDocs = rtRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+        console.log(doc.id, ':', doc.data());
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
