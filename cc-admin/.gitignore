@@ -65,4 +65,4 @@ node_modules/
 .env
 
 # PRIVATE KEY
-chef-capp-firebase-adminsdk-qm4l4-bfe5568ddc.json
+chef-capp-firebase-adminsdk*
