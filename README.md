@@ -9,7 +9,7 @@ Administration interface for ChefCapp assists in parsing, uploads, database fidd
 
 If you have both of them already, read ahead to **Installation**
 
-### Get Nodejs v8
+### Get Nodejs v8/10
 
 There's two major options to get nodejs
 
@@ -24,7 +24,7 @@ If you're on macOS or Windows, you can sport the official download from  choose 
 just uhhh, install it from the system package manager - apt, brew, pacman, chocolatey, what have you. If your package manager does not allow direct version management, then you should consider using nvm.
 
 #### using nvm
-The repository comes with .nvmrc that points to `lts/carbon` (i.e. node v8), so the version should be pinned and one just needs to run the commands and the correct version will be obtained.
+The repository comes with .nvmrc that points to `lts/carbon` (i.e. node v8) or `lts/dubnium` (i.e. node v10), so the version should be pinned and one just needs to run the commands and the correct version will be obtained.
 
 1. Install nvm:
 
