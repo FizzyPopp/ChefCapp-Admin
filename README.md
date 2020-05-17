@@ -54,7 +54,8 @@ export FIREBASE_CONFIG={}
 export GCLOUD_PROJECT={}
 ```
 
-Before running any code or scripts that uses cc-admin, just do 
+Before running any code or scripts that uses cc-admin, source init to get the 
+environment variables set up.
 
 `source ./init.sh`
 
@@ -62,6 +63,8 @@ Before running any code or scripts that uses cc-admin, just do
 I've added the private key file name and the init.sh into .gitignore, so it'll be
 okay if you accidentally left then in the source dir.
 
+It is possible to add the variables into your bash environment so that you do 
+not need to source `init.sh` every time, but it's personal preference.
 
 
 # Installation
@@ -73,10 +76,17 @@ cd /where/you/want/to/install
 npm install /path/to/ChefCapp-Admin/cc-admin
 ```
 
-2. Make sure you have the `init.sh` set up.
+2. Make sure you have the `init.sh` sourced.
 
 3. Start calling it in your projects:
 
 ``` javascript
 var cca = require('cc-admin')
 ```
+
+
+# How to Use
+
+The module comes with a bunch of once and future methods that deal with database
+retrieval and data parsing. Eventually it may handle user account setup and 
+manipulation as well.

@@ -119,11 +119,10 @@
                     ]
                 }
             ],
+
             "required": [
                 "core"
             ],
-
-            "additionalItems": true,
 
             "properties": {
                 "core": {
