@@ -4,7 +4,7 @@ Administration interface for ChefCapp assists in parsing, uploads, database fidd
 
 # Requirements
 
-* nodejs v8.x.x (lts/carbon) or v10.x.x (lts/dubnium)
+* nodejs v8.x.x (`lts/carbon`) or v10.x.x (`lts/dubnium`)
 * service account key
 
 If you have both of them already, read ahead to **Installation**
