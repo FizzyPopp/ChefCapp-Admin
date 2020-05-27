@@ -1,0 +1,184 @@
+{
+    "$schema" : "http://json-schema.org/draft-06/schema#",
+    "$id" : "cc-admin/recipe.schema.json",
+    "type" : "object",
+    "title": "recipe",
+    "description" : "A collection of ingredients, steps, and attributes that comprise a guide to cooking a dish.",
+    "default": {},
+
+    "examples": [
+        {
+            "tags": [
+                "main",
+                "pork"
+            ],
+            "flavors": "",
+            "ingredients": {
+                "core" : {
+                    "39f2ab0e-3ea2-46fd-b34c-48cad4f90390" : 12,
+                    "35a06202-4cb8-498a-87f1-35e5171b224d" : 12
+                },
+                "aux" : {
+                    "a8f34d92-f834-4225-b3b7-31e93643efd0" : 12,
+                    "b6b24813-e4ba-4b1d-974f-2d86f4b0bb16" : 11
+                }
+            },
+            "name": "Sweet Porky Delight",
+            "id": "1234567890asdf",
+            "steps-ref": "123456789abcde"
+        }
+    ],
+
+    "required": [
+        "id",
+        "title",
+        "tags",
+        "ingredients",
+        "steps-ref"
+    ],
+
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "title": "id",
+            "description" : "Unique identifier of the recipe, UUIDv4.",
+            "default": "",
+            "examples": [
+                "88ecd77d-93b0-408c-87d6-0a4f06779a4f",
+                "6b705aa7-1c27-4fee-a405-8f8b83b45655"
+            ]
+        },
+
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "name",
+            "description" : "Human readable name of the recipee.",
+            "default": "",
+            "examples": [
+                "Sweet Porky Delight",
+                "Caesar Salad"
+            ]
+        },
+
+        "calories": {
+            "$id": "#/properties/calories",
+            "type": "number",
+            "title": "calories",
+            "description" : "Amount of kilocalories roughly contained in the recipe.",
+            "default": "",
+            "examples": [
+                12,
+                500,
+                80
+            ],
+            "exclusiveMinimum": 0
+        },
+
+        "tags": {
+            "$id": "#/properties/tags",
+            "type": "array",
+            "title": "tags",
+            "description": "Set of tags applicable to the recipe.",
+            "default": [],
+            "examples": [
+                [
+                    "main",
+                    "pork"
+                ],
+
+                [
+                    "side",
+                    "noodle"
+                ]
+            ],
+            "items": {
+                "type" : "string"
+            }
+        },
+
+        "ingredients": {
+            "$id": "#/properties/ingredients",
+            "type": "object",
+            "title": "ingredients",
+            "description": "Object containing the list of ingredients, with some ordering and organization applied",
+            "default": {},
+            "examples": [
+                {
+                    "core": {
+                        "88ecd77d-93b0-408c-87d6-0a4f06779a4f" : 12,
+                        "75969555-a483-4787-a331-7c141beb073d" : 12,
+                        "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2" : 12
+                    },
+                    "auxiliary": {
+                        "5ef2491c-ac2e-45a0-9672-d58edea8c84e" : 12,
+                        "5a4bd58d-10c8-4f07-8f1f-430596b0fdaf" : 12
+                    }
+                }
+            ],
+
+            "required": [
+                "core"
+            ],
+
+            "additionalProperties": false,
+            "properties": {
+                "core": {
+                    "$id": "#/properties/ingredients/properties/core",
+                    "type": "object",
+                    "title": "core",
+                    "description": "A collection of critical ingredients by ID mapped to the amount needed.",
+                    "examples": [
+                        {
+                            "88ecd77d-93b0-408c-87d6-0a4f06779a4f" : 100,
+                            "75969555-a483-4787-a331-7c141beb073d" : 2,
+                            "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2" : 0.5
+                        }
+                    ],
+
+                    "$comment" : "patternProperties match regex patterns and validate the properties of the matched entities",
+                    "patternProperties" :{
+                        "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}" : {
+                            "type" : "number",
+                            "minimum" : 0
+                        }
+                    }
+                },
+                "auxiliary": {
+                    "$id": "#/properties/ingredients/properties/core",
+                    "type": "object",
+                    "title": "auxiliary",
+                    "description": "A collection of critical ingredients by ID mapped to the amount needed.",
+                    "examples": [
+                        {
+                            "88ecd77d-93b0-408c-87d6-0a4f06779a4f" : 100,
+                            "75969555-a483-4787-a331-7c141beb073d" : 2,
+                            "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2" : 0.5
+                        }
+                    ],
+
+                    "$comment" : "patternProperties match regex patterns and validate the properties of the matched entities",
+                    "patternProperties" :{
+                        "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}" : {
+                            "type" : "number",
+                            "minimum" : 0
+                        }
+                    }
+                }
+            }
+        },
+        "steps-ref": {
+            "$id": "#/properties/steps-ref",
+            "type": "string",
+            "title": "steps-ref",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "b008edfb-2cce-4907-a46e-2e9c0429689a",
+                "39f2ab0e-3ea2-46fd-b34c-48cad4f90390"
+            ]
+        }
+    }
+}

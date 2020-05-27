@@ -1,0 +1,38 @@
+{
+    "$schema" : "http://json-schema.org/draft-06/schema#",
+    "$id" : "cc-admin/ingredient.schema.json",
+    "type" : "object",
+    "title": "ingredient",
+    "description" : "canonical description of a single ingredient"
+    "required": [
+        "id",
+        "name"
+    ],
+
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "title": "ID",
+            "description" : "Unique identifier of the , UUIDv4.",
+            "default": "",
+            "examples": [
+                "88ecd77d-93b0-408c-87d6-0a4f06779a4f",
+                "6b705aa7-1c27-4fee-a405-8f8b83b45655"
+            ]
+        },
+        "name":{
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "name",
+            "description" : "Human readable name of the ingredient.",
+            "examples" : [
+                "Tomato",
+                "Potato",
+                "Avocado",
+                "Banana"
+            ]
+        }
+    }
+
+}
