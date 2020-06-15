@@ -1,0 +1,52 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id" : "recipe.schema.json",
+    "type" : "object",
+    "title": "recipe",
+    "description" : "A collection of ingredients, steps, and attributes that comprise a guide to cooking a dish.",
+    "default": {},
+
+    "examples": [
+        {
+            "tags": [
+                "main",
+                "pork"
+            ],
+            "flavors": "",
+            "ingredientList": {
+                "core" : {
+                    "39f2ab0e-3ea2-46fd-b34c-48cad4f90390" : 12,
+                    "35a06202-4cb8-498a-87f1-35e5171b224d" : 12
+                },
+                "aux" : {
+                    "a8f34d92-f834-42f5-b3b7-31e93643efd0" : 12,
+                    "b6b24813-e4ba-4b1d-974f-2d86f4b0bb16" : 11
+                }
+            },
+            "name": "Sweet Porky Delight",
+            "id": "1234567890asdf",
+            "steps-ref": "123456789abcde"
+        }
+    ],
+
+    "required": [
+        "id",
+        "dataType",
+        "name",
+        "tags",
+        "ingredients",
+        "components"
+    ],
+
+    "additionalproperties": true,
+
+    "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "$ref": "name.schema.json" },
+        "tags": { "$ref": "tags.schema.json" },
+        "images": { "type": "string", "format": "uri" },
+        "calories": { "$ref": "calories.schema.json" },
+        "ingredeints": { "$ref": "ingredientList.schema.json" },
+        "components": { "$ref": "idList.schema.json" }
+    }
+}

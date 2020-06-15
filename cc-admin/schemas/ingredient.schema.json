@@ -1,0 +1,19 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id" : "ingredient.schema.json",
+    "type" : "object",
+    "title": "ingredient",
+    "description" : "canonical description of a single ingredient",
+    "required": [
+        "id",
+        "name",
+        "unit"
+    ],
+
+    "additionalProperties" : true,
+    "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name":{ "$ref": "name.schema.json" },
+        "unit":{ "$ref": "unit.schema.json" }
+    }
+}

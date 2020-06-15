@@ -1,0 +1,13 @@
+{
+    "$id": "calories.schema.json",
+    "type": "number",
+    "title": "calories",
+    "description" : "integer amount of kilocalories roughly contained in the recipe.",
+    "default": "",
+    "examples": [
+        12,
+        500,
+        80
+    ],
+    "exclusiveminimum": 0
+}

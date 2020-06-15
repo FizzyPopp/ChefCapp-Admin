@@ -1,0 +1,28 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id" : "ingredientList.schema.json",
+    "type": "array",
+    "title": "ingredientList",
+    "description": "Array containing ingredients as objects with name, amount, etc., with some ordering and organization applied",
+    "default": [],
+    "examples": [],
+
+    "items": {
+        "type": "object",
+        "additionalproperties": false,
+        "required" : [
+            "id",
+            "name"
+        ],
+
+        "properties": {
+            "id": { "type": "string", "format": "uuid" },
+            "name": { "$ref": "name.schema.json" },
+            "unit": { "$ref": "unit.schema.json" },
+            "quantity": {
+                "type": "number",
+                "exclusiveminimum": 0
+            }
+        }
+    }
+}

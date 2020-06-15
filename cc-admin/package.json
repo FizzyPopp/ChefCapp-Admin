@@ -1,22 +1,22 @@
 {
   "name": "cc-admin",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Administrative tooling for ChefCapp",
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^8.10.0",
     "firebase-functions": "^3.6.0",
+    "js-quantities": "^1.7.5",
     "uuid": "^8.1.0",
     "ajv": "^6.12.2"
-
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "files": [
-    "recipe.schema.json",
-    "ingredient.schema.json"
+    "schemas/"
   ],
   "author": "ChefCapp",
   "license": "Proprietary"

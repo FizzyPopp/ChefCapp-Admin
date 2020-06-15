@@ -1,0 +1,13 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "dataType.schema.json",
+    "type": "string",
+    "title": "dataType",
+    "description": "type label for object - classifies complex types.",
+    "default": "",
+    "examples": [
+        "recipe",
+        "ingredient",
+        "steps"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "idList.schema.json",
+    "type": "array",
+    "title": "idList",
+    "description": "List of uuids, meaningful only with additional context.",
+
+    "default": [],
+    "examples": [
+        [
+            "88ecd77d-93b0-408c-87d6-0a4f06779a4f",
+            "7e969555-a483-4b87-a331-7c141beb073d",
+            "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2"
+        ]
+    ],
+
+    "items": {
+        "type": "string",
+        "format": "uuid"
+    }
+}
