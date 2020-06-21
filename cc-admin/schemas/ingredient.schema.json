@@ -3,7 +3,7 @@
     "$id" : "ingredient.schema.json",
     "type" : "object",
     "title": "ingredient",
-    "description" : "canonical description of a single ingredient",
+    "description" : "canonical description of a single ingredient, all quantities normalized against one unit of ingredient, whatever that unit may be",
     "required": [
         "id",
         "name",
@@ -12,8 +12,45 @@
 
     "additionalProperties" : true,
     "properties": {
+        "hash": { "$ref": "hash.schema.json" },
         "id": { "type": "string", "format": "uuid" },
-        "name":{ "$ref": "name.schema.json" },
-        "unit":{ "$ref": "unit.schema.json" }
+        "name": { "$ref": "name.schema.json" },
+        "unit": { "$ref": "#/$defs/unit" }
+    },
+
+    "$defs": {
+        "unit": {
+            "$id": "#/$defs/unit",
+            "title": "unit",
+            "description": "unit object which contains any unit that may be used to refer to a specific ingredient",
+
+            "type": "object",
+
+            "required": [
+                "default"
+            ],
+
+            "additionalProperties": false,
+            "properties": {
+                "default" : { "type": "string" },
+                "cooking" : { "type": "string" },
+                "bulk" : { "type": "string" },
+                "SI": { "type": "string" },
+                "quantityMeasured": { "$ref": "vocabulary/units.schema.json" },
+
+                "conversionFactorTo": {
+                    "type": "object",
+                    "description": "conversion factors from the default unit to other classes",
+
+                    "properties" : {
+                        "cooking": { "type": "number", "exclusiveMinimum": 0 },
+                        "portion": { "type": "number", "exclusiveMinimum": 0 },
+                        "storage": { "type": "number", "exclusiveMinimum": 0 },
+                        "bulk": { "type": "number", "exclusiveMinimum": 0 },
+                        "SI": { "type": "number", "exclusiveMinimum": 0 }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,73 @@
+{
+    "id": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+    "dataType": "step",
+    "name": {
+        "singular": "sweating the ",
+        "plural": "sweaty pork chops"
+    },
+
+    "image": "www.cc.com/",
+
+    "tags": [],
+
+    "calories": 8,
+
+    "prepTime": 12,
+    "ingredients": {
+        "keys": [
+            "07538800-5e44-46d2-b837-4e1b37d98d0d",
+            "7913d04d-65ce-4fc3-b16a-db7f810ae314"
+        ],
+
+        "07538800-5e44-46d2-b837-4e1b37d98d0d": {
+            "id": "07538800-5e44-46d2-b837-4e1b37d98d0d",
+            "name": {
+                "singular": "pomato",
+                "plural": "pomatos"
+            },
+            "unit": "mass",
+            "quantity": 21
+        },
+
+        "7913d04d-65ce-4fc3-b16a-db7f810ae314": {
+            "id": "a8f34d92-f834-4225-b3b7-31e93643efd0",
+            "name": {
+                "singular": "totato",
+                "plural": "totatos"
+            },
+            "unit": "volume",
+            "quantity": 12
+        }
+    },
+
+
+    "chips": [
+        "07538800-5e44-46d2-b837-4e1b37d98d0d",
+        "7913d04d-65ce-4fc3-b16a-db7f810ae314"
+    ],
+
+    "instructions": {
+        "skeleton": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+        ],
+
+        "copy": [
+            "Guss stole some",
+            "from the spicy meatball factory and he fried the",
+            "in the",
+            "soup then dumped it all on the"
+        ],
+
+        "names":[
+            "07538800-5e44-46d2-b837-4e1b37d98d0d",
+            "7913d04d-65ce-4fc3-b16a-db7f810ae314",
+            "07538800-5e44-46d2-b837-4e1b37d98d0d",
+            "07538800-5e44-46d2-b837-4e1b37d98d0d"
+        ]
+    }
+}

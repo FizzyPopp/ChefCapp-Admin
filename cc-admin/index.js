@@ -237,19 +237,20 @@ exports.buildRecipe = function (nodeID) {
     let components = [];
     let node = getRecipe(nodeID);
 
-    if (node.children === null) {
+    if (typeof node.components === "undefined") {
         return node;
     }
     else {
         for (let childID in node.components) {
             let child = buildRecipe(childID);
-            components.push(child);
+            node.components.push(child);
         }
 
-        for (let child in children) {
-            for (let id in child.ingredients) {
-                if (node.ingredients[id] === null) {
-                    node.ingredients[id] = 0;
+        for (let child in components) {
+            for (let id in child.ingredients.keys) {
+                if (typeof node.ingredients.name[id] === "undefined") {
+                    // construct new ingredient object in current node
+                    node.ingredients[id] = child.ingredients[id];
                 } else {
                     node.ingredients[id] += child.ingredients[i]
                 }

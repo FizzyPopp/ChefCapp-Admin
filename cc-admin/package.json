@@ -8,15 +8,16 @@
     "firebase-functions": "^3.6.0",
     "js-quantities": "^1.7.5",
     "uuid": "^8.1.0",
-    "ajv": "^6.12.2"
+    "ajv": "^6.12.2",
+    "js-quantities": "^1.7.5"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "files": [
-    "schemas/"
+    "schemas/",
+    "examples/"
   ],
   "author": "ChefCapp",
   "license": "Proprietary"

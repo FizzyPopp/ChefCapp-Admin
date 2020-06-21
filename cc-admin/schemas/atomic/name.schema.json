@@ -3,7 +3,7 @@
     "$id": "name.schema.json",
     "type": "object",
     "title": "name",
-    "description": "Human readable english name of the object (both singular and plural), used for display",
+    "description": "Human readable english labels for nouns (both singular and plural)",
     "default": "",
     "examples": [
         "sweet porky delight",

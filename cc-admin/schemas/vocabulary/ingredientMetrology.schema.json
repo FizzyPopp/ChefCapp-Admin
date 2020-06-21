@@ -1,0 +1,15 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "volcabulary/ingredientMetrology.schema.json",
+    "title": "ingredientMetrologyVocabulary",
+    "description": "list of classes that unit measures are organized into",
+
+    "enum": [
+        "default",
+        "cooking",
+        "portion",
+        "storage",
+        "bulk",
+        "SI"
+    ]
+}
