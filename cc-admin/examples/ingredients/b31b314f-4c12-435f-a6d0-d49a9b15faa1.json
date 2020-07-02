@@ -1,0 +1,25 @@
+{
+    "id": "b31b314f-4c12-435f-a6d0-d49a9b15faa1",
+    "name": {
+        "singular": "Ground Chorizo",
+        "plural": "Ground Chorizo"
+    },
+
+    "unit": {
+        "singular": "gram",
+        "plural": "grams",
+        "SI": "kg",
+        "verbiage": "SI",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "cooking": 1,
+            "SI": 1000
+        },
+        "additional": {
+            "cooking": {
+                "singular": "gram",
+                "plural": "grams"
+            },
+        }
+    }
+}

@@ -15,29 +15,24 @@
         "hash": { "$ref": "hash.schema.json" },
         "id": { "type": "string", "format": "uuid" },
         "name": { "$ref": "name.schema.json" },
+        "density": { "type": "number" },
         "unit": { "$ref": "#/$defs/unit" }
     },
 
     "$defs": {
         "unit": {
-            "$id": "#/$defs/unit",
             "title": "unit",
             "description": "unit object which contains any unit that may be used to refer to a specific ingredient",
 
             "type": "object",
 
-            "required": [
-                "default"
-            ],
 
             "additionalProperties": false,
             "properties": {
-                "default" : { "type": "string" },
-                "cooking" : { "type": "string" },
-                "bulk" : { "type": "string" },
-                "SI": { "type": "string" },
-                "quantityMeasured": { "$ref": "vocabulary/units.schema.json" },
-
+                "singular": { "type": "string" },
+                "plural": { "type": "string" },
+                "verbiage": { "enum": ["name", "specific", "SI"] },
+                "quantityClass": { "$ref": "vocabulary.quantityClass.schema.json" },
                 "conversionFactorTo": {
                     "type": "object",
                     "description": "conversion factors from the default unit to other classes",
@@ -48,6 +43,16 @@
                         "storage": { "type": "number", "exclusiveMinimum": 0 },
                         "bulk": { "type": "number", "exclusiveMinimum": 0 },
                         "SI": { "type": "number", "exclusiveMinimum": 0 }
+                    }
+                },
+                "additional": {
+                    "type": "object",
+                    "properties": {
+                        "cooking" : { "$ref": "name.schema.json" },
+                        "portion" : { "$ref": "name.schema.json" },
+                        "storage" : { "$ref": "name.schema.json" },
+                        "bulk" : { "$ref": "name.schema.json" },
+                        "SI": { "type": "string" }
                     }
                 }
             }

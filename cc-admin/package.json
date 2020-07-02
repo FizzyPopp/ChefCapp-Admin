@@ -11,9 +11,11 @@
     "ajv": "^6.12.2",
     "js-quantities": "^1.7.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^26.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cca-test-init.sh"
   },
   "files": [
     "schemas/",

@@ -1,0 +1,30 @@
+{
+    "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+    "name": {
+        "singular": "Garlic",
+        "plural": "Garlic"
+    },
+
+    "unit": {
+        "singular": "clove",
+        "plural": "cloves",
+        "SI": "kg",
+        "verbiage": "specific",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "cooking": 1,
+            "storage": 0.05,
+            "SI": 0.003
+        },
+        "additional": {
+            "cooking": {
+                "singular": "clove",
+                "plural": "cloves"
+            },
+            "storage": {
+                "singular": "head",
+                "plural": "heads"
+            },
+        }
+    }
+}

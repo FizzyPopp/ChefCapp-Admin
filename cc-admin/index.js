@@ -47,6 +47,8 @@ exports.db.firestore = _firestore;
  */
 var _schemas = {};
 let _schemaDirs = [
+    __dirname + "/" + "schemas/vocabulary/quantityClasses/",
+    __dirname + "/" + "schemas/vocabulary/",
     __dirname + "/" + "schemas/atomic/",
     __dirname + "/" + "schemas/"
     ];
@@ -73,6 +75,7 @@ _schemaDirs.forEach ((root) => {
         }
     });
 });
+
 exports.db.schemas = _schemas;
 exports.db.types = Object.keys(_schemas);
 
@@ -145,10 +148,6 @@ exports.db.getObject = function (colName, uuid) {
         });
 };
 
-//TODO
-exports.push = (instance) => {
-
-}
 
 
 /** @function parse

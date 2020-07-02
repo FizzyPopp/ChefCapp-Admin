@@ -1,9 +1,8 @@
 {
     "$schema" : "http://json-schema.org/draft-07/schema#",
-    "$id": "vocabulary/instructions.schema.json",
-    "title": "instuctionVocabulary",
+    "$id": "vocabulary.instructionFragment.schema.json",
+    "title": "instructionFragment",
     "description": "List of valid classifications for sentence fragments in the context of recipe instruction copy text.",
-    "default": "",
 
     "enum": [
         "copy",

@@ -1,0 +1,28 @@
+{
+    "id": "9267d19c-ad55-4466-beb1-e19014313f65",
+    "name": {
+        "singular": "Pepper"
+    },
+
+    "completeName": {
+        "singular": "Black Peppercorn"
+    },
+
+    "tags": [
+        "peppercorn",
+        "spice",
+        "black pepper"
+    ],
+
+    "unit": {
+        "singular": "g",
+        "plural": "g",
+        "SI": "kg",
+        "quantityClass": "mass",
+        "verbiage": "SI",
+        "density": 480,
+        "conversionFactorTo": {
+            "SI": 0.001
+        }
+    }
+}

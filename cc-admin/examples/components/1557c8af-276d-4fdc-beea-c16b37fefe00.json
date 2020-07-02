@@ -1,44 +1,105 @@
 {
-    "id": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+    "previous": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+    "id": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+    "next": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
     "dataType": "step",
-    "name": {
-        "singular": "sweaty pork chop",
-        "plural": "sweaty pork chops"
-    },
-
-    "image": "www.cc.com/",
-
+    "name": { "singular": "bake potatoes" },
     "tags": [],
-
-    "calories": 8,
-
-    "prepTime": 12,
+    "calories": 2,
+    "time": {
+        "min": 18,
+        "max": 20,
+        "unit": "min"
+    },
     "ingredients": {
         "keys": [
-            "07538800-5e44-46d2-b837-4e1b37d98d0d",
-            "7913d04d-65ce-4fc3-b16a-db7f810ae314",
-            "8e5a3441-1c8a-4c03-b84a-97905eb1dc00",
-            "2046aadb-a599-4b9e-ad7c-6734d5a2df00"
+            "67054860-6770-4085-95c7-3ef82d9a2d93"
         ],
-
-        "07538800-5e44-46d2-b837-4e1b37d98d0d": {
-            "id": "07538800-5e44-46d2-b837-4e1b37d98d0d",
+        "67054860-6770-4085-95c7-3ef82d9a2d93": {
+            "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
             "name": {
-                "singular": "pomato",
-                "plural": "pomatos"
+                "singular": "Peanut Oil",
+                "plural": "Peanut Oil"
             },
-            "unit": "mass",
-            "quantity": 21
-        },
+            "unit": "tbsp",
+            "quantity": 1
+        }
+    },
+    "utensils": [
+        "baking sheet"
+    ],
+    "appliances": [
+        "oven"
+    ],
+    "instructions": {
+        "abstract": [
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "time",
+            "copy"
+        ],
+        "copy": [
+            "Toss the ",
+            " and ",
+            " on the baking sheet. Season with ",
+            " and ",
+            ". Roast in middle of oven, flip halfway, and cook until golden-brown, ",
+            "."
+        ],
+        "quantity": [],
+        "name": [
+            "potatoes",
+            "oil",
+            "salt",
+            "pepper"
+        ],
+        "unit": [],
+        "time": [ "18-20 min" ],
+        "mentionedIngedientList": {
+            "keys": [
+                "402dd73d-8296-4136-9f53-1a5276d09728",
+                "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+                "9267d19c-ad55-4466-beb1-e19014313f65"
+            ],
 
-        "7913d04d-65ce-4fc3-b16a-db7f810ae314": {
-            "id": "a8f34d92-f834-4225-b3b7-31e93643efd0",
-            "name": {
-                "singular": "totato",
-                "plural": "totatos"
+            "402dd73d-8296-4136-9f53-1a5276d09728": {
+                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                "name": {
+                    "singular": "Potato",
+                    "plural": "Potatoes"
+                },
+                "unit": "",
+                "quantity": 8
             },
-            "unit": "volume",
-            "quantity": 12
+            "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "name": {
+                    "singular": "Oil",
+                    "plural": "Oil"
+                },
+                "unit": "tbsp",
+                "quantity": 1
+            },
+            "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
+                "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+                "name": { "singular": "Salt" },
+                "unit": "g",
+                "quantity": 0
+            },
+            "9267d19c-ad55-4466-beb1-e19014313f65": {
+                "id": "9267d19c-ad55-4466-beb1-e19014313f65",
+                "name": { "singular": "Black Pepper" },
+                "unit": "g",
+                "quantity": 0
+            }
         }
     }
 }

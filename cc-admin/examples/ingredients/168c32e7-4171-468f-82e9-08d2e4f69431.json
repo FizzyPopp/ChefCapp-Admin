@@ -1,0 +1,18 @@
+{
+    "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+    "name": {
+        "singular": "Green Bell Pepper",
+        "plural": "Green Bell Peppers"
+    },
+
+    "unit": {
+        "singular": "",
+        "plural": "",
+        "verbiage": "name",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "SI": 0.12
+        },
+        "SI": "kg"
+    }
+}
