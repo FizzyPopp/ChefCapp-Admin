@@ -1,0 +1,21 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id" : "vocabulary.quantityClasses.time.schema.json",
+    "title": "timeUnits",
+    "description" : "time units considered within recipe vocab",
+
+    "enum": [
+        "s",
+        "second",
+        "seconds",
+        "m",
+        "minute",
+        "minutes",
+        "h",
+        "hour",
+        "hours",
+        "d",
+        "day",
+        "days"
+    ]
+}

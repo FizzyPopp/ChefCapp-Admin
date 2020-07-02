@@ -1,0 +1,25 @@
+{
+    "id": "635458df-5e1b-464b-84c4-6e491925bb94",
+    "name": {
+        "singular": "Peanut Oil",
+        "plural": "Peanut Oil"
+    },
+
+    "tags": [
+        "oil",
+        "neutral oil",
+        "frying oil"
+    ],
+
+    "unit": {
+        "singular": "mL",
+        "plural": "mL",
+        "SI": "L",
+        "density": 946.792633651,
+        "quantityClass": "volume",
+        "verbiage": "SI",
+        "conversionFactorTo": {
+            "SI": 0.001
+        }
+    }
+}

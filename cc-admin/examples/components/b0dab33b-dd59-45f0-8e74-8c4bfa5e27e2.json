@@ -1,73 +1,233 @@
 {
     "id": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
-    "dataType": "step",
-    "name": {
-        "singular": "sweating the ",
-        "plural": "sweaty pork chops"
+    "name": { "singular": "prepare and chop" },
+
+    "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+    "previous":"f680874b-cb0b-4b25-ba74-a8ed39824202",
+
+    "time": {
+        "min": 0,
+        "max": 0
     },
 
-    "image": "www.cc.com/",
-
-    "tags": [],
-
-    "calories": 8,
-
-    "prepTime": 12,
     "ingredients": {
         "keys": [
-            "07538800-5e44-46d2-b837-4e1b37d98d0d",
-            "7913d04d-65ce-4fc3-b16a-db7f810ae314"
+            "402dd73d-8296-4136-9f53-1a5276d09728",
+            "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+            "168c32e7-4171-468f-82e9-08d2e4f69431",
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+            "74143f94-79c3-486c-893d-9f0a571f80e2",
+            "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+            "f46e24db-4886-4dff-9b88-3fa255b12abe"
         ],
 
-        "07538800-5e44-46d2-b837-4e1b37d98d0d": {
-            "id": "07538800-5e44-46d2-b837-4e1b37d98d0d",
+        "402dd73d-8296-4136-9f53-1a5276d09728": {
+            "id": "402dd73d-8296-4136-9f53-1a5276d09728",
             "name": {
-                "singular": "pomato",
-                "plural": "pomatos"
+                "singular": "Baby Potato",
+                "plural": "Baby Potatoes"
             },
-            "unit": "mass",
-            "quantity": 21
+            "unit": "",
+            "quantity": 8
         },
 
-        "7913d04d-65ce-4fc3-b16a-db7f810ae314": {
-            "id": "a8f34d92-f834-4225-b3b7-31e93643efd0",
+        "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
+            "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
             "name": {
-                "singular": "totato",
-                "plural": "totatos"
+                "singular": "Yellow Onion",
+                "plural": "Yellow Onions"
             },
-            "unit": "volume",
-            "quantity": 12
+            "unit": "",
+            "quantity": 1
+        },
+
+        "168c32e7-4171-468f-82e9-08d2e4f69431": {
+            "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+            "name": {
+                "singular": "Green Bell Pepper",
+                "plural": "Green Bell Peppers"
+            },
+            "unit": "",
+            "quantity": 2
+        },
+
+        "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+            "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+            "name": {
+                "singular": "Parsley",
+                "plural": "Parsley"
+            },
+            "unit": "g",
+            "quantity": 15
+        },
+
+        "74143f94-79c3-486c-893d-9f0a571f80e2": {
+            "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+            "name": {
+                "singular": "Green Onion",
+                "plural": "Green Onions"
+            },
+            "unit": "",
+            "quantity": 4
+        },
+
+        "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+            "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+            "name": {
+                "singular": "Cherry Tomato",
+                "plural": "Cherry Tomatoes"
+            },
+            "unit": "g",
+            "quantity": 250
+        },
+
+        "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+            "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+            "name": {
+                "singular": "Garlic",
+                "plural": "Garlic"
+            },
+            "unit": "clove",
+            "quantity": 3
         }
     },
 
+    "utensils": [
+        "baking sheet",
+        "knife"
+    ],
 
-    "chips": [
-        "07538800-5e44-46d2-b837-4e1b37d98d0d",
-        "7913d04d-65ce-4fc3-b16a-db7f810ae314"
+    "appliances": [
+        "oven"
     ],
 
     "instructions": {
-        "skeleton": [
-            0,
-            1,
-            0,
-            1,
-            0,
-            1
+        "abstract": [
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy"
         ],
 
         "copy": [
-            "Guss stole some",
-            "from the spicy meatball factory and he fried the",
-            "in the",
-            "soup then dumped it all on the"
+            "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+            " into ½-inch cubes. Slice ",
+            ". Core and cut ",
+            " into ½-inch pieces. Finely chop ",
+            ". Thinly slice ",
+            ". Halve ",
+            ". Peel, then mince ",
+            "."
         ],
 
-        "names":[
-            "07538800-5e44-46d2-b837-4e1b37d98d0d",
-            "7913d04d-65ce-4fc3-b16a-db7f810ae314",
-            "07538800-5e44-46d2-b837-4e1b37d98d0d",
-            "07538800-5e44-46d2-b837-4e1b37d98d0d"
-        ]
+        "quantity": [
+
+        ],
+
+        "name": [
+            "potatoes",
+            "onion",
+            "peppers",
+            "parsley",
+            "green onions",
+            "cherry tomatoes",
+            "garlic"
+        ],
+
+        "unit": [
+        ],
+
+        "mentionedIngedientList": {
+            "keys": [
+                "402dd73d-8296-4136-9f53-1a5276d09728",
+                "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "f46e24db-4886-4dff-9b88-3fa255b12abe"
+            ],
+
+            "402dd73d-8296-4136-9f53-1a5276d09728": {
+                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                "name": {
+                    "singular": "Potato",
+                    "plural": "Potatoes"
+                },
+                "unit": "",
+                "quantity": 8
+            },
+
+            "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
+                "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                "name": {
+                    "singular": "Onion",
+                    "plural": "Onions"
+                },
+                "unit": "",
+                "quantity": 1
+            },
+
+            "168c32e7-4171-468f-82e9-08d2e4f69431": {
+                "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "name": {
+                    "singular": "Pepper",
+                    "plural": "Peppers"
+                },
+                "unit": "",
+                "quantity": 2
+            },
+
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+                "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "name": {
+                    "singular": "Parsley",
+                    "plural": "Parsley"
+                },
+                "unit": "g",
+                "quantity": 15
+            },
+
+            "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "name": {
+                    "singular": "Green Onion",
+                    "plural": "Green Onions"
+                },
+                "unit": "",
+                "quantity": 4
+            },
+
+            "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+                "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "name": {
+                    "singular": "Cherry Tomato",
+                    "plural": "Cherry Tomatoes"
+                },
+                "unit": "g",
+                "quantity": 250
+            },
+
+            "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+                "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                "name": {
+                    "singular": "Garlic",
+                    "plural": "Garlic"
+                },
+                "unit": "clove",
+                "quantity": 3
+            }
+        }
     }
 }

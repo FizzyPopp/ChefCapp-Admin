@@ -1,0 +1,18 @@
+{
+    "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+    "name": {
+        "singular": "Parsley",
+        "plural": "Parsley"
+    },
+
+    "unit": {
+        "singular": "g",
+        "plural": "g",
+        "verbiage": "SI",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "SI": 0.001
+        },
+        "SI": "kg"
+    }
+}

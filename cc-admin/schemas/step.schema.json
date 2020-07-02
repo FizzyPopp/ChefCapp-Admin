@@ -24,18 +24,19 @@
             "type": "object",
 
             "properties": {
-                "unit": {
-                },
-                "maximum": {
+                "max": {
                     "type": "integer",
-                    ""
+                    "minimum": 0
+                },
+                "min": {
+                    "type": "integer",
+                    "minimum": 0
                 }
             }
         },
 
         "instructions": {
             "type": "object",
-            "$id": "step.schema.json/instructions",
             "description": "prefabricated instruction copy, assemble on site with correct formating, linked data is present in the form of an ingredientList to provide verification",
 
             "required": [
@@ -49,7 +50,7 @@
             "properties": {
                 "abstract": {
                     "type": "array",
-                    "items": { "$ref": "vocabulary/instructions.json" }
+                    "items": { "$ref": "vocabulary.instructionFragment.schema.json" }
                 },
 
                 "copy": { "type":  "array", "items": { "type": "string" } },

@@ -1,0 +1,25 @@
+{
+    "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+    "name": {
+        "singular": "Cherry Tomato",
+        "plural": "Cherry Tomatoes"
+    },
+
+    "unit": {
+        "singular": "g",
+        "plural": "g",
+        "SI": "kg",
+        "verbiage": "SI",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "portion": 0.357,
+            "SI": 0.001
+        },
+        "additional": {
+            "portion": {
+                "singular": "",
+                "plural": ""
+            }
+        }
+    }
+}

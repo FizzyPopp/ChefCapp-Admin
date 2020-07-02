@@ -1,0 +1,30 @@
+{
+    "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+    "name": {
+        "singular": "Butter",
+        "plural": "Butter"
+    },
+
+    "unit": {
+        "singular": "stick",
+        "plural": "sticks",
+        "SI": "L",
+        "quantityClass": "volume",
+        "verbiage": "SI",
+        "conversionFactorTo": {
+            "cooking": 0.125,
+            "bulk": 4,
+            "SI": 0.118294119
+        },
+        "additional": {
+            "cooking": {
+                "singular": "tbsp",
+                "plural": "tbsp"
+            },
+            "bulk": {
+                "singular": "block",
+                "plural": "block"
+            },
+        }
+    }
+}

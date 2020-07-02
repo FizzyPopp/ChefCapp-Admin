@@ -1,0 +1,20 @@
+{
+    "id": "635458df-5e1b-464b-84c4-6e491925bb94",
+    "name": {
+        "singular": "Sugar",
+        "plural": "Sugar"
+    },
+
+    "density": 850,
+
+    "unit": {
+        "singular": "g",
+        "plural": "g",
+        "verbiage": "SI",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "SI": 0.001
+        },
+        "SI": "kg"
+    }
+}

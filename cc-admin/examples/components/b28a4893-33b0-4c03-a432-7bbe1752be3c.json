@@ -1,0 +1,77 @@
+{
+    "id": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+    "name": { "singular": "make aioli" },
+
+    "next": "83a5da3a-864c-4b01-81e5-487210c1a826",
+    "previous": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+    "tags": [],
+    "calories": 3,
+    "time": {
+        "min": 0,
+        "max": 0
+    },
+    "ingredients": {
+        "keys": [
+            "c764eb89-6fe4-4375-a41e-48b4548cb0da"
+        ],
+        "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
+            "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+            "name": {
+                "singular": "Mayonnaise",
+                "plural": "Mayonnaise"
+            },
+            "unit": "cup",
+            "quantity": 0.5
+        }
+    },
+    "utensils": [
+        "bowl"
+    ],
+    "appliances": [],
+    "instructions": {
+        "abstract": [
+            "copy",
+            "quantity",
+            "copy",
+            "unit",
+            "copy",
+            "name",
+            "copy",
+            "quantity",
+            "copy",
+            "name",
+            "copy",
+            "quantity",
+            "copy",
+            "unit",
+            "copy",
+            "name",
+            "copy"
+        ],
+        "copy": [
+            "While potatoes roast, make the aioli in a small bowl by stirring together ",
+            " ",
+            " ",
+            ", ",
+            " the chopped ",
+            " and ",
+            " ",
+            " minced ",
+            ". Set aside."
+        ],
+        "name": [
+            "mayonnaise",
+            "parsley",
+            "garlic"
+        ],
+        "quantity": [
+            "½",
+            "half of",
+            "½"
+        ],
+        "unit": [
+            "cup",
+            "tsp"
+        ]
+    }
+}

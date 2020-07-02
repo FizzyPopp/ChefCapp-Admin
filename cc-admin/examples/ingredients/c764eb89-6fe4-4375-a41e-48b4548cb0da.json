@@ -1,0 +1,25 @@
+{
+    "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+    "name": {
+        "singular": "Mayonnaise",
+        "plural": "Mayonnaise"
+    },
+
+    "unit": {
+        "singular": "tbsp",
+        "plural": "tbsp",
+        "SI": "L",
+        "verbiage": "SI",
+        "quantityClass": "volume",
+        "conversionFactorTo": {
+            "cooking": 0.0625,
+            "SI": 0.0147867648
+        },
+        "additional": {
+            "cooking": {
+                "singular": "cup",
+                "plural": "cups"
+            },
+        }
+    }
+}

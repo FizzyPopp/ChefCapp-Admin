@@ -31,12 +31,15 @@
 
     "patternProperties": {
         "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" : {
-            "id": { "type": "string", "format": "uuid" },
-            "name": { "$ref": "name.schema.json" },
-            "unit": { "$ref": "unit.schema.json" },
-            "quantity": {
-                "type": "number",
-                "exclusiveminimum": 0
+            "type": "object",
+            "properties": {
+                "id": { "type": "string", "format": "uuid" },
+                "name": { "$ref": "name.schema.json" },
+                "unit": { "$ref": "unit.schema.json" },
+                "quantity": {
+                    "type": "number",
+                    "exclusiveminimum": 0
+                }
             }
         }
     }

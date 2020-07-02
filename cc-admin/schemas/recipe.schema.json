@@ -34,6 +34,7 @@
         "dataType",
         "name",
         "tags",
+        "time",
         "ingredients",
         "components"
     ],
@@ -44,6 +45,7 @@
         "id": { "type": "string", "format": "uuid" },
         "name": { "$ref": "name.schema.json" },
         "tags": { "$ref": "tags.schema.json" },
+        "time": { "type": "integer", "exclusiveMinimum": 0 },
         "images": { "type": "string", "format": "uri" },
         "calories": { "$ref": "calories.schema.json" },
         "ingredeints": { "$ref": "ingredientList.schema.json" },

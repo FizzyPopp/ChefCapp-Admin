@@ -1,0 +1,31 @@
+{
+    "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+    "name": {
+        "singular": "Green Onion",
+        "plural": "Green Onions"
+    },
+
+    "alias": {
+        "singular": [
+            "Scallion",
+            "Spring Onion"
+        ],
+        "plural": [
+            "Scallions",
+            "Spring Onions"
+        ]
+    },
+
+    "unit": {
+        "singular": "",
+        "plural": "",
+        "SI": "kg",
+        "verbiage": "name",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "SI": 0.011
+        },
+        "additional": {
+        }
+    }
+}
