@@ -1,5 +1,6 @@
 {
     "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+    "type": "ingredient",
     "name": {
         "singular": "Mayonnaise",
         "plural": "Mayonnaise"
@@ -19,7 +20,7 @@
             "cooking": {
                 "singular": "cup",
                 "plural": "cups"
-            },
+            }
         }
     }
 }

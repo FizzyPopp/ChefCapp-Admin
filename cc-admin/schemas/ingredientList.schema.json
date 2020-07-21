@@ -1,6 +1,6 @@
 {
-    "$schema" : "http://json-schema.org/draft-07/schema#",
-    "$id" : "ingredientList.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "ingredientList.schema.json",
     "type": "object",
     "title": "ingredientList",
     "description": "object containing ingredients as objects with name, amount, etc., with some ordering and organization applied",
@@ -19,13 +19,14 @@
         }
     ],
 
-    "required":[
+    "required": [
         "keys"
     ],
 
     "additionalProperties": false,
    
     "properties": {
+        "type": { "$ref": "type.schema.json" },
         "keys": { "$ref": "idList.schema.json" }
     },
 

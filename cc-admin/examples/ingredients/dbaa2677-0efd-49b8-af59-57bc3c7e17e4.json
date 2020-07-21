@@ -1,5 +1,6 @@
 {
     "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+    "type": "ingredient",
     "name": {
         "singular": "Egg",
         "plural": "Eggs"
@@ -19,7 +20,7 @@
             "bulk": {
                 "singular": "dozen",
                 "plural": "dozens"
-            },
+            }
         }
     }
 }

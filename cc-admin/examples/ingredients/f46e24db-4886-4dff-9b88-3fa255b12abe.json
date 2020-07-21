@@ -1,5 +1,6 @@
 {
     "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+    "type": "ingredient",
     "name": {
         "singular": "Garlic",
         "plural": "Garlic"
@@ -24,7 +25,7 @@
             "storage": {
                 "singular": "head",
                 "plural": "heads"
-            },
+            }
         }
     }
 }

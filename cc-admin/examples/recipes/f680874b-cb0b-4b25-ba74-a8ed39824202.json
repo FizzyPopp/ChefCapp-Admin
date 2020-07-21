@@ -1,7 +1,7 @@
 {
     "id": "f680874b-cb0b-4b25-ba74-a8ed39824202",
-    "dataType": "recipe",
-    "name": { "singular": "One Pan Chorizo Hash" },
+    "type": "recipe",
+    "name": { "singular": "One Pan Ground Beef Hash" },
 
     "images": "#/img/f680874b-cb0b-4b25-ba74-a8ed39824202.jpg",
 
@@ -13,36 +13,47 @@
         "go-to"
     ],
 
-    "time": 35,
+    "time": {
+        "prepare": 15,
+        "cook": 20
+    },
 
     "ingredients": {
         "keys": [
-            "b31b314f-4c12-435f-a6d0-d49a9b15faa1",
+            "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+            "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
             "402dd73d-8296-4136-9f53-1a5276d09728",
             "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
             "168c32e7-4171-468f-82e9-08d2e4f69431",
-            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
             "74143f94-79c3-486c-893d-9f0a571f80e2",
             "68faa9f3-bc96-4d2f-9827-edb16385c44a",
             "f46e24db-4886-4dff-9b88-3fa255b12abe",
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+            "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
             "c764eb89-6fe4-4375-a41e-48b4548cb0da",
             "56c32558-0b80-41f3-87b6-b681d9673756",
-            "67054860-6770-4085-95c7-3ef82d9a2d93",
             "635458df-5e1b-464b-84c4-6e491925bb94",
-            "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
-            "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+            "67054860-6770-4085-95c7-3ef82d9a2d93",
             "60cb50d3-09e6-4d20-a252-daa74bba8fce",
             "9267d19c-ad55-4466-beb1-e19014313f65"
         ],
 
-        "b31b314f-4c12-435f-a6d0-d49a9b15faa1": {
-            "id": "b31b314f-4c12-435f-a6d0-d49a9b15faa1",
+        "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+            "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
             "name": {
-                "singular": "Ground Chorizo",
-                "plural": "Ground Chorizo"
+                "singular": "Ground Beef"
             },
             "unit": "g",
             "quantity": 500
+        },
+        "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
+            "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+            "name": {
+                "singular": "Egg",
+                "plural": "Eggs"
+            },
+            "unit": "",
+            "quantity": 4
         },
         "402dd73d-8296-4136-9f53-1a5276d09728": {
             "id": "402dd73d-8296-4136-9f53-1a5276d09728",
@@ -71,15 +82,6 @@
             "unit": "",
             "quantity": 2
         },
-        "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
-            "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
-            "name": {
-                "singular": "Parsley",
-                "plural": "Parsley"
-            },
-            "unit": "g",
-            "quantity": 15
-        },
         "74143f94-79c3-486c-893d-9f0a571f80e2": {
             "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
             "name": {
@@ -107,6 +109,24 @@
             "unit": "clove",
             "quantity": 3
         },
+        "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+            "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+            "name": {
+                "singular": "Parsley",
+                "plural": "Parsley"
+            },
+            "unit": "g",
+            "quantity": 15
+        },
+        "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
+            "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+            "name": {
+                "singular": "Butter",
+                "plural": "Butter"
+            },
+            "unit": "tbsp",
+            "quantity": 4
+        },
         "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
             "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
             "name": {
@@ -125,15 +145,6 @@
             "unit": "tbsp",
             "quantity": 4
         },
-        "67054860-6770-4085-95c7-3ef82d9a2d93": {
-            "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
-            "name": {
-                "singular": "Peanut Oil",
-                "plural": "Peanut Oil"
-            },
-            "unit": "tbsp",
-            "quantity": 3
-        },
         "635458df-5e1b-464b-84c4-6e491925bb94": {
             "id": "635458df-5e1b-464b-84c4-6e491925bb94",
             "name": {
@@ -143,23 +154,14 @@
             "unit": "tsp",
             "quantity": 2
         },
-        "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
-            "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+        "67054860-6770-4085-95c7-3ef82d9a2d93": {
+            "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
             "name": {
-                "singular": "Butter",
-                "plural": "Butter"
+                "singular": "Peanut Oil",
+                "plural": "Peanut Oil"
             },
             "unit": "tbsp",
-            "quantity": 4
-        },
-        "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
-            "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
-            "name": {
-                "singular": "Egg",
-                "plural": "Eggs"
-            },
-            "unit": "",
-            "quantity": 4
+            "quantity": 3
         },
         "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
             "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",

@@ -8,14 +8,13 @@
     "firebase-functions": "^3.6.0",
     "js-quantities": "^1.7.5",
     "uuid": "^8.1.0",
-    "ajv": "^6.12.2",
-    "js-quantities": "^1.7.5"
+    "ajv": "^6.12.2"
   },
   "devDependencies": {
     "jest": "^26.0.0"
   },
   "scripts": {
-    "test": "cca-test-init.sh"
+    "test": "jest"
   },
   "files": [
     "schemas/",

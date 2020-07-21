@@ -5,6 +5,8 @@
     "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
     "previous":"f680874b-cb0b-4b25-ba74-a8ed39824202",
 
+    "type": "step",
+
     "time": {
         "min": 0,
         "max": 0
@@ -87,7 +89,7 @@
                 "singular": "Garlic",
                 "plural": "Garlic"
             },
-            "unit": "clove",
+            "unit": "cloves",
             "quantity": 3
         }
     },
@@ -121,13 +123,13 @@
         ],
 
         "copy": [
-            "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut",
-            "into ½-inch cubes. Slice",
-            ". Core and cut",
-            "into ½-inch pieces. Finely chop",
-            ". Thinly slice",
-            ". Halve",
-            ". Peel, then mince",
+            "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+            " into ½-inch cubes. Slice ",
+            ". Core and cut ",
+            " into ½-inch pieces. Finely chop ",
+            ". Thinly slice ",
+            ". Halve ",
+            ". Peel, then mince ",
             "."
         ],
 
@@ -225,7 +227,7 @@
                     "singular": "Garlic",
                     "plural": "Garlic"
                 },
-                "unit": "clove",
+                "unit": "cloves",
                 "quantity": 3
             }
         }

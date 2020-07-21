@@ -1,9 +1,10 @@
 {
+    "$schema" : "http://json-schema.org/draft-07/schema#",
     "$id": "calories.schema.json",
     "type": "number",
     "title": "calories",
     "description" : "integer amount of kilocalories roughly contained in the recipe.",
-    "default": "",
+
     "examples": [
         12,
         500,

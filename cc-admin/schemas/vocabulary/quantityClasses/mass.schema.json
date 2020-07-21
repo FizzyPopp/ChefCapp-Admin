@@ -1,6 +1,7 @@
 {
     "$schema" : "http://json-schema.org/draft-07/schema#",
     "$id" : "vocabulary.quantityClasses.mass.schema.json",
+    "type": "string",
     "title": "massUnits",
     "description" : "mass units considered within recipe vocab",
 

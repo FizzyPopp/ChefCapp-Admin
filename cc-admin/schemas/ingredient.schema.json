@@ -1,19 +1,21 @@
 {
-    "$schema" : "http://json-schema.org/draft-07/schema#",
-    "$id" : "ingredient.schema.json",
-    "type" : "object",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "ingredient.schema.json",
+    "type": "object",
     "title": "ingredient",
-    "description" : "canonical description of a single ingredient, all quantities normalized against one unit of ingredient, whatever that unit may be",
+    "description": "canonical description of a single ingredient, all quantities normalized against one unit of ingredient, whatever that unit may be",
+
     "required": [
         "id",
         "name",
         "unit"
     ],
 
-    "additionalProperties" : true,
+    "additionalProperties": true,
     "properties": {
         "hash": { "$ref": "hash.schema.json" },
         "id": { "type": "string", "format": "uuid" },
+        "type": { "$ref": "type.schema.json" },
         "name": { "$ref": "name.schema.json" },
         "density": { "type": "number" },
         "unit": { "$ref": "#/$defs/unit" }
@@ -37,7 +39,7 @@
                     "type": "object",
                     "description": "conversion factors from the default unit to other classes",
 
-                    "properties" : {
+                    "properties": {
                         "cooking": { "type": "number", "exclusiveMinimum": 0 },
                         "portion": { "type": "number", "exclusiveMinimum": 0 },
                         "storage": { "type": "number", "exclusiveMinimum": 0 },
@@ -48,10 +50,10 @@
                 "additional": {
                     "type": "object",
                     "properties": {
-                        "cooking" : { "$ref": "name.schema.json" },
-                        "portion" : { "$ref": "name.schema.json" },
-                        "storage" : { "$ref": "name.schema.json" },
-                        "bulk" : { "$ref": "name.schema.json" },
+                        "cooking": { "$ref": "name.schema.json" },
+                        "portion": { "$ref": "name.schema.json" },
+                        "storage": { "$ref": "name.schema.json" },
+                        "bulk": { "$ref": "name.schema.json" },
                         "SI": { "type": "string" }
                     }
                 }

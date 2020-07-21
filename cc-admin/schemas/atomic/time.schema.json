@@ -6,6 +6,7 @@
     "description": "Set of tags applicable to the object.",
 
     "properties": {
+        "type": { "$ref": "type.schema.json" },
         "max": {
             "type": "integer",
             "exclusiveMinimum": 0
