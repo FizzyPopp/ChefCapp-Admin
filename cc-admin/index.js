@@ -7,6 +7,8 @@ var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
     .init(__dirname);
 var _Ajv = require('ajv');
+var _ajv = new _Ajv({ verbose: false });
+
 const { v4 : uuid } = require('uuid');
 
 
@@ -20,11 +22,10 @@ var _app = _admin.initializeApp({
     databaseURL: "https://chef-capp.firebaseio.com"
 });
 
+
 var _db = _admin.firestore();
 
-var _ajv = new _Ajv({
-    verbose: false
-});
+
 
 for (let schema in _schemas.list) {
     _ajv.addSchema(schema, schema.title);
@@ -35,10 +36,10 @@ for (let schema in _schemas.list) {
  * Validator functions compiled by ajv from the loaded _schemas
  * @exports
  */
-var _validators = {};
+_schemas.validate = {};
 for (let title in _schemas) {
     console.log("Compiling ajv schema validator function for: " + title);
-    _validators[title] = exports.ajv.compile(_schemas[title]);
+    _schemas.validate[title] = exports.ajv.compile(_schemas[title]);
 }
 
 
@@ -76,6 +77,16 @@ _db.getObject = (colName, uuid) => {
             throw err;
         });
 };
+
+_db.push = (object) => {
+    if (typeof object.title !== 'string') {
+        err = "Input object is not a valid" + JSON.stringify(object);
+        throw new TypeError (err);
+    }
+
+    isValid = _schema.validate[object.title](object)
+    _db.collection(object.title).doc(object.id)
+}
 
 
 /** @TODO - implement
@@ -118,8 +129,8 @@ async function _validate(data){
 
 /**
  * @namespace exports
- * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific tooling
- * @prop {object} db -
+ * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific functions
+ * @prop {object} db. -
  * @prop {object} db -
  * @prop {object} db -
  * @prop {object} db -
@@ -128,7 +139,7 @@ async function _validate(data){
  */
 exports.name = 'cc-admin';
 exports.db = _db
+exports.schemas = _schemas
 exports.firebase = _app;
 exports.ajv = _ajv;
 exports.validate = _validate;
-exports.validators = _validators;

@@ -68,6 +68,7 @@ exports.init = (root) => {
                 // console.log('Importing schema: ' + uri);
 
                 var schema = require(uri);
+                schema.path = uri;
                 _schemas[schema.title] = schema;
             }
         });

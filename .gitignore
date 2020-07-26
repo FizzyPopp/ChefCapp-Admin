@@ -64,6 +64,9 @@ node_modules/
 # dotenv environment variables file
 .env
 
+# Internal documents
+notes/
+
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*
 init.sh

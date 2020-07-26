@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "ingredientList.schema.json",
+    "$id": "kitchenIngredientList.schema.json",
     "type": "object",
-    "title": "ingredientList",
+    "title": "kitchenIngredientList",
     "description": "object containing ingredients as objects with name, amount, etc., with some ordering and organization applied",
     "default": {
         "keys": []
@@ -25,7 +25,7 @@
     ],
 
     "additionalProperties": false,
-   
+
     "properties": {
         "type": { "$ref": "type.schema.json" },
         "keys": { "$ref": "idList.schema.json" }
@@ -38,7 +38,7 @@
                 "id",
                 "name",
                 "unit",
-                "quantity"
+                "isSnack"
             ],
 
             "properties": {
@@ -48,8 +48,13 @@
                 "quantity": {
                     "type": "number",
                     "exclusiveminimum": 0
-                }
-            }
+                },
+                "bulk": { "type": "boolean" },
+                "isSnack": { "type": "boolean" }
+            },
+
+            "if": { "properties": { "bulk": { "const": true } } },
+            "then": { "properties": { "standardDeviation": { "type": "number" } } }
         }
     }
 }
