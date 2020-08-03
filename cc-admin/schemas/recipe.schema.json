@@ -50,6 +50,6 @@
         "images": { "type": "string", "format": "uri" },
         "calories": { "$ref": "calories.schema.json" },
         "ingredeints": { "$ref": "ingredientList.schema.json" },
-        "components": { "$ref": "idList.schema.json" },
+        "components": { "$ref": "idList.schema.json" }
     }
 }

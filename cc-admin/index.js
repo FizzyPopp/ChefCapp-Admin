@@ -78,6 +78,12 @@ _db.getObject = (colName, uuid) => {
         });
 };
 
+/**
+ * @func push
+ * Takes an object, validates, then pushes. If validation is unsuccessful
+ *
+ * @exports
+ */
 _db.push = (object) => {
     if (typeof object.title !== 'string') {
         err = "Input object is not a valid" + JSON.stringify(object);
@@ -85,7 +91,9 @@ _db.push = (object) => {
     }
 
     isValid = _schema.validate[object.title](object)
-    _db.collection(object.title).doc(object.id)
+    if ( isValid ) {
+        _db.collection(object.title).doc(object.id).set(data);
+    }
 }
 
 
@@ -130,7 +138,7 @@ async function _validate(data){
 /**
  * @namespace exports
  * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific functions
- * @prop {object} db. -
+ * @prop {object} db -
  * @prop {object} db -
  * @prop {object} db -
  * @prop {object} db -
@@ -138,8 +146,8 @@ async function _validate(data){
  *
  */
 exports.name = 'cc-admin';
-exports.db = _db
-exports.schemas = _schemas
+exports.db = _db;
+exports.schemas = _schemas;
 exports.firebase = _app;
 exports.ajv = _ajv;
 exports.validate = _validate;

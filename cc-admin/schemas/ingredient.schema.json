@@ -8,6 +8,7 @@
     "required": [
         "id",
         "name",
+        "class",
         "unit"
     ],
 
@@ -17,8 +18,13 @@
         "id": { "type": "string", "format": "uuid" },
         "type": { "$ref": "type.schema.json" },
         "name": { "$ref": "name.schema.json" },
+        "allergens": { "$ref": "vocabulary.allergens.schema.json" },
         "density": { "type": "number" },
-        "unit": { "$ref": "#/$defs/unit" }
+        "unit": { "$ref": "#/$defs/unit" },
+        "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+        }
     },
 
     "$defs": {
