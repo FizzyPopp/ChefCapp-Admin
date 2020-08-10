@@ -2,49 +2,52 @@
  * @module cc-admin
  */
 
+var _admin = require('firebase-admin');
+var _funcs = require('firebase-functions');
+var _schemas = require('./lib/schemas')
+    .init(__dirname);
+var _Ajv = require('ajv');
+var _ajv = new _Ajv({ verbose: false });
 
-/**
- *  The modules required from Firebase
- */
-var cc = require('firebase-admin')
-var functions = require('firebase-functions')
+const { v4 : uuid } = require('uuid');
 
-var fs = require('fs')
-var path = require('path')
-
-/**
- * Name of module
- * @exports
- */
-exports.name = 'cc-admin';
 
 /**
  * The js representation of the ChefCapp firebase application, used to access
  * and authorize admin functions.
- * @constant
  * @exports
  */
-const _app = cc.initializeApp({
-    credential: cc.credential.applicationDefault(),
+var _app = _admin.initializeApp({
+    credential: _admin.credential.applicationDefault(),
     databaseURL: "https://chef-capp.firebaseio.com"
-})
-exports.app = _app;
+});
+
+
+var _db = _admin.firestore();
+
+
+
+for (let schema in _schemas.list) {
+    _ajv.addSchema(schema, schema.title);
+}
 
 
 /**
- * The Firestore database associated with ChefCapp
- * @constant
+ * Validator functions compiled by ajv from the loaded _schemas
  * @exports
  */
-const _db = cc.firestore();
-exports.db = _db;
+_schemas.validate = {};
+for (let title in _schemas) {
+    console.log("Compiling ajv schema validator function for: " + title);
+    _schemas.validate[title] = exports.ajv.compile(_schemas[title]);
+}
 
 
 /** @function test
  * Testing function to do testing stuff
  * @exports
  */
-exports.test = function (collectionRef) {
+var _test = (collectionRef) => {
     let allDocs = collectionRef.get()
     .then(snapshot => {
         snapshot.forEach(doc => {
@@ -55,69 +58,96 @@ exports.test = function (collectionRef) {
         console.log('Error getting documents', err);
     });
     return allDocs;
-}
-
-/** @function getCollection
- * Returns collection from the CC database by name, takes Strings only
- * @exports
- */
-exports.getCollection = function (colName) {
-    if (typeof(colName) === 'string') {
-        return exports.db.collection(colName)
-                      .catch(err => {
-                          console.log('Couldnt get collection ' + colName + ' , idk whats going on', err);
-                      });
-    }
-    throw "Collection name must be a string.";
-}
-
-
-/** @function recipeParse
- * Takes a recipe according to schema and parses it into a Firestore DB element
- * @exports
- */
-exports.recipeParse = function (recipe_string) {
-    if (typeof(recipe_string) === 'string') {
-        //try (JSON.parse(recipe_string)
-    }
-
-    if (exports.recipeVerify(recipe)) {
-        return recipe
-    }
-    else { throw 'Bad recipe format!'; }
-
-
-}
+};
 
 /**
- * @func recipeVerify
+ * @func getObject
+ * Returns object from named collection with given ID (uuid v4)
  *
- * @param {Object} recipe -
- *
- * Returns true if [recipe] contains the fields required
+ * @exports
  */
-exports.recipeVerify = function (recipe) {
-    if (
-        recipe.steps === undefined ||
-        recipe.title === undefined ||
-        recipe.number_of_steps === undefined ||
-        recipe.ingredients === undefined
-    ) { return false }
+_db.getObject = (colName, uuid) => {
+    let docRef = exports.db.firestore.collection(colName).doc(uuid);
+    docRef.get()
+        .then ((doc) => {
+            return doc;
+        })
+        .catch ((err) => {
+            console.log("Could not find document with id " + uuid);
+            throw err;
+        });
+};
 
-    if (
-        typeof(recipe.title) !== 'string' ||
-        typeof(recipe.number_of_steps) !== 'string'
-    )
-
-    for (const step in recipe.steps) {
-        if (
-            step.num === undefined ||
-            time_min === undefined ||
-            time_max === undefined ||
-            time_avg === undefined ||
-            text === undefined
-        ) { return false }
+/**
+ * @func push
+ * Takes an object, validates, then pushes. If validation is unsuccessful
+ *
+ * @exports
+ */
+_db.push = (object) => {
+    if (typeof object.title !== 'string') {
+        err = "Input object is not a valid" + JSON.stringify(object);
+        throw new TypeError (err);
     }
 
-    return isRecipe;
+    isValid = _schema.validate[object.title](object)
+    if ( isValid ) {
+        _db.collection(object.title).doc(object.id).set(data);
+    }
 }
+
+
+/** @TODO - implement
+ * @func find
+ * Takes an unknown object with only characteristic fields, tries to match characterstic fields with existing
+ * objects in specified type database.
+ * Potential fields:
+ * - uuid (just use fetch from db instead)
+ * - tags
+ * - name
+ */
+_db.find = (candidate) => {};
+
+/**
+ * @func validate
+ * Wraps the ajv validation function with async, then checking and throwing untyped object errors.
+ * This is the sound of me screaming for monads.
+ * @param {Object} data - Some object to be validated against schema
+ */
+async function _validate(data){
+    if (data.dataType != null){
+        let ret = {
+            errors: null,
+            validity: false
+        };
+
+        ret.validity = await exports.ajv.validate(data.dataType, data);
+
+        if (ret.validity === false) {
+            ret.errors = exports.ajv.errors;
+        }
+
+        return ret;
+    }
+    else {
+         throw new Error.TypeError("Object has no valid dataType field.");
+    }
+};
+
+
+/**
+ * @namespace exports
+ * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific functions
+ * @prop {object} db -
+ * @prop {object} db -
+ * @prop {object} db -
+ * @prop {object} db -
+ * @prop {object} db -
+ *
+ */
+exports.name = 'cc-admin';
+exports.db = _db;
+exports.schemas = _schemas;
+exports.firebase = _app;
+exports.ajv = _ajv;
+exports.validate = _validate;

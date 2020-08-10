@@ -1,0 +1,97 @@
+{
+    "previous": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+    "id": "3394289b-1e0c-4459-9da9-a28785e0c112",
+    "next": "5ff24809-da01-4f09-b845-b693fc21aadf",
+    "type": "step",
+    "name": { "singular": "mix in everything" },
+    "tags": [],
+    "calories": 8,
+    "time": {
+        "min": 0,
+        "max": 0
+    },
+    "ingredients": {},
+    "instructions": {
+        "abstract": [
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy"
+        ],
+        "copy": [
+            "Add roasted ",
+            ", halved ",
+            ", half the ",
+            " and remaining ",
+            " in the pan with ground beef. Stir together."
+        ],
+        "name": [
+            "potatoes",
+            "tomatoes",
+            "green onions",
+            "parsley"
+        ],
+        "quantity": [],
+        "unit": [],
+        "time": [],
+        "mentionedIngredientList": {
+            "keys": [
+                "402dd73d-8296-4136-9f53-1a5276d09728",
+                "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "b31b314f-4c12-435f-a6d0-d49a9b15faa1"
+            ],
+            "402dd73d-8296-4136-9f53-1a5276d09728": {
+                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                "name": {
+                    "singular": "Baby Potato",
+                    "plural": "Baby Potatoes"
+                },
+                "unit": "",
+                "quantity": 0
+            },
+            "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+                "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "name": {
+                    "singular": "Cherry Tomato",
+                    "plural": "Cherry Tomatoes"
+                },
+                "unit": "g",
+                "quantity": 0
+            },
+            "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "name": {
+                    "singular": "Green Onion",
+                    "plural": "Green Onions"
+                },
+                "unit": "",
+                "quantity": 0
+            },
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+                "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "name": {
+                    "singular": "Parsley",
+                    "plural": "Parsley"
+                },
+                "unit": "g",
+                "quantity": 0
+            },
+            "b31b314f-4c12-435f-a6d0-d49a9b15faa1": {
+                "id": "b31b314f-4c12-435f-a6d0-d49a9b15faa1",
+                "name": {
+                    "singular": "Ground Beef",
+                    "plural": "Ground Beef"
+                },
+                "unit": "g",
+                "quantity": 0
+            }
+        }
+    }
+}

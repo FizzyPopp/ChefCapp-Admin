@@ -1,0 +1,43 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "name.schema.json",
+    "type": "object",
+    "title": "name",
+    "description": "Human readable english labels for nouns (both singular and plural)",
+    "default": "",
+    "examples": [
+        "sweet porky delight",
+        "caesar salad",
+        "beefsteak tomato"
+    ],
+
+    "required": [
+        "singular"
+    ],
+
+    "properties": {
+        "type": { "$ref": "type.schema.json" },
+        "singular": {
+            "$id": "#/singular",
+            "type": "string",
+            "title": "singular",
+            "description": "Singular form of the name.",
+            "examples": [
+                "tomato",
+                "potato",
+                "milk"
+            ]
+        },
+        "plural": {
+            "$id": "#/plural",
+            "type": "string",
+            "title": "plural",
+            "description": "Plural form of the name.",
+            "examples": [
+                "tomatoes",
+                "potatoes",
+                "milk"
+            ]
+        }
+    }
+}

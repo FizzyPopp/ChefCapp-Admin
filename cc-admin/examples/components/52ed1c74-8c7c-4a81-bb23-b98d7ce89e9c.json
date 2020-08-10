@@ -1,0 +1,150 @@
+{
+    "previous": "900491c2-4181-4ceb-8366-e600edbc8440",
+    "id": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+    "next": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+    "type": "step",
+    "name": { "singular": "cook the meat and stuff" },
+    "tags": [],
+    "calories": 6,
+    "time": {
+        "min": 6,
+        "max": 9,
+        "unit": "min"
+    },
+    "ingredients": {
+        "keys": [
+            "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+            "67054860-6770-4085-95c7-3ef82d9a2d93"
+        ],
+        "67054860-6770-4085-95c7-3ef82d9a2d93": {
+            "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+            "name": {
+                "singular": "Peanut Oil",
+                "plural": "Peanut Oil"
+            },
+            "unit": "tbsp",
+            "quantity": 1
+        },
+        "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+            "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+            "name": {
+                "singular": "Ground Beef"
+            },
+            "unit": "g",
+            "quantity": 500
+        }
+    },
+    "cookware": [
+        "pan"
+    ],
+    "appliances": [
+        "stove"
+    ],
+    "instructions": {
+        "abstract": [
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "time",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy",
+            "time",
+            "copy",
+            "name",
+            "copy",
+            "name",
+            "copy"
+        ],
+        "copy": [
+            "Heat the same pan over medium-high heat. When hot, add ",
+            ", then the cut ",
+            ". Cook for ",
+            ", until softened. Add ",
+            " and remaining minced ",
+            ". Break up beef into small pieces, and cook for ",
+            ", until no pink remains. Season with ",
+            " and ",
+            ". While the mixture cooks, proceed to the next step."
+        ],
+        "name": [
+            "oil",
+            "peppers",
+            "ground beef",
+            "garlic",
+            "ground beef",
+            "salt",
+            "pepper"
+        ],
+        "quantity": [],
+        "unit": [],
+        "time": [
+            "3-4 min",
+            "3-5 min"
+        ],
+        "mentionedIngredientList": {
+            "keys": [
+                "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+                "9267d19c-ad55-4466-beb1-e19014313f65"
+            ],
+            "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "name": {
+                    "singular": "Peanut Oil",
+                    "plural": "Peanut Oil"
+                },
+                "unit": "tbsp",
+                "quantity": 1
+            },
+            "168c32e7-4171-468f-82e9-08d2e4f69431": {
+                "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "name": {
+                    "singular": "Green Bell Pepper",
+                    "plural": "Green Bell Peppers"
+                },
+                "unit": "",
+                "quantity": 2
+            },
+            "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+                "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                "name": {
+                    "singular": "Ground Beef"
+                },
+                "unit": "g",
+                "quantity": 500
+            },
+            "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+                "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                "name": {
+                    "singular": "Garlic"
+                },
+                "unit": "cloves",
+                "quantity": 2
+            },
+            "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
+                "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+                "name": {
+                    "singular": "Salt"
+                },
+                "unit": "g",
+                "quantity": 0
+            },
+            "9267d19c-ad55-4466-beb1-e19014313f65": {
+                "id": "9267d19c-ad55-4466-beb1-e19014313f65",
+                "name": {
+                    "singular": "Pepper"
+                },
+                "unit": "g",
+                "quantity": 0
+            }
+        }
+    }
+}

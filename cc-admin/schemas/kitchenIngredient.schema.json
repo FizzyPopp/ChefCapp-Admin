@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "kitchenIngredient.schema.json",
+    "type": "object",
+    "title": "kitchenIngredient",
+    "description": "An ingredient entry used to track the quantity and presence of ingredients in a user's kitchen.",
+
+    "additionalProperties": true,
+
+    "required": [
+        "id",
+        "name",
+        "unit",
+        "isSnack"
+    ],
+
+    "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "$ref": "name.schema.json" },
+        "unit": { "$ref": "unit.schema.json" },
+        "quantity": {
+            "type": "number",
+            "exclusiveminimum": 0
+        },
+        "bulk": { "type": "boolean" },
+        "isSnack": { "type": "boolean" }
+    },
+
+    "if": { "properties": { "bulk": { "const": true } } },
+    "then": { "properties": { "standardDeviation": { "type": "number" } } }
+}

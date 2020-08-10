@@ -1,0 +1,45 @@
+{
+    "previous": "3394289b-1e0c-4459-9da9-a28785e0c112",
+    "id": "5ff24809-da01-4f09-b845-b693fc21aadf",
+    "next": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+    "type": "step",
+    "name": { "singular": "plate" },
+    "tags": [],
+    "calories": 9,
+    "time": {
+        "min": 0,
+        "max": 0
+    },
+    "ingredients": {},
+    "instructions": {
+        "abstract": [
+            "copy",
+            "name",
+            "copy"
+        ],
+        "copy": [
+            "Divide hash between bowls and top with pan-fried eggs and balsamic sauce. Dollop over aioli. Sprinkle over remaining ",
+            "."
+        ],
+        "name": [
+            "green onions"
+        ],
+        "quantity": [],
+        "unit": [],
+        "time": [],
+        "mentionedIngredientList": {
+            "keys": [
+                "74143f94-79c3-486c-893d-9f0a571f80e2"
+            ],
+            "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "name": {
+                    "singular": "Green Onion",
+                    "plural": "Green Onions"
+                },
+                "unit": "",
+                "quantity": 0
+            }
+        }
+    }
+}

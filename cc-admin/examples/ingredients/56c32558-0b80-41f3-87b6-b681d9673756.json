@@ -1,0 +1,19 @@
+{
+    "id": "56c32558-0b80-41f3-87b6-b681d9673756",
+    "type": "ingredient",
+    "name": {
+        "singular": "Balsamic Vinegar",
+        "plural": "Balsamic Vinegar"
+    },
+
+    "unit": {
+        "singular": "tbsp",
+        "plural": "tbsp",
+        "verbiage": "SI",
+        "quantityClass": "volume",
+        "conversionFactorTo": {
+            "SI": 0.0147868
+        },
+        "SI": "L"
+    }
+}

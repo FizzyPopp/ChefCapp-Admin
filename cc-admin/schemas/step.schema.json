@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "step.schema.json",
+    "type": "object",
+    "title": "step",
+    "description": "canonical description of a single step - leaf node of recipe tree",
+
+    "required": [
+        "hash",
+        "id",
+        "ingredients",
+        "instructions"
+    ],
+
+    "properties": {
+        "hash": { "type": "string", "format": "uuid" },
+
+        "id": { "type": "string", "format": "uuid" },
+        "next": { "type": "string", "format": "uuid" },
+        "previous": { "type": "string", "format": "uuid" },
+
+        "type": { "$ref": "type.schema.json" },
+
+        "ingredients": { "$ref": "ingredientList.schema.json" },
+        "time": {
+            "type": "object",
+
+            "properties": {
+                "max": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "min": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+
+        "instructions": {
+            "type": "object",
+            "description": "prefabricated instruction copy, assemble on site with correct formating, linked data is present in the form of an ingredientList to provide verification",
+
+            "required": [
+                "abstract",
+                "copy",
+                "mentionedIngredientList"
+            ],
+
+            "additionalProperties": false,
+
+            "properties": {
+                "abstract": {
+                    "type": "array",
+                    "items": { "$ref": "vocabulary.instructionFragment.schema.json" }
+                },
+
+                "copy": { "type":  "array", "items": { "type": "string" } },
+
+                "quantity": { "type": "array", "items": { "type": "string" } },
+
+                "name": { "type":  "array", "items": { "type": "string" } },
+
+                "unit": { "type":  "array", "items": { "type": "string" } },
+
+                "mentionedIngredientList": { "$ref": "ingredientList.schema.json" }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id" : "vocabulary.quantityClasses.length.schema.json",
+    "type": "string",
+    "title": "lengthUnits",
+    "description" : "length units considered within recipe vocab",
+
+    "enum": [
+        "m",
+        "meter",
+        "metre",
+        "meters",
+        "metres"
+    ]
+}

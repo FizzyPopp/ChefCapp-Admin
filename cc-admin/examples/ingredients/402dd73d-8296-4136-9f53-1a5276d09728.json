@@ -1,0 +1,38 @@
+{
+    "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+    "type": "ingredient",
+    "name": {
+        "singular": "Baby Potato",
+        "plural": "Baby Potatoes"
+    },
+
+    "alias": {
+        "singular": [
+            "New Potato",
+            "Baby Potato",
+            "Creamer Potato"
+        ],
+        "plural": [
+            "New Potatoes",
+            "Baby Potatoes",
+            "Creamer Potatoes"
+        ]
+    },
+
+    "tags": [
+        "potato",
+        "small",
+        "vegetable"
+    ],
+
+    "unit": {
+        "singular": "",
+        "plural": "",
+        "verbiage": "name",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "SI": 0.08
+        },
+        "SI": "kg"
+    }
+}

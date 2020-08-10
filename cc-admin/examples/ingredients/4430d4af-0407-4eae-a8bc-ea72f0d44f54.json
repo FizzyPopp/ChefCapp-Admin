@@ -1,0 +1,23 @@
+{
+    "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+    "type": "ingredient",
+
+    "name": {
+        "singular": "Ground Beef",
+        "plural": "Ground Beef"
+    },
+
+    "unit": {
+        "singular": "g",
+        "plural": "g",
+        "SI": "kg",
+        "verbiage": "SI",
+        "quantityClass": "mass",
+        "conversionFactorTo": {
+            "cooking": 1,
+            "SI": 0.001
+        },
+        "additional": {
+        }
+    }
+}
