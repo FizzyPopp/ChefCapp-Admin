@@ -1,0 +1,19 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "vocabulary.allergens.schema.json",
+    "title": "allergens",
+    "description": "List of allergen classes the ingredient database can support.",
+
+    "enum": [
+        "eggs",
+        "milk",
+        "mustard",
+        "peanut",
+        "shellfish",
+        "fish",
+        "sesame seeds",
+        "soy",
+        "tree nuts",
+        "wheat"
+    ]
+}
