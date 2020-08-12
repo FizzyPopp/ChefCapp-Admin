@@ -1,5 +1,5 @@
-var schemas = require('../lib/schemas').init(root);
 const root = __dirname + '/..';
+var schemas = require('../lib/schemas').init(root);
 var exroot = root + 'examples/';
 var exdirs = [
     exroot + 'components',

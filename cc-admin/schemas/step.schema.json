@@ -60,6 +60,8 @@
 
                 "unit": { "type":  "array", "items": { "type": "string" } },
 
+                "time": { "type":  "array", "items": { "type": "string" } },
+
                 "mentionedIngredientList": { "$ref": "ingredientList.schema.json" }
             }
         }

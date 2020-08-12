@@ -32,12 +32,15 @@ exdirs.forEach ((path) => {
     });
 });
 
+var res = [];
 examples.forEach((obj) => {
-    let id = obj.id;
-    let type = obj.type;
-    let ret = cca.validate(obj);
-    console.log("ID: " + id + " | type: " + type +  " | " + JSON.stringify(ret, null, 2));
-    test('Verifying ' + id + ' of type ' + type + '...', (ret) => {
+    let r = cca.validate(obj)
+    console.log("validating " + obj.id + " | type: " + obj.type + " | r: " + JSON.stringify(r, null, 2));
+    res.push(r);
+});
+
+res.forEach((ret) => {
+    test('Verifying res list...', () => {
         expect(ret.validity).toBe(true);
     });
-});
+})
