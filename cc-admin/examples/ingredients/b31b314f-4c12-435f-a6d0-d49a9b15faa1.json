@@ -6,6 +6,8 @@
         "plural": "Ground Chorizo"
     },
 
+    "category": "deli",
+
     "unit": {
         "singular": "g",
         "plural": "g",

@@ -5,6 +5,7 @@
         "singular": "Cherry Tomato",
         "plural": "Cherry Tomatoes"
     },
+    "category": "produce",
 
     "unit": {
         "singular": "g",

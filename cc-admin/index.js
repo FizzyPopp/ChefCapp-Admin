@@ -13,7 +13,7 @@ const { v4 : uuid } = require('uuid');
 
 
 /**
- * The js representation of the ChefCapp firebase application, used to access
+ * The ChefCapp firebase application, used to access
  * and authorize admin functions.
  * @exports
  */
@@ -26,9 +26,8 @@ var _app = _admin.initializeApp({
 var _db = _admin.firestore();
 
 
-
-for (let schema in _schemas.list) {
-    _ajv.addSchema(schema, schema.title);
+for (let key in _schemas.list) {
+    _ajv.addSchema(_schemas.list[key], _schemas.list[key].title);
 }
 
 
@@ -37,9 +36,9 @@ for (let schema in _schemas.list) {
  * @exports
  */
 _schemas.validate = {};
-for (let title in _schemas) {
-    console.log("Compiling ajv schema validator function for: " + title);
-    _schemas.validate[title] = exports.ajv.compile(_schemas[title]);
+for (let key in _schemas.list) {
+    console.log("Compiling ajv schema validator function for: " + key);
+    _schemas.validate[key] = _ajv.compile(_schemas.list[key]);
 }
 
 
@@ -114,14 +113,14 @@ _db.find = (candidate) => {};
  * This is the sound of me screaming for monads.
  * @param {Object} data - Some object to be validated against schema
  */
-async function _validate(data){
-    if (data.dataType != null){
+function _validate(data){
+    if (data.type != null){
         let ret = {
             errors: null,
             validity: false
         };
 
-        ret.validity = await exports.ajv.validate(data.dataType, data);
+        ret.validity = exports.ajv.validate(data.type, data);
 
         if (ret.validity === false) {
             ret.errors = exports.ajv.errors;
