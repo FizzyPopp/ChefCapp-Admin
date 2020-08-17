@@ -1,7 +1,6 @@
 /**
  * @module cc-admin
  */
-
 var _admin = require('firebase-admin');
 var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
@@ -17,7 +16,7 @@ const { v4 : uuid } = require('uuid');
  * and authorize admin functions.
  * @exports
  */
-var _app = _admin.initializeApp({
+var _firebase = _admin.initializeApp({
     credential: _admin.credential.applicationDefault(),
     databaseURL: "https://chef-capp.firebaseio.com"
 });
@@ -60,6 +59,20 @@ var _test = (collectionRef) => {
 };
 
 /**
+ * @function authenticate
+ *
+ */
+var _authenticate = (idToken) => {
+    var uid = _firebase.auth().verifyIdToken(idToken)
+         .then((decodedToken) => {
+             return decodedToken.uid;
+
+         })
+         .catch((error) => {
+         });
+}
+
+/**
  * @func getObject
  * Returns object from named collection with given ID (uuid v4)
  *
@@ -79,17 +92,18 @@ _db.getObject = (colName, uuid) => {
 
 /**
  * @func push
- * Takes an object, validates, then pushes. If validation is unsuccessful
+ * Takes an object, validates, then pushes to database. If validation is unsuccessful,
+ * throw error with object.
  *
  * @exports
  */
 _db.push = (object) => {
-    if (typeof object.title !== 'string') {
-        err = "Input object is not a valid" + JSON.stringify(object);
+    if (typeof object.type !== 'string') {
+        err = "Input object is not a valid: " + JSON.stringify(object);
         throw new TypeError (err);
     }
 
-    isValid = _schema.validate[object.title](object)
+    isValid = _schema.validate[object.type](object)
     if ( isValid ) {
         _db.collection(object.title).doc(object.id).set(data);
     }
@@ -136,17 +150,17 @@ function _validate(data){
 
 /**
  * @namespace exports
+ * @prop {object} name - cc-admin
  * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific functions
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
+ * @prop {object} schemas - object containing all schemas loaded
+ * @prop {object} firebase -
+ * @prop {object} ajv - exposes ajv instance for debugging
+ * @prop {function} validate - exposes validation interface for ease of access
  *
  */
 exports.name = 'cc-admin';
 exports.db = _db;
 exports.schemas = _schemas;
-exports.firebase = _app;
+exports.firebase = _firebase;
 exports.ajv = _ajv;
 exports.validate = _validate;
