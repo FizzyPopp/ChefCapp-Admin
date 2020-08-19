@@ -41,23 +41,6 @@ for (let key in _schemas.list) {
 }
 
 
-/** @function test
- * Testing function to do testing stuff
- * @exports
- */
-var _test = (collectionRef) => {
-    let allDocs = collectionRef.get()
-    .then(snapshot => {
-        snapshot.forEach(doc => {
-            console.log(doc.id, ':', doc.data());
-        });
-    })
-    .catch(err => {
-        console.log('Error getting documents', err);
-    });
-    return allDocs;
-};
-
 /**
  * @function authenticate
  *
