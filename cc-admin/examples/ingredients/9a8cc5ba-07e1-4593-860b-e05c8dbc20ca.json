@@ -6,6 +6,8 @@
         "plural": "Butter"
     },
 
+    "category": "oils and condiments",
+
     "unit": {
         "singular": "stick",
         "plural": "sticks",

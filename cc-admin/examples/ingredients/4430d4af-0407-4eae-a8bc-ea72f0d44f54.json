@@ -6,6 +6,7 @@
         "singular": "Ground Beef",
         "plural": "Ground Beef"
     },
+    "category": "meat and seafood",
 
     "unit": {
         "singular": "g",

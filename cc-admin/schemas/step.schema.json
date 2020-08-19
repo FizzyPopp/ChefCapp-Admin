@@ -6,7 +6,6 @@
     "description": "canonical description of a single step - leaf node of recipe tree",
 
     "required": [
-        "hash",
         "id",
         "ingredients",
         "instructions"
@@ -47,8 +46,6 @@
                 "mentionedIngredientList"
             ],
 
-            "additionalProperties": false,
-
             "properties": {
                 "abstract": {
                     "type": "array",
@@ -62,6 +59,8 @@
                 "name": { "type":  "array", "items": { "type": "string" } },
 
                 "unit": { "type":  "array", "items": { "type": "string" } },
+
+                "time": { "type":  "array", "items": { "type": "string" } },
 
                 "mentionedIngredientList": { "$ref": "ingredientList.schema.json" }
             }

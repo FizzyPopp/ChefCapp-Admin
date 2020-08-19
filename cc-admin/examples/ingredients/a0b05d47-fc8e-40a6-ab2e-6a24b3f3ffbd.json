@@ -6,6 +6,8 @@
         "plural": "Yellow Onions"
     },
 
+    "category": "produce",
+
     "unit": {
         "singular": "",
         "plural": "",

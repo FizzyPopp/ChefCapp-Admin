@@ -1,11 +1,10 @@
 /**
  * @module cc-admin
  */
-
 var _admin = require('firebase-admin');
 var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
-    .init(__dirname);
+                .init(__dirname);
 var _Ajv = require('ajv');
 var _ajv = new _Ajv({ verbose: false });
 
@@ -13,11 +12,11 @@ const { v4 : uuid } = require('uuid');
 
 
 /**
- * The js representation of the ChefCapp firebase application, used to access
+ * The ChefCapp firebase application, used to access
  * and authorize admin functions.
  * @exports
  */
-var _app = _admin.initializeApp({
+var _firebase = _admin.initializeApp({
     credential: _admin.credential.applicationDefault(),
     databaseURL: "https://chef-capp.firebaseio.com"
 });
@@ -26,9 +25,8 @@ var _app = _admin.initializeApp({
 var _db = _admin.firestore();
 
 
-
-for (let schema in _schemas.list) {
-    _ajv.addSchema(schema, schema.title);
+for (let key in _schemas.list) {
+    _ajv.addSchema(_schemas.list[key], _schemas.list[key].title);
 }
 
 
@@ -37,9 +35,9 @@ for (let schema in _schemas.list) {
  * @exports
  */
 _schemas.validate = {};
-for (let title in _schemas) {
-    console.log("Compiling ajv schema validator function for: " + title);
-    _schemas.validate[title] = exports.ajv.compile(_schemas[title]);
+for (let key in _schemas.list) {
+    console.log("Compiling ajv schema validator function for: " + key);
+    _schemas.validate[key] = _ajv.compile(_schemas.list[key]);
 }
 
 
@@ -61,6 +59,20 @@ var _test = (collectionRef) => {
 };
 
 /**
+ * @function authenticate
+ *
+ */
+var _authenticate = (idToken) => {
+    var uid = _firebase.auth().verifyIdToken(idToken)
+         .then((decodedToken) => {
+             return decodedToken.uid;
+
+         })
+         .catch((error) => {
+         });
+}
+
+/**
  * @func getObject
  * Returns object from named collection with given ID (uuid v4)
  *
@@ -80,17 +92,18 @@ _db.getObject = (colName, uuid) => {
 
 /**
  * @func push
- * Takes an object, validates, then pushes. If validation is unsuccessful
+ * Takes an object, validates, then pushes to database. If validation is unsuccessful,
+ * throw error with object.
  *
  * @exports
  */
 _db.push = (object) => {
-    if (typeof object.title !== 'string') {
-        err = "Input object is not a valid" + JSON.stringify(object);
+    if (typeof object.type !== 'string') {
+        err = "Input object is not a valid: " + JSON.stringify(object);
         throw new TypeError (err);
     }
 
-    isValid = _schema.validate[object.title](object)
+    isValid = _schema.validate[object.type](object)
     if ( isValid ) {
         _db.collection(object.title).doc(object.id).set(data);
     }
@@ -114,14 +127,14 @@ _db.find = (candidate) => {};
  * This is the sound of me screaming for monads.
  * @param {Object} data - Some object to be validated against schema
  */
-async function _validate(data){
-    if (data.dataType != null){
+function _validate(data){
+    if (data.type != null){
         let ret = {
             errors: null,
             validity: false
         };
 
-        ret.validity = await exports.ajv.validate(data.dataType, data);
+        ret.validity = exports.ajv.validate(data.type, data);
 
         if (ret.validity === false) {
             ret.errors = exports.ajv.errors;
@@ -137,17 +150,17 @@ async function _validate(data){
 
 /**
  * @namespace exports
+ * @prop {object} name - cc-admin
  * @prop {object} db - cloud firestore instance loaded with additional chefcapp specific functions
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
- * @prop {object} db -
+ * @prop {object} schemas - object containing all schemas loaded
+ * @prop {object} firebase -
+ * @prop {object} ajv - exposes ajv instance for debugging
+ * @prop {function} validate - exposes validation interface for ease of access
  *
  */
 exports.name = 'cc-admin';
 exports.db = _db;
 exports.schemas = _schemas;
-exports.firebase = _app;
+exports.firebase = _firebase;
 exports.ajv = _ajv;
 exports.validate = _validate;

@@ -20,7 +20,6 @@
     ],
 
     "required": [
-        "type",
         "keys"
     ],
 
@@ -44,7 +43,7 @@
             "properties": {
                 "id": { "type": "string", "format": "uuid" },
                 "name": { "$ref": "name.schema.json" },
-                "unit": { "$ref": "unit.schema.json" },
+                "unit": { "type": "string" },
                 "quantity": {
                     "type": "number",
                     "exclusiveminimum": 0

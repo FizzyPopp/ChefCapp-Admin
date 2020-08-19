@@ -12,7 +12,6 @@
         "conversionFactorTo"
     ],
 
-    "additionalProperties": false,
     "properties": {
         "type": { "$ref": "type.schema.json" },
         "default" : { "type": "string" },

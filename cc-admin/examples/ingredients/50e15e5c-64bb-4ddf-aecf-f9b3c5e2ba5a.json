@@ -5,6 +5,7 @@
         "singular": "Parsley",
         "plural": "Parsley"
     },
+    "category": "produce",
 
     "unit": {
         "singular": "g",

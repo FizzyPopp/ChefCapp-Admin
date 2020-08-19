@@ -8,6 +8,7 @@
         "copy",
         "name",
         "quantity",
-        "unit"
+        "unit",
+        "time"
     ]
 }

@@ -8,7 +8,7 @@
     "required": [
         "id",
         "name",
-        "class",
+        "category",
         "unit"
     ],
 
@@ -19,6 +19,7 @@
         "type": { "$ref": "type.schema.json" },
         "name": { "$ref": "name.schema.json" },
         "allergens": { "$ref": "vocabulary.allergens.schema.json" },
+        "category": { "$ref": "vocabulary.ingredientCategory.schema.json" },
         "density": { "type": "number" },
         "unit": { "$ref": "#/$defs/unit" },
         "tags": {
@@ -35,7 +36,6 @@
             "type": "object",
 
 
-            "additionalProperties": false,
             "properties": {
                 "singular": { "type": "string" },
                 "plural": { "type": "string" },

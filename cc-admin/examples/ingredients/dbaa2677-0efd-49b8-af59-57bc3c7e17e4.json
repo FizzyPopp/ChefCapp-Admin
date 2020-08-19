@@ -6,6 +6,8 @@
         "plural": "Eggs"
     },
 
+    "category": "meat and seafood",
+
     "unit": {
         "singular": "",
         "plural": "",

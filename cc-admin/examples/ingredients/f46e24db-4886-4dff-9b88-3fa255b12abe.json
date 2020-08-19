@@ -6,6 +6,8 @@
         "plural": "Garlic"
     },
 
+    "category": "produce",
+
     "unit": {
         "singular": "clove",
         "plural": "cloves",
