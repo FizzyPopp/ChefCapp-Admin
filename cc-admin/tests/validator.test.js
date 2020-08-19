@@ -12,11 +12,10 @@ var reJson = /\.json$/;
 var examples = [];
 
 
-// console.log(cca.schemas.list)
 
 /**
- * Programmatically trawl through the schema directories and load in each schema
- * found by the schemaRegExp. When found, attach schema to internal _ajv instance.
+ * Programmatically trawl through the example directories and load in each object
+ * found by the RegExp.
  */
 exdirs.forEach ((path) => {
     let fileList = fs.readdirSync (path);

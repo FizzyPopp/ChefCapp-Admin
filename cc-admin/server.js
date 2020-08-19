@@ -11,13 +11,16 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
+app.put('/recipe', (req, res) => {
+});
+
 app.put('/validate', (req, res) => {
   let obj = req.body;
   let result = cca.validate(obj);
 
-  console.log(req.body);
+  console.log(req);
 
-  res.json(result);
+  res.json(req);
 });
 
 app.listen(3000);
