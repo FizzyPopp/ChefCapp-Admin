@@ -1,9 +1,11 @@
 'use strict'
 
 /**
- * @module remark-copy-token
+ * @module inline-recipe-step
  *
- * This remark plugin detects t
+ * Remark pluging to add inline detection of recipe step components.
+ *
+ * See symbolMap for the symbols denoting specific components
  *
  */
 function plugin () {

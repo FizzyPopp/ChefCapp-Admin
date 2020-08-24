@@ -86,7 +86,7 @@ var cca = require('cc-admin')
 
 # Running
 
-Currently the server uses expressjs to setup a `localhost` thing. Run it like so:
+The server uses expressjs to setup a `localhost` thing. Run it like so:
 
 ``` sh
 $ node server.js
