@@ -20,7 +20,7 @@ app.put('/validate', (req, res) => {
 
   console.log(req);
 
-  res.json(req);
+  res.json(result);
 });
 
 app.listen(3000);

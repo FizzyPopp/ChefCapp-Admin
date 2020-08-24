@@ -4,7 +4,7 @@ Administration interface for ChefCapp assists in parsing, uploads, database fidd
 
 # Requirements
 
-* nodejs v8.x.x (`lts/carbon`) or v10.x.x (`lts/dubnium`)
+* nodejs ~~v8.x.x~~ (DEPRECATED) v10.x.x (`lts/dubnium`)
 * service account key
 
 If you have both of them already, read ahead to **Installation**
@@ -36,9 +36,9 @@ more details can be found on the [official nvm readme](https://github.com/nvm-sh
 2. Install/update nodejs v8:
 
 ``` sh
-nvm install lts/carbon
+nvm install lts/dubnium
 ```
-carbon is always set to track the lastest v8.whatever LTS release, and will keep it up to date whenever you run the command again.
+dubnium is always set to track the lastest v10.whatever LTS release, and will keep it up to date whenever you run the command again.
 
 ### Service Account Key
 
@@ -76,13 +76,40 @@ cd /where/you/want/to/install
 npm install /path/to/ChefCapp-Admin/cc-admin
 ```
 
-2. Make sure you have the `init.sh` sourced.
+2. Make sure you have the `init.sh` edited and sourced.
 
 3. Start calling it in your projects:
 
 ``` javascript
 var cca = require('cc-admin')
 ```
+
+# Running
+
+Currently the server uses expressjs to setup a `localhost` thing. Run it like so:
+
+``` sh
+$ node server.js
+```
+
+
+# Testing
+
+`cc-admin` uses [Jest](https://jestjs.io/) for 'unit' testing. There's no coverage requirement right now because the thing isn't even feature complete.
+
+``` sh
+ChefCapp-Admin/cc-admin:
+$ npm test
+```
+
+Will run all the cases in `cc-admin/tests/`, you can call them individually like so:
+
+
+``` sh
+$ npm test schemas
+```
+
+As long as there's a corresponding `tests/schemas.test.js`
 
 
 # How to Use

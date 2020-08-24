@@ -69,7 +69,7 @@ function plugin () {
         const tokenValue = value.substring(nameBegin+2, nameEnd);
         const token = beginSymbol + tokenValue + endSymbol;
 
-        console.log("found token with value: " + beginSymbol + " :: "+ tokenValue + " :: " + endSymbol + " with type of: " + tokenType);
+        // console.log("found token with value: " + beginSymbol + " :: "+ tokenValue + " :: " + endSymbol + " with type of: " + tokenType);
 
         return eat(token) ({
             type: tokenType,
