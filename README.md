@@ -92,6 +92,8 @@ Currently the server uses expressjs to setup a `localhost` thing. Run it like so
 $ node server.js
 ```
 
+It will run under the port as defined in `server.js`
+
 
 # Testing
 
