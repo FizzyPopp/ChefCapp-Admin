@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+'use strict'
+const fs = require('fs')
+const pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json'));
+const argv = process.argv;
+
+const helpstr = `
+pos - cc-admin Package OperationS utility, sifts through package.json
+arguments:
+    [g | get] <key> -> prints the value of given <key> in package.json to stdout
+    [l | ls | list] -> lists in package.json
+`;
+
+
+if (typeof argv[2] === 'string') {
+    switch (argv[2]) {
+        case 'g':
+        case 'get':
+            get(argv[3]);
+            break;
+        case 'l':
+        case 'ls':
+        case 'list':
+            list();
+            break;
+        default:
+            help();
+            break;
+    }
+} else {
+    help();
+}
+
+function get(key) {
+    if (pkg[key]) {
+        console.log(JSON.stringify(pkg[key]));
+    } else {
+        console.log("Can't find package property with key: " + key);
+    }
+}
+
+function list () {
+    for (let key in pkg) {
+        let line = key + ' : ' + JSON.stringify(pkg[key], null, 2);
+        console.log(line);
+    }
+}
+
+function help() { console.log(helpstr); }

@@ -1,6 +1,6 @@
 {
   "name": "cc-admin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Administrative tooling for ChefCapp",
   "main": "index.js",
   "dependencies": {
@@ -17,7 +17,8 @@
     "jest": "^26.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "bash build.sh"
   },
   "files": [
     "lib/",

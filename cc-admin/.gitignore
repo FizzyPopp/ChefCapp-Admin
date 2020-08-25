@@ -64,5 +64,8 @@ node_modules/
 # dotenv environment variables file
 .env
 
+# spicy dirs
+staging/
+
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*
