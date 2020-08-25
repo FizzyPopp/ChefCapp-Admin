@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "bash build.sh"
+    "stage-dev": "bash scripts/build-dev"
   },
   "files": [
     "lib/",

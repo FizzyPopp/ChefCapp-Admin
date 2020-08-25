@@ -2,3 +2,8 @@
 
 # /validate
 
+# /recipe
+
+# /step
+
+# /ingredient

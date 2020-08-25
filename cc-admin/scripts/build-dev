@@ -41,7 +41,7 @@ while true; do
     read -r -p "Proceed? [y/n] " input
     case $input in
         [yY][eE][sS]|[yY])
-            if [ ! -f "$CCA_DEST" ]
+            if [ ! -d "$CCA_DEST" ]
             then
                 mkdir "$CCA_DEST"
             fi
