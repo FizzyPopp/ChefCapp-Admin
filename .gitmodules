@@ -1,0 +1,3 @@
+[submodule "cc-admin/cc-admin-client"]
+	path = cc-admin/cc-admin-client
+	url = git@github.com:FizzyPopp/ChefCapp-Admin-Client.git

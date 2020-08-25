@@ -61,7 +61,7 @@ environment variables set up.
 
 
 I've added the private key file name and the init.sh into .gitignore, so it'll be
-okay if you accidentally left then in the source dir.
+okay if you accidentally leave them in the source dir.
 
 It is possible to add the variables into your bash environment so that you do 
 not need to source `init.sh` every time, but it's personal preference.
