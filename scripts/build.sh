@@ -64,9 +64,18 @@ fi
 printf 'Building flutter client application for %s\n' "$target"
 if [[ $dry_run ]]
 then
+    printf 'Updating submodule...\n'
+    printf 'git submodule update --remote --merge\n'
+    printf 'Done.\n'
+    printf 'Running Flutter web build...\n'
     printf 'cd %s\n' "$cca$_src_client"
     printf 'flutter build web\n'
 else
+    printf 'Updating submodule...\n'
+    git submodule update --remote --merge
+    printf 'Done.\n'
+
+    printf 'Running Flutter web build...\n'
     cd "$cca$_src_client"
     flutter build web
 fi
@@ -82,7 +91,6 @@ while true; do
     fi
     case $input in
         [yY][eE][sS]|[yY])
-
             if [[ $dry_run ]]
             then
                 printf 'cd %s \n' "$cca$_dest"

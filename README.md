@@ -57,6 +57,38 @@ port install jq
 
 If you're on linux, jq is officially available for Debian, Ubuntu, Fedora, openSUSE, and Arch.
 
+## Clone Repo and update Submodules
+
+Odds are this repo has already been cloned somewhere, that's okay, just skip that bit of the instruction.
+
+This repo includes [ChefCapp-Admin-Client](https://github.com/FizzyPopp/ChefCapp-Admin-Client) as a submodule, so submodule management is somewhat necessary to keep working with it.
+
+### Clone repo 
+
+``` sh
+git clone  --recurse-submodules git@github.com:FizzyPopp/ChefCapp-Admin.git
+```
+
+### Update submodules 
+
+``` sh
+git submodule update --remote --merge
+```
+
+Consider adding an alias:
+
+``` sh
+git config alias.supdate 'submodule update --remote --merge'
+```
+
+Now you can:
+
+``` sh
+git supdate
+```
+
+Working from the submodule is more of a pain in the ass than necessary, the official [git manual](https://git-scm.com/book/en/v2/Git-Tools-Submodules) has more information for the morbidly curious.
+
 ## Initialization Script and `./secrets/`
 
 First make sure the directory `ChefCapp-Admin/secrets/` exists.
@@ -99,7 +131,7 @@ not need to source `init.sh` every time, but it's personal preference. This is t
 
 # Working with the project
 
-T
+EEEEEE.wmv
 
 ## Building
 
@@ -121,13 +153,14 @@ var cca = require('cc-admin')
 The server uses expressjs to setup a `localhost` thing. Run it like so:
 
 ``` sh
+ChefCapp-Admin/public/staging/v0.0.2:
 $ node server.js
 ```
 
-It will run under the port as defined in `server.js`
+It will run under the port as defined in `server.js` - `localhost:3000` by default.
 
 
-## Testing
+## Unit Testing
 
 `cc-admin` uses [Jest](https://jestjs.io/) for 'unit' testing. There's no coverage requirement right now because the thing isn't even feature complete.
 
@@ -144,10 +177,3 @@ $ npm test schemas
 ```
 
 As long as there's a corresponding `tests/schemas.test.js`
-
-
-## How to Use
-
-The module comes with a bunch of once and future methods that deal with database
-retrieval and data parsing. Eventually it may handle user account setup and 
-manipulation as well.
