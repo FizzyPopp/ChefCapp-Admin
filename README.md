@@ -1,29 +1,24 @@
-# ChefCapp-admin
+# ChefCapp-Admin
 
 Administration interface for ChefCapp assists in parsing, uploads, database fiddling, etc.
 
-# Requirements
+# How to set up the Admin Repo
 
-* nodejs ~~v8.x.x~~ (DEPRECATED) v10.x.x (`lts/dubnium`)
-* service account key
+1. Set up nodejs ~~v8.x.x~~ (DEPRECATED) v10.x.x (`lts/dubnium`)
+1. Obtaining service account key
+1. Installing [`jq`](https://stedolan.github.io/jq/) is required if you want to run `build.sh`
+1. Clone repo and update the submodule
+1. Create init script
+
 
 If you have both of them already, read ahead to **Installation**
 
-### Get Nodejs v8/10
+## Get Nodejs v8/10
 
-There's two major options to get nodejs
+Use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-* use system node
-* [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### using nvm
 
-*NOTE*: on linux, nvm should be used to manage the installation because node versioning is miraculously worse than python. 
-
-If you're on macOS or Windows, you can sport the official download from  choose your own adventure from the friendly neighbourhood package manager's node version. 
-
-#### using system node
-just uhhh, install it from the system package manager - apt, brew, pacman, chocolatey, what have you. If your package manager does not allow direct version management, then you should consider using nvm.
-
-#### using nvm
 The repository comes with .nvmrc that points to `lts/carbon` (i.e. node v8) or `lts/dubnium` (i.e. node v10), so the version should be pinned and one just needs to run the commands and the correct version will be obtained.
 
 1. Install nvm:
@@ -38,53 +33,90 @@ more details can be found on the [official nvm readme](https://github.com/nvm-sh
 ``` sh
 nvm install lts/dubnium
 ```
-dubnium is always set to track the lastest v10.whatever LTS release, and will keep it up to date whenever you run the command again.
+dubnium is always set to track the latest v10.whatever LTS release, and will keep it up to date whenever you run the command again.
 
-### Service Account Key
+## Service Account Key 
 
 If you're running on windows, may the lord have mercy on your soul. Otherwise head to the ChefCapp Firebase Console > Gear menu > Project settings > Service Accounts. Ignore the config snippet and hit 'Generate new private key'.
 
 **Don't change the name of the key file after you download it, or you might accidentally commit it.**
 
-Make an init file `init.sh` or copy the one in project root:
+## Install `jq` (optional, sorta)
+
+The handy `jq` utility is used in the build scripts, if you want to run `build.sh`, then you need a working jq executable. A set of cross platform binaries can be found in the `tools/` folder.
+
+If you are on OSX, you can install jq with brew or macports -
+
+``` sh
+brew install jq
+```
+
+``` sh
+port install jq
+```
+
+If you're on linux, jq is officially available for Debian, Ubuntu, Fedora, openSUSE, and Arch.
+
+## Initialization Script and `./secrets/`
+
+First make sure the directory `ChefCapp-Admin/secrets/` exists.
+
+This is a sample `./secrets/init.sh`:
 
 ``` sh
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"
 export FIREBASE_CONFIG={}
 export GCLOUD_PROJECT={}
+export cca="/path/to/your/ChefCapp-Admin"
+export PATH="$PATH:$cca/scripts"
+export JQ="$cca/tools/jq-of-your-platform"
 ```
 
-Before running any code or scripts that uses cc-admin, source init to get the 
-environment variables set up.
+Source init to get the environment variables set up:
 
-`source ./init.sh`
+``` sh
+source ./secrets/init.sh
+```
 
+### Purpose of the init script
+
+The init script isn't so much a script as a collection of environment variables used pinpoint locations of fixed resources to get the build scripts to be portable.
+
+### Purpose of the `secrets/` directory
+
+The `ChefCapp-Admin/secrets` directory is used by firebase to house keys and tokens (`client-conf.json`), so we might as well use it to stash our secrets too.
+
+**The secrets folder is already inside `.gitignore`, do not move secrets outside the secrets folder unless you want to accidentally commit them (like James has already done sort of once).**
 
 I've added the private key file name and the init.sh into .gitignore, so it'll be
 okay if you accidentally leave them in the source dir.
 
+### Alternatives to the init script
+
 It is possible to add the variables into your bash environment so that you do 
-not need to source `init.sh` every time, but it's personal preference.
+not need to source `init.sh` every time, but it's personal preference. This is the way that our live server will be provisioned.
 
 
-# Installation
+# Working with the project
 
-1. Clone this repo
+T
+
+## Building
+
+
+Make sure you have the `init.sh` edited and sourced.
 
 ``` sh
-cd /where/you/want/to/install
-npm install /path/to/ChefCapp-Admin/cc-admin
+$ build.sh
 ```
 
-2. Make sure you have the `init.sh` edited and sourced.
-
-3. Start calling it in your projects:
+npm can be used to install the built package (found under `cc-admin/builds/`)
 
 ``` javascript
 var cca = require('cc-admin')
 ```
 
-# Running
+## Running
 
 The server uses expressjs to setup a `localhost` thing. Run it like so:
 
@@ -95,7 +127,7 @@ $ node server.js
 It will run under the port as defined in `server.js`
 
 
-# Testing
+## Testing
 
 `cc-admin` uses [Jest](https://jestjs.io/) for 'unit' testing. There's no coverage requirement right now because the thing isn't even feature complete.
 
@@ -114,7 +146,7 @@ $ npm test schemas
 As long as there's a corresponding `tests/schemas.test.js`
 
 
-# How to Use
+## How to Use
 
 The module comes with a bunch of once and future methods that deal with database
 retrieval and data parsing. Eventually it may handle user account setup and 

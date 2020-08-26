@@ -2,8 +2,9 @@
 
 var express = require('express');
 var app = express();
-var cca = require('./index');
+var cca = require('cc-admin');
 
+app.use(express.static('web'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

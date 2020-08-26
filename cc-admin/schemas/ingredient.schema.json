@@ -32,7 +32,8 @@
         "category": { "description": "Grocery store categories this ingredient belongs to.",
                       "$ref": "vocabulary.ingredientCategory.schema.json" },
 
-        "unit": { "$ref": "#/$defs/unit" },
+        "unit": { "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
+                  "$ref": "#/$defs/unit" },
         "tags": {
             "type": "array",
             "items": { "type": "string" }

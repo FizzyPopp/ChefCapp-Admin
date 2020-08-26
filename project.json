@@ -1,0 +1,21 @@
+{
+    "paths":{
+        "src": {
+            "client": {
+                "root": "/cc-admin-client/chef_capp_admin_client",
+                "build": "/cc-admin-client/chef_capp_admin_client/build/web"
+            },
+            "server": {
+                "root": "/cc-admin",
+                "build": "/cc-admin/build",
+                "temp": "/cc-admin/temp"
+            }
+        },
+        "web": {
+            "root": "/public",
+            "develop": "/public/staging",
+            "release": "/public/deploy"
+
+        }
+    }
+}
