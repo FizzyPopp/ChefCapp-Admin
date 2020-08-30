@@ -58,6 +58,7 @@ else
         mkdir "$cca$_server_build"
     fi
     cd "$cca$_server_build"
+    npm install
     npm pack "$cca$_src_server"
 fi
 
@@ -87,7 +88,8 @@ while true; do
     then
         input='y'
     else
-        read -r -p "Proceed? [y/n] " input
+        printf 'Proceed? [y/n] '
+        read -r input
     fi
     case $input in
         [yY][eE][sS]|[yY])
@@ -107,7 +109,7 @@ while true; do
             else
                 if [ ! -d "$cca$_dest" ]
                 then
-                    mkdir "$cca$_dest"
+                    mkdir -p "$cca$_dest"
                 fi
                 cd "$cca$_dest"
 
