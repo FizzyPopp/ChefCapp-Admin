@@ -14,26 +14,40 @@
 
     "additionalProperties": true,
     "properties": {
-        "type": { "description" : "type field to identify objects in code",
-                  "$ref": "type.schema.json" },
+        "type": {
+            "description" : "type field to identify objects in code",
+            "$ref": "type.schema.json"
+        },
 
-        "hash": { "description": "Hashed key for the object from a canonical form",
-                  "$ref": "hash.schema.json" },
+        "hash": {
+            "description": "Hashed key for the object from a canonical form",
+            "$ref": "hash.schema.json"
+        },
 
-        "id": { "description": "Permanent ID for an ingredient gestalt",
-                "type": "string", "format": "uuid" },
+        "id": {
+            "description": "Permanent ID for an ingredient gestalt",
+            "type": "string", "format": "uuid"
+        },
 
-        "name": { "description": "Human readable name",
-                  "$ref": "name.schema.json" },
+        "name": {
+            "description": "Human readable name",
+            "$ref": "name.schema.json"
+        },
 
-        "allergens": { "description": "Allergen categories this ingredient belongs to.",
-                       "$ref": "vocabulary.allergens.schema.json" },
+        "allergens": {
+            "description": "Allergen categories this ingredient belongs to.",
+            "$ref": "vocabulary.allergens.schema.json"
+        },
 
-        "category": { "description": "Grocery store categories this ingredient belongs to.",
-                      "$ref": "vocabulary.ingredientCategory.schema.json" },
+        "category": {
+            "description": "Grocery store categories this ingredient belongs to.",
+            "$ref": "vocabulary.ingredientCategory.schema.json"
+        },
 
-        "unit": { "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
-                  "$ref": "#/$defs/unit" },
+        "unit": {
+            "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
+            "$ref": "#/$defs/unit"
+        },
         "tags": {
             "type": "array",
             "items": { "type": "string" }
@@ -47,26 +61,41 @@
 
             "type": "object",
 
+            "required": [
+                "singular",
+                "plural",
+                "SI"
+            ],
 
             "properties": {
                 "singular": {
                     "description": "The most commonly used singular unit used to describe the ingredient, leave this and plural blank if ingredient uses 'name' verbiage",
-                    "type": "string" },
+                    "type": "string"
+                },
 
                 "plural": {
                     "description": "The most commonly used plural unit used to describe the ingredient",
-                    "type": "string" },
+                    "type": "string"
+                },
 
-                "verbiage": {
-                    "description": "How a name behaves grammatically: name -> 2 potatoes, specific -> 1 clove of garlic, SI -> 1L of milk",
-                    "enum": ["name", "specific", "SI"] },
+                "unitCategory": {
+                    "description": "How units behaves grammatically: whole -> 2 potatoes, specific -> 1 clove of garlic, SI -> 1L of milk",
+                    "$ref": "vocabulary.unitCategory.schema.json"
+                },
 
-                "quantityClass": {
+                "measurementType": {
                     "description": "What type of physics unit - mass, volume, etc.",
-                    "$ref": "vocabulary.quantityClass.schema.json" },
+                    "$ref": "vocabulary.measurementType.schema.json"
+                },
+
+                "SI": {
+                    "description": "The default SI unit the ingredient is measured in - kg/L",
+                    "type": "string"
+                },
 
                 "density": { "description": "SI standard kg/m^3",
-                             "type": "number" },
+                             "type": "number"
+                           },
 
                 "conversionFactorTo": {
                     "type": "object",
@@ -84,22 +113,22 @@
                     "properties": {
                         "cooking": {
                             "description": "Smallest usable unit for a given ingredient.",
-                            "$ref": "name.schema.json" },
+                            "$ref": "name.schema.json"
+                        },
 
                         "portion": {
                             "description": "Unit scale fit for roughly one person for one meal.",
-                            "$ref": "name.schema.json" },
+                            "$ref": "name.schema.json"
+                        },
 
                         "storage": {
                             "description": "The amount that comes from an average grocery store purchase.",
-                            "$ref": "name.schema.json" },
+                            "$ref": "name.schema.json"
+                        },
 
                         "bulk": {
                             "description": "The amount that comes from an average costco purchase.",
-                            "$ref": "name.schema.json" },
-                        
-                        "SI": {
-                            "type": "string"
+                            "$ref": "name.schema.json"
                         }
                     }
                 }

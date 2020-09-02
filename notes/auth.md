@@ -17,6 +17,10 @@ Apparently the Firebase team has pumped out a flutter plugin for Firebase authen
 - Twitter
 
 
+## Client session persistence
+
+use 'session' persistence mode for cc-admin servers
+
 ## ChefCapp Sign-in Concept (as understood by the author (james) )
 
 From user perspective:

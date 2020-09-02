@@ -22,7 +22,7 @@
         "singular": "",
         "plural": "",
         "SI": "kg",
-        "verbiage": "name",
+        "unitCategory": "name",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "SI": 0.011

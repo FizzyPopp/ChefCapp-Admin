@@ -11,7 +11,7 @@
         "singular": "g",
         "plural": "g",
         "SI": "kg",
-        "verbiage": "SI",
+        "unitCategory": "SI",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "portion": 0.0357,

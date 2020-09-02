@@ -52,7 +52,7 @@ function plugin () {
         if (matched !== null) {
             var beginSymbol = matched[0];
         } else {
-            console.log("butt");
+            // console.log("butt");
             return;
         }
 

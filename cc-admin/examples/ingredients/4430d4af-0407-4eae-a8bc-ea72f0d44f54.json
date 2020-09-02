@@ -12,7 +12,7 @@
         "singular": "g",
         "plural": "g",
         "SI": "kg",
-        "verbiage": "SI",
+        "verbge": "SI",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "cooking": 1,

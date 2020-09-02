@@ -12,7 +12,7 @@
         "singular": "clove",
         "plural": "cloves",
         "SI": "kg",
-        "verbiage": "specific",
+        "unitCategory": "specific",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "cooking": 1,

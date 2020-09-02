@@ -13,7 +13,7 @@
         "plural": "",
         "SI": "kg",
         "quantityClass": "mass",
-        "verbiage": "name",
+        "unitCategory": "name",
         "conversionFactorTo": {
             "bulk": 0.0833,
             "SI": 0.05

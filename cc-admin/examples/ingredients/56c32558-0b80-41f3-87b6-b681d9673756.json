@@ -10,7 +10,7 @@
     "unit": {
         "singular": "tbsp",
         "plural": "tbsp",
-        "verbiage": "SI",
+        "unitCategory": "SI",
         "quantityClass": "volume",
         "conversionFactorTo": {
             "SI": 0.0147868

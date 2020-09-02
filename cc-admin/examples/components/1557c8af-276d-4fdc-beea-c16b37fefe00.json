@@ -21,6 +21,7 @@
                 "singular": "Peanut Oil",
                 "plural": "Peanut Oil"
             },
+            "unitCategory": "SI",
             "unit": "tbsp",
             "quantity": 1
         }
@@ -76,6 +77,7 @@
                     "singular": "Potato",
                     "plural": "Potatoes"
                 },
+                "unitCategory": "whole",
                 "unit": "",
                 "quantity": 8
             },
@@ -85,18 +87,21 @@
                     "singular": "Oil",
                     "plural": "Oil"
                 },
+                "unitCategory": "SI",
                 "unit": "tbsp",
                 "quantity": 1
             },
             "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
                 "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
                 "name": { "singular": "Salt" },
+                "unitCategory": "SI",
                 "unit": "g",
                 "quantity": 0
             },
             "9267d19c-ad55-4466-beb1-e19014313f65": {
                 "id": "9267d19c-ad55-4466-beb1-e19014313f65",
                 "name": { "singular": "Black Pepper" },
+                "unitCategory": "SI",
                 "unit": "g",
                 "quantity": 0
             }

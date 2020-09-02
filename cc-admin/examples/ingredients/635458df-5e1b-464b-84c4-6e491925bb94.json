@@ -12,7 +12,7 @@
     "unit": {
         "singular": "g",
         "plural": "g",
-        "verbiage": "SI",
+        "unitCategory": "SI",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "SI": 0.001

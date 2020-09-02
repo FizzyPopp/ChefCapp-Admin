@@ -49,7 +49,6 @@ function decompose (schema) {
 exports.init = (root) => {
     let _schemas = {};
     let _schemaDirs = [
-        root + "/" + "schemas/vocabulary/quantityClasses/",
         root + "/" + "schemas/vocabulary/",
         root + "/" + "schemas/atomic/",
         root + "/" + "schemas/"

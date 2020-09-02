@@ -12,7 +12,7 @@
         "singular": "tbsp",
         "plural": "tbsp",
         "SI": "L",
-        "verbiage": "SI",
+        "unitCategory": "SI",
         "quantityClass": "volume",
         "conversionFactorTo": {
             "cooking": 0.0625,

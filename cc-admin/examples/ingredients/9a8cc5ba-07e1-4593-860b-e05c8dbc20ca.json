@@ -13,7 +13,7 @@
         "plural": "sticks",
         "SI": "L",
         "quantityClass": "volume",
-        "verbiage": "specific",
+        "unitCategory": "specific",
         "conversionFactorTo": {
             "cooking": 0.125,
             "bulk": 4,

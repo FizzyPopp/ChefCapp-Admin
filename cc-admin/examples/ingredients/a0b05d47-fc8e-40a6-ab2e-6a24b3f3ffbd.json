@@ -12,7 +12,7 @@
         "singular": "",
         "plural": "",
         "SI": "kg",
-        "verbiage": "name",
+        "unitCategory": "name",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "portion": 0.5,

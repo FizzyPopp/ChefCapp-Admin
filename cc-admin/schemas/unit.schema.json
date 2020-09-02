@@ -18,7 +18,7 @@
         "cooking" : { "type": "string" },
         "bulk" : { "type": "string" },
         "SI": { "type": "string" },
-        "quantityMeasured": { "$ref": "vocabulary.quantityClass.schema.json" },
+        "measurementType": { "$ref": "vocabulary.measurementType.schema.json" },
 
         "conversionFactorTo": {
             "type": "object",

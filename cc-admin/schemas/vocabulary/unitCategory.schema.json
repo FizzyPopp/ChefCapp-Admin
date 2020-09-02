@@ -1,0 +1,12 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "$id": "vocabulary.unitCategory.schema.json",
+    "title": "unitCategory",
+    "description": "How units behaves grammatically: whole -> 2 potatoes, specific -> 1 clove garlic, SI -> 1L milk",
+
+    "enum": [
+        "whole",
+        "specific",
+        "SI"
+    ]
+}

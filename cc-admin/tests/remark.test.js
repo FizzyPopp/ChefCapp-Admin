@@ -1,7 +1,7 @@
-var p = require('../lib/parser');
+var parse = require('../lib/parser');
 
 const sample = "asdfasdf [toast](wikipedia.org) @[ingredient name] #[a quantity] $[unitio] %[12 minute]";
-const tree = p.parse(sample);
+const tree = parse(sample);
 
 console.log("printing sample text: " + sample)
 console.log(JSON.stringify(tree, null, 2));
