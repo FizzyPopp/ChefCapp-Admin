@@ -47,7 +47,10 @@
         "name": { "$ref": "name.schema.json" },
         "tags": { "$ref": "tags.schema.json" },
         "time": { "$ref": "time.schema.json" },
-        "yield": { "type": "number" },
+        "yield": {
+            "type": "integer",
+            "minimum": 1
+        },
         "images": { "type": "string" },
         "calories": { "$ref": "calories.schema.json" },
         "ingredeints": { "$ref": "ingredientList.schema.json" },
