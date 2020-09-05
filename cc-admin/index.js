@@ -4,7 +4,7 @@
  * @module cc-admin
  */
 const crypto = require('crypto');
-const {v4 : uuidv4} = require('uuid');
+const uuid = require('uuid');
 var _admin = require('firebase-admin');
 var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
@@ -13,11 +13,11 @@ var _Ajv = require('ajv');
 var _ajv = new _Ajv({ verbose: false });
 
 
-const collections = [
-    "components",
-    "ingredients",
-    "recipes",
-    "users"
+const dbTypes = [
+    "component",
+    "ingredient",
+    "recipe",
+    "user"
 ]
 
 /**
@@ -29,25 +29,18 @@ var _firebase = _admin.initializeApp({
     credential: _admin.credential.applicationDefault(),
     databaseURL: "https://chef-capp.firebaseio.com"
 });
-
 var _db = _admin.firestore();
 
+
+_schemas.validate = {};
 for (let key in _schemas.list) {
     _ajv.addSchema(_schemas.list[key], _schemas.list[key].title);
 }
 
-// console.log(Date.now());
-
-/**
- * Validator functions compiled by ajv from the loaded _schemas
- * @exports
- */
-_schemas.validate = {};
+// do it twice to prevent dependency issues
 for (let key in _schemas.list) {
-    // console.log("Compiling ajv schema validator function for: " + key);
     _schemas.validate[key] = _ajv.compile(_schemas.list[key]);
 }
-
 
 /**
  * @function authenticate
@@ -90,34 +83,47 @@ _db.getObject = (colName, id) => {
  *
  * @exports
  */
-_db.pushObject = (object) => {
+_db.pushObject = async function(object) {
     let ret = {
-        id: uuidv4.NIL,
+        id: uuid.NIL,
         hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', //this is the sha256 hash of empty string
         errors: null,
         validity: false,
+        timestamp: -1,
         obj: {}
     };
 
     if (typeof object.type === 'string') {
-        if (collections.includes(object.type)) {
-            isValid = _ajv.validate(object.type, object);
+        if (dbTypes.includes(object.type)) {
+            let isValid = _ajv.validate(object.type, object);
             if ( isValid ) {
-                if ( typeof object.hash !== 'undefined' ) { delete object.hash; }
-                object.hash = _hash(object);
-                //TODO : load up a list of UUIDs from the database.
-                let id = uuidv4();
-                if (dbID !== uuidv4.NIL) {
-                    id = dbID;
+                const oCollection = object.type + '-test';
+                const oHash = _hash(object);
+                console.log(object.hash);
+
+                const collectionRef = await _db.collection(oCollection)
+                const sameHashRef = collectionRef.doc(oHash);
+                const sameHash = await sameHashRef.get()
+
+                if (!sameHash.exists) { //skip upload if there's already a document with the same hash
+                    object.hash = oHash;
+                    const id = uuid.v4();
+                    const nameQueryRef = collectionRef.where('name','==', object.name);
+                    let nameQuerySnapshot = await nameQueryRef.get();
+                    if (!nameQuerySnapshot.empty) {
+                        id = nameQuerySnapshot.docs[0].id;
+                    }
+
+                    object.id = id;
+                    object.timestamp = Date.now();
+                    _db.collection(oCollection).doc(object.hash).set(object);
+
+                    ret.id = object.id;
+                    ret.hash = object.hash
+                    ret.timestamp = object.timestamp;
+                    ret.obj = object;
                 }
-
-                object.timestamp = Date.now();
-                _db.collection(object.title).doc(object.hash).set(object);
-
-                ret.id = id;
-                ret.hash = object.hash
             }
-
             ret.validity = isValid;
             ret.errors = _ajv.errors;
         }
@@ -125,7 +131,6 @@ _db.pushObject = (object) => {
         ret.validity = false;
         ret.errors = "Input object does not have a valid type field: " + JSON.stringify(object);
     }
-
     return ret;
 }
 
@@ -161,13 +166,17 @@ _db.find = (candidate) => {
  * hashes given database object, this is unsafe and should not be called outside of the module
  */
 let _hash = (obj) => {
-    if (collections.includes(obj.type)){
-        c = _canonize(obj);
-        h = crypto.createHash('sha256');
+    if (dbTypes.includes(obj.type)){
+        if ( typeof obj.hash !== 'undefined' ) { delete obj.hash; }
+        if ( typeof obj.timestamp !== 'undefined' ) { delete obj.timestamp; }
+
+        let c = _canonize(obj);
+        let h = crypto.createHash('sha256');
+
         h.update(c);
         return h.digest('hex');
     }
-    throw new Error.TypeError("Not a hashable type.")
+    throw new Error("Not a hashable type: " + obj.type);
 }
 
 
@@ -224,7 +233,7 @@ let _validate = (candidate) => {
 
         return ret;
     }
-    ret.errors = new Error.TypeError("Object has no valid type field.");
+    ret.errors = new Error("Object has no valid type field.");
     return ret;
 };
 
@@ -247,3 +256,4 @@ exports.firebase = _firebase;
 exports.name = 'cc-admin';
 exports.schemas = _schemas;
 exports.validate = _validate;
+exports.hash = _hash;

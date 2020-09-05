@@ -13,7 +13,7 @@
         "plural": "cloves",
         "SI": "kg",
         "unitCategory": "specific",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "cooking": 1,
             "storage": 0.05,
@@ -24,7 +24,7 @@
                 "singular": "clove",
                 "plural": "cloves"
             },
-            "storage": {
+            "portion": {
                 "singular": "head",
                 "plural": "heads"
             }

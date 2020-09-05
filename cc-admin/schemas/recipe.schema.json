@@ -46,8 +46,9 @@
         "type": { "$ref": "type.schema.json" },
         "name": { "$ref": "name.schema.json" },
         "tags": { "$ref": "tags.schema.json" },
-        "time": { "type": "integer", "exclusiveMinimum": 0 },
-        "images": { "type": "string", "format": "uri" },
+        "time": { "$ref": "time.schema.json" },
+        "yield": { "type": "number" },
+        "images": { "type": "string" },
         "calories": { "$ref": "calories.schema.json" },
         "ingredeints": { "$ref": "ingredientList.schema.json" },
         "components": { "$ref": "idList.schema.json" }

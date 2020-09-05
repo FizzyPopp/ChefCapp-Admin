@@ -29,7 +29,7 @@
     "unit": {
         "singular": "",
         "plural": "",
-        "unitCategory": "name",
+        "unitCategory": "whole",
         "quantityClass": "mass",
         "conversionFactorTo": {
             "SI": 0.08

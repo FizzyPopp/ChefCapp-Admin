@@ -1,5 +1,5 @@
 const fs = require('fs')
-var cca = require('../index');
+const cca = require('../index');
 var schemas = cca.schemas;
 const root = __dirname + '/../';
 var exroot = root + 'examples/';
@@ -10,8 +10,6 @@ var exdirs = [
 ];
 var reJson = /\.json$/;
 var examples = [];
-
-
 
 /**
  * Programmatically trawl through the example directories and load in each object
@@ -31,15 +29,12 @@ exdirs.forEach ((path) => {
     });
 });
 
-var res = [];
-examples.forEach((obj) => {
-    let r = cca.validate(obj)
-    // console.log("validating " + obj.id + " | type: " + obj.type + " | r: " + JSON.stringify(r, null, 2));
-    res.push(r);
-});
+let testObj = examples.pop();
 
-res.forEach((ret) => {
-    test('Verifying res list...', () => {
-        expect(ret.validity).toBe(true);
-    });
-})
+cca.db.pushObject(testObj)
+   .then((ret) => {
+       console.log(ret);
+   })
+   .catch((err) => {
+       console.log(err);
+   });

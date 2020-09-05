@@ -12,7 +12,7 @@
     ],
 
     "properties": {
-        "hash": { "type": "string", "format": "uuid" },
+        "hash": { "type": "string" },
 
         "id": { "type": "string", "format": "uuid" },
         "next": { "type": "string", "format": "uuid" },

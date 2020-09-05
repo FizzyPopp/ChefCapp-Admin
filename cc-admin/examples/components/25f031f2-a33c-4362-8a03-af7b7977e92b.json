@@ -2,7 +2,7 @@
     "previous": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
     "id": "25f031f2-a33c-4362-8a03-af7b7977e92b",
     "next": "3394289b-1e0c-4459-9da9-a28785e0c112",
-    "type": "step",
+    "type": "component",
     "name": { "singular": "make scrambled eggs" },
     "tags": [],
     "calories": 7,

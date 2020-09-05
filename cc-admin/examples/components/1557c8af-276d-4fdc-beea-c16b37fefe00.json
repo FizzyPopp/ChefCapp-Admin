@@ -2,7 +2,7 @@
     "previous": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
     "id": "1557c8af-276d-4fdc-beea-c16b37fefe00",
     "next": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
-    "type": "step",
+    "type": "component",
     "name": { "singular": "bake potatoes" },
     "tags": [],
     "calories": 2,

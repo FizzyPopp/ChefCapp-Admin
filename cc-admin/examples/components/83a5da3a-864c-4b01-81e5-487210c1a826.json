@@ -2,7 +2,7 @@
     "previous": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
     "id": "83a5da3a-864c-4b01-81e5-487210c1a826",
     "next": "900491c2-4181-4ceb-8366-e600edbc8440",
-    "type": "step",
+    "type": "component",
     "name": { "singular": "soften onions" },
     "tags": [],
     "calories": 4,

@@ -10,9 +10,9 @@ var reJson = /\.json$/;
 var examples = [];
 
 
-for (let key in schemas.list){
-    console.log("generated skeleton for " + key + ":\n", schemas.list[key].skeleton);
-}
+// for (let key in schemas.list){
+//     console.log("generated skeleton for " + key + ":\n", schemas.list[key].skeleton);
+// }
 
 //console.log(schemas.list);
 test('Existence of schemas', () => {

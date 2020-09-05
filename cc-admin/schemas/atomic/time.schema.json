@@ -6,12 +6,11 @@
     "description": "Set of tags applicable to the object.",
 
     "properties": {
-        "type": { "$ref": "type.schema.json" },
-        "max": {
+        "cook": {
             "type": "integer",
             "exclusiveMinimum": 0
         },
-        "min": {
+        "prepare": {
             "type": "integer",
             "exclusiveMinimum": 0
         }

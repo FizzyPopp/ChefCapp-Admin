@@ -16,7 +16,6 @@
     ],
 
     "properties": {
-        "type": { "$ref": "type.schema.json" },
         "singular": {
             "$id": "#/singular",
             "type": "string",

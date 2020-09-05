@@ -7,3 +7,5 @@
 # /step
 
 # /ingredient
+
+# /hash

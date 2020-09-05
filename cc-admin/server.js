@@ -24,4 +24,11 @@ app.put('/validate', (req, res) => {
   res.json(result);
 });
 
+
+app.put('/recipe', (req, res) => {
+});
+
+app.put('/recipe', (req, res) => {
+});
+
 app.listen(3000);

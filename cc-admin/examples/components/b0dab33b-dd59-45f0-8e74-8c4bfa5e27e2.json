@@ -5,7 +5,7 @@
     "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
     "previous":"f680874b-cb0b-4b25-ba74-a8ed39824202",
 
-    "type": "step",
+    "type": "component",
 
     "time": {
         "min": 0,

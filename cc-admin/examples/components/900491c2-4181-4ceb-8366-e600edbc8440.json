@@ -3,7 +3,7 @@
     "id": "900491c2-4181-4ceb-8366-e600edbc8440",
     "next": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
 
-    "type": "step",
+    "type": "component",
 
     "name": { "singular": "make balsamic glaze" },
 
