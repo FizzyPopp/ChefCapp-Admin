@@ -82,56 +82,34 @@ else
 fi
 
 
-printf 'Ready to install %s v%s package into %s\n' "$name" "$version" "$_dest"
-while true; do
-    if [[ $dry_run ]]
+if [[ $dry_run ]]
+then
+    printf 'cd %s \n' "$cca$_dest"
+
+    printf 'Running npm install %s \n' "$_server_build/$name-$version.tgz"
+    printf 'npm install %s \n' "$cca$_server_build/$name-$version.tgz"
+
+    printf 'Copying client app build to %s ... \n' "$_dest"
+    printf 'cp -R %s %s \n' "$cca$_client_build" "$cca$_dest"
+
+    printf 'Copying server.js to %s ...\n' "$_dest"
+    printf '%s - \n' "$cca$_dest"
+    printf 'cp %s %s \n' "$cca$_src_server/server.js" "$cca$_dest"
+else
+    if [ ! -d "$cca$_dest" ]
     then
-        input='y'
-    else
-        printf 'Proceed? [y/n] '
-        read -r input
+        mkdir -p "$cca$_dest"
     fi
-    case $input in
-        [yY][eE][sS]|[yY])
-            if [[ $dry_run ]]
-            then
-                printf 'cd %s \n' "$cca$_dest"
+    cd "$cca$_dest"
 
-                printf 'Running npm install %s \n' "$_server_build/$name-$version.tgz"
-                printf 'npm install %s \n' "$cca$_server_build/$name-$version.tgz"
+    printf 'Running npm install %s\n' "$_src_server/$name-$version.tgz"
+    npm install "$cca$_server_build/$name-$version.tgz"
 
-                printf 'Copying client app build to %s ... \n' "$_dest"
-                printf 'cp -R %s %s \n' "$cca$_client_build" "$cca$_dest"
+    printf 'Copying client app build to %s ... \n' "$_dest"
+    cp -R "$cca$_client_build" "$cca$_dest"
 
-                printf 'Copying server.js to %s ...\n' "$_dest"
-                printf '%s - \n' "$cca$_dest"
-                printf 'cp %s %s \n' "$cca$_src_server/server.js" "$cca$_dest"
-            else
-                if [ ! -d "$cca$_dest" ]
-                then
-                    mkdir -p "$cca$_dest"
-                fi
-                cd "$cca$_dest"
-
-                printf 'Running npm install %s\n' "$_src_server/$name-$version.tgz"
-                npm install "$cca$_server_build/$name-$version.tgz"
-
-                printf 'Copying client app build to %s ... \n' "$_dest"
-                cp -R "$cca$_client_build" "$cca$_dest"
-
-                printf 'Copying server.js to %s ...\n' "$_dest"
-                printf '%s - \n' "$cca$_dest"
-                cp "$cca$_src_server/server.js" "$cca$_dest"
-                ls "$cca$_dest"
-            fi
-            break
-            ;;
-        [nN][oO]|[nN])
-            echo "pls come again."
-            exit 0
-            ;;
-        *)
-            echo "Please answer yes or no."
-            ;;
-    esac
-done
+    printf 'Copying server.js to %s ...\n' "$_dest"
+    printf '%s - \n' "$cca$_dest"
+    cp "$cca$_src_server/server.js" "$cca$_dest"
+    ls "$cca$_dest"
+fi

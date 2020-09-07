@@ -8,7 +8,7 @@ const uuid = require('uuid');
 var _admin = require('firebase-admin');
 var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
-                .init(__dirname);
+    .init(__dirname);
 var _Ajv = require('ajv');
 var _ajv = new _Ajv({ verbose: false });
 
@@ -83,55 +83,59 @@ _db.getObject = (colName, id) => {
  *
  * @exports
  */
-_db.pushObject = async function(object) {
+_db.pushObject = async function(object, type) {
     let ret = {
         id: uuid.NIL,
         hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', //this is the sha256 hash of empty string
-        errors: null,
+        errors: false,
         validity: false,
         timestamp: -1,
         obj: {}
     };
 
-    if (typeof object.type === 'string') {
-        if (dbTypes.includes(object.type)) {
-            let isValid = _ajv.validate(object.type, object);
-            if ( isValid ) {
-                const oCollection = object.type + '-test';
-                const oHash = _hash(object);
-                console.log(object.hash);
+    if (typeof object.type === type && dbTypes.includes(object.type)) {
+        let isValid = _schemas.validate[type](object);
+        if ( isValid ) {
+            const oCollection = object.type + '-test';
+            const oHash = _hash(object);
+            console.log(object.hash);
 
-                const collectionRef = await _db.collection(oCollection)
-                const sameHashRef = collectionRef.doc(oHash);
-                const sameHash = await sameHashRef.get()
+            const collectionRef = await _db.collection(oCollection)
+            const sameHashRef = collectionRef.doc(oHash);
+            const sameHash = await sameHashRef.get()
 
-                if (!sameHash.exists) { //skip upload if there's already a document with the same hash
-                    object.hash = oHash;
-                    const id = uuid.v4();
-                    const nameQueryRef = collectionRef.where('name','==', object.name);
-                    let nameQuerySnapshot = await nameQueryRef.get();
-                    if (!nameQuerySnapshot.empty) {
-                        id = nameQuerySnapshot.docs[0].id;
-                    }
-
-                    object.id = id;
-                    object.timestamp = Date.now();
-                    _db.collection(oCollection).doc(object.hash).set(object);
-
-                    ret.id = object.id;
-                    ret.hash = object.hash
-                    ret.timestamp = object.timestamp;
-                    ret.obj = object;
+            if (!sameHash.exists) { //skip upload if there's already a document with the same hash
+                object.hash = oHash;
+                const id = uuid.v4();
+                const nameQueryRef = collectionRef.where('name','==', object.name);
+                let nameQuerySnapshot = await nameQueryRef.get();
+                if (!nameQuerySnapshot.empty) {
+                    id = nameQuerySnapshot.docs[0].id;
                 }
+
+                object.id = id;
+                object.timestamp = Date.now();
+                _db.collection(oCollection).doc(object.hash).set(object);
+
+                ret.id = object.id;
+                ret.hash = object.hash
+                ret.timestamp = object.timestamp;
+                ret.obj = object;
             }
-            ret.validity = isValid;
-            ret.errors = _ajv.errors;
         }
+        ret.validity = isValid;
+        ret.errors = _ajv.errors;
     } else {
         ret.validity = false;
         ret.errors = "Input object does not have a valid type field: " + JSON.stringify(object);
     }
-    return ret;
+
+    return new Promise ((resolve, reject) => {
+        if (errors === false)
+        { resolve(ret); }
+        else
+        { reject(ret); }
+    })
 }
 
 /** @TODO - implement
