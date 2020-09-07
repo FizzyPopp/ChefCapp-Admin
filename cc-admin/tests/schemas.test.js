@@ -2,7 +2,7 @@ const root = __dirname + '/..';
 var schemas = require('../lib/schemas').init(root);
 var exroot = root + 'examples/';
 var exdirs = [
-    exroot + 'components',
+    exroot + 'steps',
     exroot + 'ingredients',
     exroot + 'recipes'
 ];

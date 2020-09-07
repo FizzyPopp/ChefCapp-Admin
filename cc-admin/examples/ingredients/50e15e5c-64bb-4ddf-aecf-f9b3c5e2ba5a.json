@@ -11,7 +11,7 @@
         "singular": "g",
         "plural": "g",
         "unitCategory": "SI",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "SI": 0.001
         },

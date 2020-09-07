@@ -18,7 +18,7 @@
         "plural": "mL",
         "SI": "L",
         "density": 946.792633651,
-        "quantityClass": "volume",
+        "measurementType": "volume",
         "unitCategory": "SI",
         "conversionFactorTo": {
             "SI": 0.001

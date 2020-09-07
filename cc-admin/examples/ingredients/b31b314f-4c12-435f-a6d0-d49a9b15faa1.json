@@ -13,7 +13,7 @@
         "plural": "g",
         "SI": "kg",
         "unitCategory": "SI",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "cooking": 1,
             "SI": 0.001

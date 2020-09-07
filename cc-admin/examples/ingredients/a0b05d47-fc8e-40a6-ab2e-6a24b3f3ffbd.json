@@ -13,7 +13,7 @@
         "plural": "",
         "SI": "kg",
         "unitCategory": "whole",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "portion": 0.5,
             "SI": 0.15

@@ -30,7 +30,7 @@
         "singular": "",
         "plural": "",
         "unitCategory": "whole",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "SI": 0.08
         },

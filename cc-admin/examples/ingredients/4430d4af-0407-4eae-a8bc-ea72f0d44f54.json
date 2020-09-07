@@ -12,8 +12,8 @@
         "singular": "g",
         "plural": "g",
         "SI": "kg",
-        "verbge": "SI",
-        "quantityClass": "mass",
+        "unitCategory": "SI",
+        "measurementType": "mass",
         "conversionFactorTo": {
             "cooking": 1,
             "SI": 0.001

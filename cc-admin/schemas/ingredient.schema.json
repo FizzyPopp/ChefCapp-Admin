@@ -6,7 +6,6 @@
     "description": "canonical description of a single ingredient, all quantities normalized against one unit of ingredient, whatever that unit may be",
 
     "required": [
-        "id",
         "name",
         "category",
         "unit"

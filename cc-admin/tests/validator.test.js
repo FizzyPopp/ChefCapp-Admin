@@ -4,7 +4,7 @@ var schemas = cca.schemas;
 const root = __dirname + '/../';
 var exroot = root + 'examples/';
 var exdirs = [
-    exroot + 'components/',
+    exroot + 'steps/',
     exroot + 'ingredients/',
     exroot + 'recipes/'
 ];
@@ -31,15 +31,13 @@ exdirs.forEach ((path) => {
     });
 });
 
-var res = [];
+var results = [];
 examples.forEach((obj) => {
-    let r = cca.validate(obj)
+    let result = cca.validate(obj)
     // console.log("validating " + obj.id + " | type: " + obj.type + " | r: " + JSON.stringify(r, null, 2));
-    res.push(r);
+    test('Verifying validity of ' + JSON.stringify(obj.id, null, 2), () => {
+        expect(result.errors).toBe(null);
+    });
+    // results.push(result);
 });
 
-res.forEach((ret) => {
-    test('Verifying res list...', () => {
-        expect(ret.validity).toBe(true);
-    });
-})

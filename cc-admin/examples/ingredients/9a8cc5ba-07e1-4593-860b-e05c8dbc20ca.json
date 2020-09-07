@@ -12,7 +12,7 @@
         "singular": "stick",
         "plural": "sticks",
         "SI": "L",
-        "quantityClass": "volume",
+        "measurementType": "volume",
         "unitCategory": "specific",
         "conversionFactorTo": {
             "cooking": 0.125,

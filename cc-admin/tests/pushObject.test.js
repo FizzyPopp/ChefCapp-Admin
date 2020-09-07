@@ -4,7 +4,7 @@ var schemas = cca.schemas;
 const root = __dirname + '/../';
 var exroot = root + 'examples/';
 var exdirs = [
-    exroot + 'components/',
+    exroot + 'steps/',
     exroot + 'ingredients/',
     exroot + 'recipes/'
 ];
@@ -23,18 +23,17 @@ exdirs.forEach ((path) => {
             // console.log('Importing obj: ' + uri);
             let obj = require(uri);
 
-            obj.path = uri;
             examples.push(obj);
         }
     });
 });
 
-let testObj = examples.pop();
-
-cca.db.pushObject(testObj)
-   .then((ret) => {
-       console.log(ret);
-   })
-   .catch((err) => {
-       console.log(err);
-   });
+examples.forEach((obj) => {
+    cca.db.pushObject(obj, obj.type)
+       .then((ret) => {
+           console.log(ret);
+       })
+       .catch((err) => {
+           console.log(err);
+       });
+});

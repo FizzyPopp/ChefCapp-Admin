@@ -19,7 +19,7 @@
         "singular": "g",
         "plural": "g",
         "SI": "kg",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "unitCategory": "SI",
         "density": 1217.30481325306,
         "conversionFactorTo": {

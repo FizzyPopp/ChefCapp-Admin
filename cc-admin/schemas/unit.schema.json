@@ -8,7 +8,6 @@
     "required": [
         "singular",
         "plural",
-        "unitCategory",
         "measurementType",
         "conversionFactorTo"
     ],

@@ -12,7 +12,7 @@
         "singular": "",
         "plural": "",
         "SI": "kg",
-        "quantityClass": "mass",
+        "measurementType": "mass",
         "unitCategory": "whole",
         "conversionFactorTo": {
             "bulk": 0.0833,

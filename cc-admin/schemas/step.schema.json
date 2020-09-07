@@ -6,7 +6,6 @@
     "description": "canonical description of a single step - leaf node of recipe tree",
 
     "required": [
-        "id",
         "ingredients",
         "instructions"
     ],

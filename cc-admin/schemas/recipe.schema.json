@@ -30,7 +30,6 @@
     ],
 
     "required": [
-        "id",
         "type",
         "name",
         "tags",

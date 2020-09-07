@@ -14,7 +14,7 @@ var _ajv = new _Ajv({ verbose: false });
 
 
 const dbTypes = [
-    "component",
+    "step",
     "ingredient",
     "recipe",
     "user"
@@ -93,48 +93,70 @@ _db.pushObject = async function(object, type) {
         obj: {}
     };
 
-    if (typeof object.type === type && dbTypes.includes(object.type)) {
-        let isValid = _schemas.validate[type](object);
-        if ( isValid ) {
-            const oCollection = object.type + '-test';
-            const oHash = _hash(object);
+    if (object.type === type && dbTypes.includes(object.type)) {
+        console.log(object.type);
+        ret.validity = _schemas.validate[object.type](object);
+
+        if ( ret.validity ) {
+            const objectCollection = object.type;
+            object.hash = _hash(object);
             console.log(object.hash);
 
-            const collectionRef = await _db.collection(oCollection)
-            const sameHashRef = collectionRef.doc(oHash);
+            const collectionRef = await _db.collection(objectCollection)
+            const sameHashRef = collectionRef.doc(object.hash);
             const sameHash = await sameHashRef.get()
 
             if (!sameHash.exists) { //skip upload if there's already a document with the same hash
-                object.hash = oHash;
-                const id = uuid.v4();
-                const nameQueryRef = collectionRef.where('name','==', object.name);
-                let nameQuerySnapshot = await nameQueryRef.get();
-                if (!nameQuerySnapshot.empty) {
-                    id = nameQuerySnapshot.docs[0].id;
+                ret.hash = object.hash
+
+                if (object.id === ret.id) {
+                    object.id = uuid.v4();
+                    ret.id = object.id;
                 }
 
-                object.id = id;
                 object.timestamp = Date.now();
-                _db.collection(oCollection).doc(object.hash).set(object);
-
-                ret.id = object.id;
-                ret.hash = object.hash
                 ret.timestamp = object.timestamp;
+
+                _db.collection(objectCollection).doc(object.hash).set(object)
+                   .then((time) => { ret.writeTime = time; })
+                   .catch((err) => { ret.errors = err; })
                 ret.obj = object;
+            } else {
+                ret.errors = "Object with same hash found, push not attempted."
             }
+        } else {
+            ret.errors = _ajv.errors;
         }
-        ret.validity = isValid;
-        ret.errors = _ajv.errors;
     } else {
         ret.validity = false;
         ret.errors = "Input object does not have a valid type field: " + JSON.stringify(object);
     }
 
     return new Promise ((resolve, reject) => {
-        if (errors === false)
+        if (ret.errors === false)
         { resolve(ret); }
         else
         { reject(ret); }
+    })
+}
+
+_db.buildIngredient = (candidate) => {
+
+}
+
+_db.buildRecipe = (candidate) => {
+    let isValid = _schemas.validate.recipe(candidate);
+    let recipe = {};
+    if (isValid) {
+
+    }
+    return new Promise ((resolve, reject) => {
+        if (isValid)
+        { resolve(recipe); }
+        else
+        {
+            reject(candidate);
+        }
     })
 }
 
