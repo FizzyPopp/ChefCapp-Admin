@@ -13,8 +13,8 @@
         },
         "web": {
             "root": "/public",
-            "develop": "/admin-panel/staging",
-            "release": "/admin-panel/deploy"
+            "develop": "/public/staging",
+            "release": "/public/admin"
 
         }
     }

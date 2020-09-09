@@ -39,7 +39,7 @@ app.post('/validate', (req, res) => {
   let obj = req.body;
   let result = cca.validate(obj);
 
-  msg(req);
+  msg(req.body);
 
   res.json(result);
 });

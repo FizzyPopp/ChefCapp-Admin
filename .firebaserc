@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "chef-capp"
+  },
+  "targets": {
+    "chef-capp": {
+      "hosting": {
+        "Landing": [
+          "public/index.html"
+        ]
+      }
+    }
+  }
+}
