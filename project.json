@@ -13,7 +13,7 @@
         },
         "web": {
             "root": "/public",
-            "develop": "/public/staging",
+            "develop": "/public/admin/staging",
             "release": "/public/admin"
 
         }

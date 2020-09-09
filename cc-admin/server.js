@@ -16,8 +16,10 @@ if (flags.length > 0) {
 }
 
 const corsOptions = {
-  origin: corsOrigin,
-  optionsSuccessStatus: 200
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }
 
 var app = express();
@@ -40,7 +42,8 @@ app.post('/validate', (req, res) => {
   let result = cca.validate(obj);
 
   msg(req.body);
-
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.json(result);
 });
 

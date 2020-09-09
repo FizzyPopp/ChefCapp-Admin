@@ -10,6 +10,9 @@
         ],
         "landing": [
           "chef-capp"
+        ],
+        "admin": [
+          "chef-capp-admin"
         ]
       }
     }
