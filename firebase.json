@@ -22,7 +22,7 @@
     },
     {
       "target": "admin",
-      "public": "public/",
+      "public": "public/admin",
       "ignore": [
         "staging/",
         "firebase.json",
@@ -34,8 +34,9 @@
           "source": "**",
           "destination": "/index.html"
         }
+      ]
     }
-],
+  ],
   "storage": {
     "rules": "storage.rules"
   },

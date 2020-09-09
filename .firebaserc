@@ -7,6 +7,9 @@
       "hosting": {
         "Landing": [
           "public/index.html"
+        ],
+        "landing": [
+          "chef-capp"
         ]
       }
     }
