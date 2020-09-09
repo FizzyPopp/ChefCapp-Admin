@@ -1,3 +1,9 @@
 [submodule "cc-admin-client"]
 	path = cc-admin-client
 	url = git@github.com:FizzyPopp/ChefCapp-Admin-Client.git
+[submodule "Chef-Capp-Landing"]
+	path = Chef-Capp-Landing
+	url = git@github.com:marycc001/Chef-Capp-Landing.git
+[submodule "cc-landing"]
+	path = cc-landing
+	url = git@github.com:marycc001/Chef-Capp-Landing.git
