@@ -69,7 +69,7 @@ node_modules/
 secrets/
 
 # don't bother uploading staging/dev directories
-public/staging/
+public/admin/staging/
 
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*

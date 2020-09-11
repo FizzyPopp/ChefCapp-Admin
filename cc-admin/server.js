@@ -5,7 +5,7 @@ var cors = require('cors')
 var cca = require('cc-admin');
 var msg = console.log;
 const port = 3000;
-let corsOrigin = '';
+let corsOrigin = 'http://ec2-18-191-186-158.us-east-2.compute.amazonaws.com';
 
 const flags = process.argv.slice(2);
 if (flags.length > 0) {
@@ -16,10 +16,8 @@ if (flags.length > 0) {
 }
 
 const corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204
+  orign: corsOrigin,
+  optionsSuccessStatus: 204 // some legacy browsers (IE11, various SmartTVs) choke on 204, use 200 instead
 }
 
 var app = express();
@@ -42,19 +40,12 @@ app.post('/validate', (req, res) => {
   let result = cca.validate(obj);
 
   msg(req.body);
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.json(result);
 });
 
 
 app.post('/ingredient', (req, res) => {
   let obj = req.body;
-  cca.db.pushObject(obj, 'ingredient')
-     .then((pushed) => {
-       res.json(pushed);
-     })
-
 });
 
 app.post('/step', (req, res) => {

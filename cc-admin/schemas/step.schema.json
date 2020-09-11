@@ -19,6 +19,8 @@
 
         "type": { "$ref": "type.schema.json" },
 
+        "name": { "$ref": "name.schema.json" },
+
         "ingredients": { "$ref": "ingredientList.schema.json" },
         "time": {
             "type": "object",

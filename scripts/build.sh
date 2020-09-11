@@ -107,9 +107,19 @@ else
 
     printf 'Copying client app build to %s ... \n' "$_dest"
     cp -R "$cca$_client_build" "$cca$_dest"
+    printf 'Done.\n'
 
     printf 'Copying server.js to %s ...\n' "$_dest"
-    printf '%s - \n' "$cca$_dest"
     cp "$cca$_src_server/server.js" "$cca$_dest"
+    printf 'Generating nvmrc...\n'
+    touch .nvmrc
+    echo 'lts/dubnium' > .nvmrc
+    printf 'Done.\n'
+
+    printf 'Creating and compressing dir archive...\n'
+    tar -Jcf "$cca/build.tar.xz" .nvmrc -- *
+    printf 'Done.\n'
+
+    printf '%s - \n' "$cca$_dest"
     ls "$cca$_dest"
 fi
