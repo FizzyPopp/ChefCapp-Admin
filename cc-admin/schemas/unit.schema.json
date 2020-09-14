@@ -58,8 +58,9 @@
 
         "conversionFactorTo": {
             "type": "object",
-            "description": "conversion factors from the default unit to other classes",
+            "description": "conversion factors from the standard SI to other classes",
             "properties": {
+                "default": { "type": "number", "exclusiveMinimum": 0 },
                 "cooking": { "type": "number", "exclusiveMinimum": 0 },
                 "portion": { "type": "number", "exclusiveMinimum": 0 },
                 "storage": { "type": "number", "exclusiveMinimum": 0 },

@@ -302,12 +302,11 @@ let _pushStep = (candidate) => {
                     let dbIngredient = _db.collection('ingredient').where('id', '==', id);
                     dbIngredient.onSnapshot((snap) => {
                         if (snap.size == 0) {
-                            // ret.errors.push('ingredient with id ' + id + ' is required in step ' + step.);
+                            ret.errors.push('ingredient with id ' + id + ' is required in a step, but cannot be found in database.');
                         }
                     });
                 });
-                if (ret.errors === null) {
-
+                if (ret.errors.size == 0) {
                 }
                 break;
             case 'recipe':
