@@ -49,7 +49,10 @@ app.post('/ingredient', (req, res) => {
   let obj = req.body;
 });
 
-app.post('/step', (req, res) => {
+app.post('/echo', (req, res) => {
+  msg('recieved request from:' + req.hostname + " ip:" + req.ip);
+  msg('request body:' + req.body);
+  res.sendStatus(200);
 });
 
 

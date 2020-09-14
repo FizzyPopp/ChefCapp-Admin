@@ -219,7 +219,6 @@ let _hash = (obj) => {
     throw new Error("Not a hashable type: " + obj.type);
 }
 
-
 /**
  * @func canonize
  * Turns a valid database object (recipe, component, ingredient) into its
@@ -289,19 +288,33 @@ let _addUnit = async (unit) => {
     }
 }
 
-let _push = (candidate) => {
+let _pushStep = (candidate) => {
+    ret = {
+        errors: [],
+        obj: {}
+    }
     if (_validate(candidate)){
         switch (candidate.type) {
             case 'ingredient':
-
                 break;
             case 'step':
+                candidate.ingredients.forEach((id)=> {
+                    let dbIngredient = _db.collection('ingredient').where('id', '==', id);
+                    dbIngredient.onSnapshot((snap) => {
+                        if (snap.size == 0) {
+                            // ret.errors.push('ingredient with id ' + id + ' is required in step ' + step.);
+                        }
+                    });
+                });
+                if (ret.errors === null) {
+
+                }
                 break;
             case 'recipe':
                 break;
         }
         _stampObject(candidate).then((ret) => {
-
+            _db.setwhatever
         })
     }
 }
