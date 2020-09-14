@@ -33,13 +33,14 @@ app.get('/', (req, res) => {
 });
 
 app.post('/recipe', (req, res) => {
+
 });
 
 app.post('/validate', (req, res) => {
   let obj = req.body;
   let result = cca.validate(obj);
 
-  msg(req.body);
+  msg('recieved request with body:' + req.body);
   res.json(result);
 });
 
@@ -50,5 +51,7 @@ app.post('/ingredient', (req, res) => {
 
 app.post('/step', (req, res) => {
 });
+
+
 
 app.listen(port);

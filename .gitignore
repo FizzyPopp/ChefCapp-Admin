@@ -70,6 +70,7 @@ secrets/
 
 # don't bother uploading staging/dev directories
 public/admin/staging/
+build.tar.xz
 
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*

@@ -43,6 +43,8 @@ for (let key in _schemas.list) {
     _schemas.validate[key] = _ajv.compile(_schemas.list[key]);
 }
 
+
+
 /**
  * @function authenticate
  *
@@ -55,6 +57,7 @@ let _authenticate = (idToken) => {
          .catch((error) => {
          });
 }
+
 
 
 /**
@@ -84,65 +87,23 @@ _db.getObject = (colName, id) => {
  *
  * @exports
  */
-_db.pushObject = async function(object, type) {
-    let ret = {
-        id: uuid.NIL,
-        hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', //this is the sha256 hash of empty string
-        errors: false,
-        validity: false,
-        timestamp: -1,
-        obj: {}
-    };
 
-    if (object.type === type && dbTypes.includes(object.type)) {
-        console.log(object.type);
-        ret.validity = _schemas.validate[object.type](object);
-
-        if ( ret.validity ) {
-            const objectCollection = object.type;
-            object.hash = _hash(object);
-            console.log(object.hash);
-
-            const collectionRef = await _db.collection(objectCollection)
-            const sameHashRef = collectionRef.doc(object.hash);
-            const sameHash = await sameHashRef.get()
-
-            if (!sameHash.exists) { //skip upload if there's already a document with the same hash
-                ret.hash = object.hash
-
-                if (object.id === ret.id) {
-                    object.id = uuid.v4();
-                    ret.id = object.id;
-                }
-
-                object.timestamp = Date.now();
-                ret.timestamp = object.timestamp;
-
-                _db.collection(objectCollection).doc(object.hash).set(object)
-                   .then((time) => { ret.writeTime = time; })
-                   .catch((err) => { ret.errors = err; })
-                ret.obj = object;
-            } else {
-                ret.errors = "Object with same hash found, push not attempted."
-            }
-        } else {
-            ret.errors = _ajv.errors;
-        }
-    } else {
-        ret.validity = false;
-        ret.errors = "Input object does not have a valid type field: " + JSON.stringify(object);
-    }
-
-    return new Promise ((resolve, reject) => {
-        if (ret.errors === false)
-        { resolve(ret); }
-        else
-        { reject(ret); }
-    })
-}
 
 _db.buildIngredient = (candidate) => {
+    //theoretical pathway:
+    // -> request with obj -> validate -> build -> push ->
+    //
+    let isValid = _schemas.validate.ingredient(candidate);
+    let ingredient = {};
+    if(ret.isValid) {
+        if ( candidate.unit.unitCategory === 'SI' ) {
 
+        }
+        if ( candidate.unit.cooking ) {
+            ingredient.unit.singular = candidate.unit.cooking
+        } else {
+        }
+    }
 }
 
 _db.buildRecipe = (candidate) => {
@@ -187,6 +148,58 @@ _db.find = (candidate) => {
     } catch (err) { return ret; }
 };
 
+let _stampObject = async (object, type) => {
+    let ret = {
+        id: uuid.NIL,
+        hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', //this is the sha256 hash of empty string
+        errors: false,
+        validity: false,
+        timestamp: -1,
+        obj: {}
+    };
+
+    if (object.type === type && dbTypes.includes(object.type)) {
+        console.log(object.type);
+        ret.validity = _schemas.validate[object.type](object);
+
+        if ( ret.validity ) {
+            const objectCollection = object.type;
+            object.hash = _hash(object);
+            console.log(object.hash);
+
+            const collectionRef = _db.collection(objectCollection)
+            const sameHashRef = collectionRef.doc(object.hash);
+            const sameHash = await sameHashRef.get()
+
+            if (!sameHash.exists) { //skip upload if there's already a document with the same hash
+                ret.hash = object.hash
+
+                if (object.id === ret.id) {
+                    object.id = uuid.v4();
+                    ret.id = object.id;
+                }
+
+                object.timestamp = Date.now();
+                ret.timestamp = object.timestamp;
+                ret.obj = object;
+            } else {
+                ret.errors = "Object with same hash found, push not attempted."
+            }
+        } else {
+            ret.errors = _ajv.errors;
+        }
+    } else {
+        ret.validity = false;
+        ret.errors = "Input object does not have a valid type field: " + JSON.stringify(object);
+    }
+
+    return new Promise ((resolve, reject) => {
+        if (ret.errors === false)
+        { resolve(ret); }
+        else
+        { reject(ret); }
+    })
+}
 
 /**
  * @func hash
@@ -264,6 +277,34 @@ let _validate = (candidate) => {
     return ret;
 };
 
+let _addUnit = async (unit) => {
+    let specificUnitRef = _db.collection('ingredient-metadata').doc('specific-units');
+    if (typeof unit === 'string'){
+        specificUnitRef.get().then((doc) => {
+            let newkeys = doc.get('keys');
+            if (!newkeys.includes(unit)){
+                newkeys.push(unit);
+            }
+        })
+    }
+}
+
+let _push = (candidate) => {
+    if (_validate(candidate)){
+        switch (candidate.type) {
+            case 'ingredient':
+
+                break;
+            case 'step':
+                break;
+            case 'recipe':
+                break;
+        }
+        _stampObject(candidate).then((ret) => {
+
+        })
+    }
+}
 
 /**
  * @namespace exports

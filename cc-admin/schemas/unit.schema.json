@@ -6,8 +6,6 @@
     "description": "unit object which contains any unit that may be used to refer to a specific ingredient",
 
     "required": [
-        "singular",
-        "plural",
         "measurementType",
         "conversionFactorTo"
     ],
@@ -21,6 +19,26 @@
         "plural": {
             "description": "The most commonly used plural unit used to describe the ingredient",
             "type": "string"
+        },
+
+        "cooking": {
+            "description": "Smallest usable unit for a given ingredient.",
+            "$ref": "name.schema.json"
+        },
+
+        "portion": {
+            "description": "Unit scale fit for roughly one person for one meal.",
+            "$ref": "name.schema.json"
+        },
+
+        "storage": {
+            "description": "The amount that comes from an average grocery store purchase.",
+            "$ref": "name.schema.json"
+        },
+
+        "bulk": {
+            "description": "The amount that comes from an average costco purchase.",
+            "$ref": "name.schema.json"
         },
 
         "unitCategory": {
@@ -47,30 +65,6 @@
                 "storage": { "type": "number", "exclusiveMinimum": 0 },
                 "bulk": { "type": "number", "exclusiveMinimum": 0 },
                 "SI": { "type": "number", "exclusiveMinimum": 0 }
-            }
-        },
-        "additional": {
-            "type": "object",
-            "properties": {
-                "cooking": {
-                    "description": "Smallest usable unit for a given ingredient.",
-                    "$ref": "name.schema.json"
-                },
-
-                "portion": {
-                    "description": "Unit scale fit for roughly one person for one meal.",
-                    "$ref": "name.schema.json"
-                },
-
-                "storage": {
-                    "description": "The amount that comes from an average grocery store purchase.",
-                    "$ref": "name.schema.json"
-                },
-
-                "bulk": {
-                    "description": "The amount that comes from an average costco purchase.",
-                    "$ref": "name.schema.json"
-                }
             }
         }
     }
