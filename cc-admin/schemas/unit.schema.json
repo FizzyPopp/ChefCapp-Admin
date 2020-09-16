@@ -6,8 +6,9 @@
     "description": "unit object which contains any unit that may be used to refer to a specific ingredient",
 
     "required": [
-        "measurementType",
-        "conversionFactorTo"
+        "singular",
+        "plural",
+        "measurementType"
     ],
 
     "properties": {
