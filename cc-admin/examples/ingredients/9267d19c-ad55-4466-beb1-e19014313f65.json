@@ -2,11 +2,8 @@
     "id": "9267d19c-ad55-4466-beb1-e19014313f65",
     "type": "ingredient",
     "name": {
-        "singular": "Pepper"
-    },
-
-    "completeName": {
-        "singular": "Black Peppercorn"
+        "singular": "Pepper",
+        "plural": "Pepper"
     },
 
     "category": "oils and condiments",

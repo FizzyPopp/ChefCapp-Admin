@@ -8,7 +8,8 @@
     "required": [
         "singular",
         "plural",
-        "measurementType"
+        "measurementType",
+        "unitCategory"
     ],
 
     "properties": {
@@ -16,58 +17,17 @@
             "description": "The most commonly used singular unit used to describe the ingredient, leave this and plural blank if ingredient uses 'name' verbiage",
             "type": "string"
         },
-
         "plural": {
             "description": "The most commonly used plural unit used to describe the ingredient",
             "type": "string"
         },
-
-        "cooking": {
-            "description": "Smallest usable unit for a given ingredient.",
-            "$ref": "name.schema.json"
-        },
-
-        "portion": {
-            "description": "Unit scale fit for roughly one person for one meal.",
-            "$ref": "name.schema.json"
-        },
-
-        "storage": {
-            "description": "The amount that comes from an average grocery store purchase.",
-            "$ref": "name.schema.json"
-        },
-
-        "bulk": {
-            "description": "The amount that comes from an average costco purchase.",
-            "$ref": "name.schema.json"
-        },
-
         "unitCategory": {
             "description": "How units behaves grammatically: whole -> 2 potatoes, specific -> 1 clove of garlic, SI -> 1L of milk",
             "$ref": "vocabulary.unitCategory.schema.json"
         },
-
         "measurementType": {
             "description": "What type of physics unit - mass, volume, etc.",
             "$ref": "vocabulary.measurementType.schema.json"
-        },
-
-        "density": {
-            "description": "SI standard kg/m^3",
-            "type": "number"
-        },
-
-        "conversionFactorTo": {
-            "type": "object",
-            "description": "conversion factors from the standard SI to other classes",
-            "properties": {
-                "default": { "type": "number", "exclusiveMinimum": 0 },
-                "cooking": { "type": "number", "exclusiveMinimum": 0 },
-                "portion": { "type": "number", "exclusiveMinimum": 0 },
-                "storage": { "type": "number", "exclusiveMinimum": 0 },
-                "bulk": { "type": "number", "exclusiveMinimum": 0 },
-                "SI": { "type": "number", "exclusiveMinimum": 0 }
-            }
         }
     }
 }

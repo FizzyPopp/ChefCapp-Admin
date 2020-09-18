@@ -4,6 +4,7 @@ var express = require('express');
 var cors = require('cors')
 var cca = require('cc-admin');
 var msg = console.log;
+var strfy = JSON.stringify;
 const port = 3000;
 let corsOrigin = 'http://ec2-18-191-186-158.us-east-2.compute.amazonaws.com';
 
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
   res.send('index.html');
 });
 
-app.post('/recipe', (req, res) => {
+app.post('/recipe/add', (req, res) => {
 
 });
 
@@ -45,8 +46,22 @@ app.post('/validate', (req, res) => {
 });
 
 
-app.post('/ingredient', (req, res) => {
+app.post('/ingredient/add', (req, res) => {
   let obj = req.body;
+  cca.db.stampObject(obj, 'ingredient')
+     .then((ret) => {
+       msg('object stamped: ' + strfy(ret));
+       let candidate = ret.obj;
+       return cca.db.pushIngredient(candidate)
+     }).then((ret) => {
+       msg('object pushed: ' + strfy(ret));
+       res.send(ret)
+     })
+     .catch((ret) => {
+       msg('err found: ' + strfy(ret));
+       msg(strfy(ret));
+       res.send(ret.errors)
+     })
 });
 
 app.post('/echo', (req, res) => {

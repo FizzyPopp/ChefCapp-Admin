@@ -89,22 +89,6 @@ _db.getObject = (colName, id) => {
  */
 
 
-_db.buildIngredient = (candidate) => {
-    //theoretical pathway:
-    // -> request with obj -> validate -> build -> push ->
-    //
-    let isValid = _schemas.validate.ingredient(candidate);
-    let ingredient = {};
-    if(ret.isValid) {
-        if ( candidate.unit.unitCategory === 'SI' ) {
-
-        }
-        if ( candidate.unit.cooking ) {
-            ingredient.unit.singular = candidate.unit.cooking
-        } else {
-        }
-    }
-}
 
 _db.buildRecipe = (candidate) => {
     let isValid = _schemas.validate.recipe(candidate);
@@ -148,6 +132,19 @@ _db.find = (candidate) => {
     } catch (err) { return ret; }
 };
 
+let _buildIngredient = (candidate) => {
+    let ingredient = {};
+    if(ret.isValid) {
+        if ( candidate.unit.unitCategory === 'SI' ) {
+
+        }
+        if ( candidate.unit.cooking ) {
+            ingredient.unit.singular = candidate.unit.cooking
+        } else {
+        }
+    }
+}
+
 let _stampObject = async (object, type) => {
     let ret = {
         id: uuid.NIL,
@@ -173,17 +170,17 @@ let _stampObject = async (object, type) => {
 
             if (!sameHash.exists) { //skip upload if there's already a document with the same hash
                 ret.hash = object.hash
-
-                if (object.id === ret.id) {
+                if (object.id === uuid.NIL) {
                     object.id = uuid.v4();
-                    ret.id = object.id;
                 }
+                ret.id = object.id;
 
                 object.timestamp = Date.now();
                 ret.timestamp = object.timestamp;
+
                 ret.obj = object;
             } else {
-                ret.errors = "Object with same hash found, push not attempted."
+                ret.errors = "Object with same hash found."
             }
         } else {
             ret.errors = _ajv.errors;
@@ -195,8 +192,10 @@ let _stampObject = async (object, type) => {
 
     return new Promise ((resolve, reject) => {
         if (ret.errors === false)
-        { resolve(ret); }
-        else
+        {
+            ret.errors = null;
+            resolve(ret);
+        } else
         { reject(ret); }
     })
 }
@@ -287,35 +286,53 @@ let _addUnit = async (unit) => {
         })
     }
 }
-
-let _pushStep = (candidate) => {
-    ret = {
+let _pushIngredient = async (candidate) => {
+    let ret = {
         errors: [],
+        recipeCandidate: candidate
+    }
+    const candidateRef = _db.collection('ingredient').doc(candidate.hash)
+    return candidateRef.set(candidate)
+}
+let _pushStep = async (candidate) => {
+    let ret = {
+        errors: [],
+        recipeCandidate: {},
         obj: {}
+    };
+
+    if (Array.isArray(candidate) === false) {
+        ret.errors.push('candidate is not an array: ' + JSON.stringify(candidate));
+        reject(ret);
     }
-    if (_validate(candidate)){
-        switch (candidate.type) {
-            case 'ingredient':
-                break;
-            case 'step':
-                candidate.ingredients.forEach((id)=> {
-                    let dbIngredient = _db.collection('ingredient').where('id', '==', id);
-                    dbIngredient.onSnapshot((snap) => {
-                        if (snap.size == 0) {
-                            ret.errors.push('ingredient with id ' + id + ' is required in a step, but cannot be found in database.');
-                        }
-                    });
-                });
-                if (ret.errors.size == 0) {
-                }
-                break;
-            case 'recipe':
-                break;
-        }
-        _stampObject(candidate).then((ret) => {
-            _db.setwhatever
-        })
+
+    let id = {
+        prev: uuid.NIL,
+        next: uuid.NIL
+    };
+
+    let stampedSteps = [];
+    let head = candidate[0];
+    if (head.id === uuid.NIL) {
+        head.id = uuid.v4();
+    } else {
+        id.next = head.next;
     }
+    id.prev = head.id;
+    if (candidate[1].id === head.next) {
+        _stampObject(head)
+            .then((ret) => {
+
+            })
+            .catch((ret) => reject(ret));
+    }
+
+    for (let i = 0 ; i < candidate.size ; i++) {
+
+    }
+
+    _stampObject(candidate).then((ret) => {
+    })
 }
 
 /**
@@ -337,3 +354,5 @@ exports.name = 'cc-admin';
 exports.schemas = _schemas;
 exports.validate = _validate;
 exports.hash = _hash;
+exports.db.stampObject = _stampObject;
+exports.db.pushIngredient = _pushIngredient;

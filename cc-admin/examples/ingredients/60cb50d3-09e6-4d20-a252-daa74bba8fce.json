@@ -2,11 +2,8 @@
     "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
     "type": "ingredient",
     "name": {
-        "singular": "Salt"
-    },
-
-    "completeName": {
-        "singular": "Table Salt"
+        "singular": "Salt",
+        "plural": "Salt"
     },
 
     "category": "oils and condiments",

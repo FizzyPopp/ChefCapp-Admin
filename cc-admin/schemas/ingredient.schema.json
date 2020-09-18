@@ -42,13 +42,52 @@
             "description": "Grocery store categories this ingredient belongs to.",
             "$ref": "vocabulary.ingredientCategory.schema.json"
         },
-        "unit": {
-            "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
-            "$ref": "unit.schema.json"
-        },
         "tags": {
             "type": "array",
             "items": { "type": "string" }
+        },
+        "unit": {
+            "type": "object",
+            "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
+            "properties": {
+                "density": {
+                    "description": "SI standard kg/m^3",
+                    "type": "number"
+                },
+
+                "cooking": {
+                    "description": "Smallest usable unit for a given ingredient.",
+                    "$ref": "name.schema.json"
+                },
+
+                "portion": {
+                    "description": "Unit scale fit for roughly one person for one meal.",
+                    "$ref": "name.schema.json"
+                },
+
+                "storage": {
+                    "description": "The amount that comes from an average grocery store purchase.",
+                    "$ref": "name.schema.json"
+                },
+
+                "bulk": {
+                    "description": "The amount that comes from an average costco purchase.",
+                    "$ref": "name.schema.json"
+                },
+
+                "conversionFactorTo": {
+                    "type": "object",
+                    "description": "conversion factors from the standard SI to other classes",
+                    "properties": {
+                        "default": { "type": "number", "exclusiveMinimum": 0 },
+                        "cooking": { "type": "number", "exclusiveMinimum": 0 },
+                        "portion": { "type": "number", "exclusiveMinimum": 0 },
+                        "storage": { "type": "number", "exclusiveMinimum": 0 },
+                        "bulk": { "type": "number", "exclusiveMinimum": 0 }
+                    }
+                }
+
+            }
         }
     }
 }
