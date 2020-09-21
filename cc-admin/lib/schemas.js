@@ -1,5 +1,8 @@
 'use strict'
 
+const msg = require('./utils/msg').name('SCHEMAS');
+const strfy = require('./utils/strfy').space(2);
+
 var fs = require('fs');
 var path = require('path');
 
@@ -64,7 +67,7 @@ exports.init = (root) => {
         fileList.forEach ((file) => {
             if (file.match(_schemaRegExp)) {
                 let uri = path + file;
-                // console.log('Importing schema: ' + uri);
+                // msg('Importing schema: ' + uri);
 
                 var schema = require(uri);
                 // schema.path = uri;

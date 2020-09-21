@@ -23,6 +23,8 @@
             "name",
             "copy",
             "name",
+            "copy",
+            "name",
             "copy"
         ],
         "copy": [
@@ -30,70 +32,25 @@
             ", halved ",
             ", half the ",
             " and remaining ",
-            " in the pan with ground beef. Stir together."
+            " in the pan with ",
+            ". Stir together."
         ],
         "name": [
             "potatoes",
             "tomatoes",
             "green onions",
-            "parsley"
+            "parsley",
+            "ground beef"
         ],
         "quantity": [],
         "unit": [],
         "time": [],
-        "mentionedIngredientList": {
-            "keys": [
-                "402dd73d-8296-4136-9f53-1a5276d09728",
-                "68faa9f3-bc96-4d2f-9827-edb16385c44a",
-                "74143f94-79c3-486c-893d-9f0a571f80e2",
-                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
-                "b31b314f-4c12-435f-a6d0-d49a9b15faa1"
-            ],
-            "402dd73d-8296-4136-9f53-1a5276d09728": {
-                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
-                "name": {
-                    "singular": "Baby Potato",
-                    "plural": "Baby Potatoes"
-                },
-                "unit": "",
-                "quantity": 0
-            },
-            "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
-                "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
-                "name": {
-                    "singular": "Cherry Tomato",
-                    "plural": "Cherry Tomatoes"
-                },
-                "unit": "g",
-                "quantity": 0
-            },
-            "74143f94-79c3-486c-893d-9f0a571f80e2": {
-                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
-                "name": {
-                    "singular": "Green Onion",
-                    "plural": "Green Onions"
-                },
-                "unit": "",
-                "quantity": 0
-            },
-            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
-                "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
-                "name": {
-                    "singular": "Parsley",
-                    "plural": "Parsley"
-                },
-                "unit": "g",
-                "quantity": 0
-            },
-            "b31b314f-4c12-435f-a6d0-d49a9b15faa1": {
-                "id": "b31b314f-4c12-435f-a6d0-d49a9b15faa1",
-                "name": {
-                    "singular": "Ground Beef",
-                    "plural": "Ground Beef"
-                },
-                "unit": "g",
-                "quantity": 0
-            }
-        }
+        "mentionedIngredientList": [
+            "402dd73d-8296-4136-9f53-1a5276d09728",
+            "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+            "74143f94-79c3-486c-893d-9f0a571f80e2",
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+            "b31b314f-4c12-435f-a6d0-d49a9b15faa1"
+        ]
     }
 }

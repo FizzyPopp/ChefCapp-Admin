@@ -21,7 +21,12 @@
                 "singular": "Peanut Oil",
                 "plural": "Peanut Oil"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 1
         }
     },
@@ -53,29 +58,9 @@
         ],
         "quantity": [],
         "time": [ "2-3 min" ],
-        "mentionedIngredientList": {
-            "keys": [
-                "67054860-6770-4085-95c7-3ef82d9a2d93",
-                "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd"
-            ],
-            "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
-                "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
-                "name": {
-                    "singular": "Yellow Onion",
-                    "plural": "Yellow Onions"
-                },
-                "unit": "",
-                "quantity": 1
-            },
-            "67054860-6770-4085-95c7-3ef82d9a2d93": {
-                "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
-                "name": {
-                    "singular": "Oil",
-                    "plural": "Oil"
-                },
-                "unit": "tbsp",
-                "quantity": 1
-            }
-        }
+        "mentionedIngredientList": [
+            "67054860-6770-4085-95c7-3ef82d9a2d93",
+            "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd"
+        ]
     }
 }

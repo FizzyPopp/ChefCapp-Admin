@@ -8,13 +8,14 @@
     "category": "oils and condiments",
 
     "unit": {
-        "singular": "tbsp",
-        "plural": "tbsp",
-        "unitCategory": "SI",
+        "portion": {
+            "singular": "tbsp",
+            "plural": "tbsp",
+            "unitCategory": "SI"
+        },
         "measurementType": "volume",
         "conversionFactorTo": {
-            "SI": 0.0147868
-        },
-        "SI": "L"
+            "portion": 67.627884329
+        }
     }
 }

@@ -42,13 +42,16 @@
             "description": "Grocery store categories this ingredient belongs to.",
             "$ref": "vocabulary.ingredientCategory.schema.json"
         },
+       
         "tags": {
             "type": "array",
             "items": { "type": "string" }
         },
+
         "unit": {
             "type": "object",
             "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
+           
             "properties": {
                 "density": {
                     "description": "SI standard kg/m^3",
@@ -57,22 +60,42 @@
 
                 "cooking": {
                     "description": "Smallest usable unit for a given ingredient.",
-                    "$ref": "name.schema.json"
+                    "type": "object",
+                    "properties": {
+                        "singular": { "type": "string" },
+                        "singular": { "type": "string" },
+                        "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
+                    }
                 },
 
                 "portion": {
                     "description": "Unit scale fit for roughly one person for one meal.",
-                    "$ref": "name.schema.json"
+                    "type": "object",
+                    "properties": {
+                        "singular": { "type": "string" },
+                        "singular": { "type": "string" },
+                        "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
+                    }
                 },
 
                 "storage": {
                     "description": "The amount that comes from an average grocery store purchase.",
-                    "$ref": "name.schema.json"
+                    "type": "object",
+                    "properties": {
+                        "singular": { "type": "string" },
+                        "singular": { "type": "string" },
+                        "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
+                    }
                 },
 
                 "bulk": {
                     "description": "The amount that comes from an average costco purchase.",
-                    "$ref": "name.schema.json"
+                    "type": "object",
+                    "properties": {
+                        "singular": { "type": "string" },
+                        "singular": { "type": "string" },
+                        "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
+                    }
                 },
 
                 "conversionFactorTo": {
@@ -86,7 +109,6 @@
                         "bulk": { "type": "number", "exclusiveMinimum": 0 }
                     }
                 }
-
             }
         }
     }

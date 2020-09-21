@@ -8,13 +8,14 @@
     "category": "produce",
 
     "unit": {
-        "singular": "",
-        "plural": "",
-        "unitCategory": "whole",
+        "cooking": {
+            "singular": "",
+            "plural": "",
+            "unitCategory": "whole"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
             "SI": 0.12
-        },
-        "SI": "kg"
+        }
     }
 }

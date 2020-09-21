@@ -19,15 +19,20 @@
     },
 
     "unit": {
-        "singular": "",
-        "plural": "",
-        "SI": "kg",
-        "unitCategory": "whole",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
+        "portion": {
+            "singular": "",
+            "plural": "",
+            "unitCategory": "whole"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "SI": 0.011
-        },
-        "additional": {
+            "cooking": 1000,
+            "portion": 90.909090909
         }
     }
 }

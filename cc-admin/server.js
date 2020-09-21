@@ -34,42 +34,79 @@ app.get('/', (req, res) => {
 });
 
 app.post('/recipe/add', (req, res) => {
-
+    let steps = req.body.steps;
+    let recipe = req.body.recipe;
+    // msg('recipe candidate: ' + strfy(recipe));
+    let result = cca.db.confirmRecipe(recipe, steps)
+    if (result.validity === true) {
+        cca.db.pushRecipe(recipe, steps)
+           .then((ret) => res.json(ret))
+           .catch((ret) => res.json(ret));
+    } else {
+        res.json(result);
+    }
 });
 
-app.post('/validate', (req, res) => {
-  let obj = req.body;
-  let result = cca.validate(obj);
 
-  msg('recieved request with body:' + req.body);
-  res.json(result);
-});
+app.post('/recipe/build', (req, res) => {
+    let candidate = req.body;
+    // msg('got request with body: ' + strfy(candidate));
+    cca.db.buildRecipe(candidate)
+       .then((ret) => res.json(ret))
+       .catch((ret) => res.json(ret));
+})
 
+app.post('/instruction/parse', (req, res) => {
+    let instr = req.body;
+    let instructions = cca.parser.transform(instr);
+    // msg('request body:' + strfy(req.body));
+    msg('transformed instructions:' + strfy(instructions));
+    res.json(instructions);
+})
 
 app.post('/ingredient/add', (req, res) => {
-  let obj = req.body;
-  cca.db.stampObject(obj, 'ingredient')
-     .then((ret) => {
-       msg('object stamped: ' + strfy(ret));
-       let candidate = ret.obj;
-       return cca.db.pushIngredient(candidate)
-     }).then((ret) => {
-       msg('object pushed: ' + strfy(ret));
-       res.send(ret)
-     })
-     .catch((ret) => {
-       msg('err found: ' + strfy(ret));
-       msg(strfy(ret));
-       res.send(ret.errors)
-     })
+    let obj = req.body;
+    cca.db.stampObject(obj, 'ingredient')
+       .then((ret) => {
+           msg('object stamped: ' + strfy(ret));
+           let candidate = ret.obj;
+           return cca.db.pushIngredient(candidate)
+       }).then((ret) => {
+           msg('object pushed: ' + strfy(ret));
+           res.json(ret)
+       })
+       .catch((ret) => {
+           msg('err found: ' + strfy(ret));
+           msg(strfy(ret));
+           res.json(ret.errors)
+       })
 });
 
 app.post('/echo', (req, res) => {
-  msg('recieved request from:' + req.hostname + " ip:" + req.ip);
-  msg('request body:' + req.body);
-  res.sendStatus(200);
+    msg('recieved request from:' + req.hostname + " ip:" + req.ip);
+    msg('request body:' + strfy(req.body));
+    res.sendStatus(200);
 });
 
+app.post('/validate', (req, res) => {
+    let obj = req.body;
+    let result = cca.validate(obj);
+
+    msg('recieved request with body:' + req.body);
+    res.json(result);
+});
+
+app.post('/validate/step/instructionString', (req, res) => {
+    let obj = req.body;
+    let instr = obj.instructions;
+    let instrObj = cca.parser.transform(instr);
+
+    obj.instructions = instrObj
+
+    let result = cca.validate(obj);
+    msg('recieved request with body:' + req.body);
+    res.json(result);
+});
 
 
 app.listen(port);

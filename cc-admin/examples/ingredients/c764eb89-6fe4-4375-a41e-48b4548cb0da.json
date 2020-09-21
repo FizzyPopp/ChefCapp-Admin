@@ -9,20 +9,20 @@
     "category": "oils and condiments",
 
     "unit": {
-        "singular": "tbsp",
-        "plural": "tbsp",
-        "SI": "L",
-        "unitCategory": "SI",
+        "cooking": {
+            "singular": "tbsp",
+            "plural": "tbsp",
+            "unitCategory": "SI"
+        },
+        "portion": {
+            "singular": "cup",
+            "plural": "cups",
+            "unitCategory": "SI"
+        },
         "measurementType": "volume",
         "conversionFactorTo": {
-            "cooking": 0.0625,
-            "SI": 0.0147867648
-        },
-        "additional": {
-            "cooking": {
-                "singular": "cup",
-                "plural": "cups"
-            }
+            "cooking": 32,
+            "portion": 4
         }
     }
 }

@@ -9,20 +9,20 @@
     "category": "produce",
 
     "unit": {
-        "singular": "",
-        "plural": "",
-        "SI": "kg",
-        "unitCategory": "whole",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
+        "portion": {
+            "singular": "",
+            "plural": "",
+            "unitCategory": "whole"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "portion": 0.5,
-            "SI": 0.15
-        },
-        "additional": {
-            "portion": {
-                "singular": "half",
-                "plural": "halves"
-            }
+            "cooking": 1000,
+            "portion": 6.666666667
         }
     }
 }

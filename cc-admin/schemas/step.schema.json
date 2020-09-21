@@ -43,8 +43,7 @@
 
             "required": [
                 "abstract",
-                "copy",
-                "mentionedIngredientList"
+                "copy"
             ],
 
             "properties": {
@@ -63,7 +62,12 @@
 
                 "time": { "type":  "array", "items": { "type": "string" } },
 
-                "mentionedIngredientList": { "$ref": "ingredientList.schema.json" }
+                "mentionedIngredientList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
             }
         }
     }

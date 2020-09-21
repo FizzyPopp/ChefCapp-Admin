@@ -10,13 +10,14 @@
     "density": 850,
 
     "unit": {
-        "singular": "g",
-        "plural": "g",
-        "unitCategory": "SI",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "SI": 0.001
-        },
-        "SI": "kg"
+            "SI": 1000
+        }
     }
 }

@@ -9,20 +9,20 @@
     "category": "meat and seafood",
 
     "unit": {
-        "singular": "",
-        "plural": "",
-        "SI": "kg",
-        "measurementType": "mass",
-        "unitCategory": "whole",
-        "conversionFactorTo": {
-            "bulk": 0.0833,
-            "SI": 0.05
+        "cooking": {
+            "singular": "",
+            "plural": "",
+            "unitCategory": "whole"
         },
-        "additional": {
-            "bulk": {
-                "singular": "dozen",
-                "plural": "dozens"
-            }
+        "bulk": {
+            "singular": "dozen",
+            "plural": "dozens",
+            "unitCategory": "specific"
+        },
+        "measurementType": "mass",
+        "conversionFactorTo": {
+            "cooking": 5,
+            "bulk": 1.666666667
         }
     }
 }

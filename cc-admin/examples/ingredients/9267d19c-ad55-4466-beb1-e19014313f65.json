@@ -15,14 +15,15 @@
     ],
 
     "unit": {
-        "singular": "g",
-        "plural": "g",
-        "SI": "kg",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
         "measurementType": "mass",
-        "unitCategory": "SI",
         "density": 480,
         "conversionFactorTo": {
-            "SI": 0.001
+            "SI": 1000
         }
     }
 }

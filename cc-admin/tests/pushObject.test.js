@@ -5,11 +5,15 @@ const root = __dirname + '/../';
 var exroot = root + 'examples/';
 var exdirs = [
     exroot + 'steps/',
-    exroot + 'ingredients/',
+    // exroot + 'ingredients/',
     exroot + 'recipes/'
 ];
 var reJson = /\.json$/;
 var examples = [];
+const msg = require('../lib/utils/msg')
+      .name('PUSHTEST');
+const strfy = require('../lib/utils/strfy')
+      .space(2);
 
 /**
  * Programmatically trawl through the example directories and load in each object
@@ -20,7 +24,7 @@ exdirs.forEach ((path) => {
     fileList.forEach ((file) => {
         if (file.match(reJson)) {
             let uri = path + file;
-            // console.log('Importing obj: ' + uri);
+            // msg('Importing obj: ' + uri);
             let obj = require(uri);
 
             examples.push(obj);
@@ -29,11 +33,16 @@ exdirs.forEach ((path) => {
 });
 
 examples.forEach((obj) => {
-    cca.db.pushObject(obj, obj.type)
-       .then((ret) => {
-           console.log(ret);
-       })
-       .catch((err) => {
-           console.log(err);
-       });
+    cca.db.stampObject(obj, obj.type)
+       .then((stamped) => {
+           msg('stamped obj: ' + strfy(stamped));
+           cca.db.pushObject(stamped.obj, stamped.obj.type) })
+        .then((ret) => {
+            msg('returned: ' + strfy(ret));
+        })
+        .catch((err) => {
+            msg('returned');
+            msg(err.obj.id);
+            msg('got error: ' + strfy(err.errors));
+        });
 });

@@ -8,13 +8,14 @@
     "category": "produce",
 
     "unit": {
-        "singular": "g",
-        "plural": "g",
-        "unitCategory": "SI",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "SI": 0.001
-        },
-        "SI": "kg"
+            "cooking": 1000
+        }
     }
 }

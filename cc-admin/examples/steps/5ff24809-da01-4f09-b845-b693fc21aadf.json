@@ -27,19 +27,8 @@
         "quantity": [],
         "unit": [],
         "time": [],
-        "mentionedIngredientList": {
-            "keys": [
-                "74143f94-79c3-486c-893d-9f0a571f80e2"
-            ],
-            "74143f94-79c3-486c-893d-9f0a571f80e2": {
-                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
-                "name": {
-                    "singular": "Green Onion",
-                    "plural": "Green Onions"
-                },
-                "unit": "",
-                "quantity": 0
-            }
-        }
+        "mentionedIngredientList": [
+            "74143f94-79c3-486c-893d-9f0a571f80e2"
+        ]
     }
 }

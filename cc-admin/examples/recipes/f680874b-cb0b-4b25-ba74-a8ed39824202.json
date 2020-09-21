@@ -43,7 +43,12 @@
             "name": {
                 "singular": "Ground Beef"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 500
         },
         "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
@@ -52,7 +57,12 @@
                 "singular": "Egg",
                 "plural": "Eggs"
             },
-            "unit": "",
+            "unit": {
+                "singular": "",
+                "plural": "",
+                "measurementType": "mass",
+                "unitCategory": "whole"
+            },
             "quantity": 4
         },
         "402dd73d-8296-4136-9f53-1a5276d09728": {
@@ -61,7 +71,12 @@
                 "singular": "Baby Potato",
                 "plural": "Baby Potatoes"
             },
-            "unit": "",
+            "unit": {
+                "singular": "",
+                "plural": "",
+                "measurementType": "mass",
+                "unitCategory": "whole"
+            },
             "quantity": 8
         },
         "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
@@ -70,7 +85,12 @@
                 "singular": "Yellow Onion",
                 "plural": "Yellow Onions"
             },
-            "unit": "",
+            "unit": {
+                "singular": "",
+                "plural": "",
+                "measurementType": "mass",
+                "unitCategory": "whole"
+            },
             "quantity": 1
         },
         "168c32e7-4171-468f-82e9-08d2e4f69431": {
@@ -79,7 +99,12 @@
                 "singular": "Green Bell Pepper",
                 "plural": "Green Bell Peppers"
             },
-            "unit": "",
+            "unit": {
+                "singular": "",
+                "plural": "",
+                "measurementType": "mass",
+                "unitCategory": "whole"
+            },
             "quantity": 2
         },
         "74143f94-79c3-486c-893d-9f0a571f80e2": {
@@ -88,7 +113,12 @@
                 "singular": "Green Onion",
                 "plural": "Green Onions"
             },
-            "unit": "",
+            "unit": {
+                "singular": "sprig",
+                "plural": "sprigs",
+                "measurementType": "mass",
+                "unitCategory": "specific"
+            },
             "quantity": 4
         },
         "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
@@ -97,7 +127,12 @@
                 "singular": "Cherry Tomato",
                 "plural": "Cherry Tomatoes"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 250
         },
         "f46e24db-4886-4dff-9b88-3fa255b12abe": {
@@ -106,7 +141,12 @@
                 "singular": "Garlic",
                 "plural": "Garlic"
             },
-            "unit": "clove",
+            "unit": {
+                "singular": "clove",
+                "plural": "cloves",
+                "measurementType": "mass",
+                "unitCategory": "specific"
+            },
             "quantity": 3
         },
         "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
@@ -115,7 +155,12 @@
                 "singular": "Parsley",
                 "plural": "Parsley"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 15
         },
         "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
@@ -124,7 +169,12 @@
                 "singular": "Butter",
                 "plural": "Butter"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 4
         },
         "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
@@ -133,7 +183,12 @@
                 "singular": "Mayonnaise",
                 "plural": "Mayonnaise"
             },
-            "unit": "cup",
+            "unit": {
+                "singular": "cup",
+                "plural": "cup",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 0.5
         },
         "56c32558-0b80-41f3-87b6-b681d9673756": {
@@ -142,7 +197,12 @@
                 "singular": "Balsamic Vinegar",
                 "plural": "Balsamic Vinegar"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 4
         },
         "635458df-5e1b-464b-84c4-6e491925bb94": {
@@ -151,7 +211,12 @@
                 "singular": "Sugar",
                 "plural": "Sugar"
             },
-            "unit": "tsp",
+            "unit": {
+                "singular": "tsp",
+                "plural": "tsp",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 2
         },
         "67054860-6770-4085-95c7-3ef82d9a2d93": {
@@ -160,7 +225,12 @@
                 "singular": "Peanut Oil",
                 "plural": "Peanut Oil"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 3
         },
         "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
@@ -168,7 +238,12 @@
             "name": {
                 "singular": "Salt"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 0
         },
         "9267d19c-ad55-4466-beb1-e19014313f65": {
@@ -176,12 +251,17 @@
             "name": {
                 "singular": "Pepper"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "measurementType": "mass",
+                "unitCategory": "SI"
+            },
             "quantity": 0
         }
     },
 
-    "components": [
+    "steps": [
         "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
         "1557c8af-276d-4fdc-beea-c16b37fefe00",
         "b28a4893-33b0-4c03-a432-7bbe1752be3c",

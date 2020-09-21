@@ -22,7 +22,12 @@
                 "singular": "Peanut Oil",
                 "plural": "Peanut Oil"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "unitCategory": "SI",
+                "measurementType": "volume"
+            },
             "quantity": 1
         },
         "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
@@ -30,7 +35,12 @@
             "name": {
                 "singular": "Ground Beef"
             },
-            "unit": "g",
+            "unit": {
+                "singular": "g",
+                "plural": "g",
+                "unitCategory": "SI",
+                "measurementType": "mass"
+            },
             "quantity": 500
         }
     },
@@ -86,12 +96,20 @@
             "3-4 min",
             "3-5 min"
         ],
-        "mentionedIngredientList": {
+        "mentionedIngredientList": [
+            "67054860-6770-4085-95c7-3ef82d9a2d93",
+            "168c32e7-4171-468f-82e9-08d2e4f69431",
+            "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+            "f46e24db-4886-4dff-9b88-3fa255b12abe",
+            "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+            "9267d19c-ad55-4466-beb1-e19014313f65"
+        ],
+        "other": {
             "keys": [
                 "67054860-6770-4085-95c7-3ef82d9a2d93",
                 "168c32e7-4171-468f-82e9-08d2e4f69431",
-                "f46e24db-4886-4dff-9b88-3fa255b12abe",
                 "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                "f46e24db-4886-4dff-9b88-3fa255b12abe",
                 "60cb50d3-09e6-4d20-a252-daa74bba8fce",
                 "9267d19c-ad55-4466-beb1-e19014313f65"
             ],
@@ -101,7 +119,12 @@
                     "singular": "Peanut Oil",
                     "plural": "Peanut Oil"
                 },
-                "unit": "tbsp",
+                "unit": {
+                    "singular": "tbsp",
+                    "plural": "tbsp",
+                    "unitCategory": "SI",
+                    "measurementType": "volume"
+                },
                 "quantity": 1
             },
             "168c32e7-4171-468f-82e9-08d2e4f69431": {
@@ -110,23 +133,38 @@
                     "singular": "Green Bell Pepper",
                     "plural": "Green Bell Peppers"
                 },
-                "unit": "",
-                "quantity": 2
+                "unit": {
+                    "singular": "",
+                    "plural": "",
+                    "unitCategory": "whole",
+                    "measurementType": "mass"
+                },
+                "quantity": 0
             },
             "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
                 "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
                 "name": {
                     "singular": "Ground Beef"
                 },
-                "unit": "g",
-                "quantity": 500
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "unitCategory": "SI",
+                    "measurementType": "mass"
+                },
+                "quantity": 0
             },
             "f46e24db-4886-4dff-9b88-3fa255b12abe": {
                 "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
                 "name": {
                     "singular": "Garlic"
                 },
-                "unit": "cloves",
+                "unit": {
+                    "singular": "clove",
+                    "plural": "cloves",
+                    "unitCategory": "specific",
+                    "measurementType": "mass"
+                },
                 "quantity": 2
             },
             "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
@@ -134,7 +172,12 @@
                 "name": {
                     "singular": "Salt"
                 },
-                "unit": "g",
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "unitCategory": "SI",
+                    "measurementType": "mass"
+                },
                 "quantity": 0
             },
             "9267d19c-ad55-4466-beb1-e19014313f65": {
@@ -142,7 +185,12 @@
                 "name": {
                     "singular": "Pepper"
                 },
-                "unit": "g",
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "unitCategory": "SI",
+                    "measurementType": "mass"
+                },
                 "quantity": 0
             }
         }

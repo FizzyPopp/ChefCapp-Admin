@@ -25,7 +25,12 @@
                 "singular": "Balsamic Vinegar",
                 "plural": "Balsamic Vinegar"
             },
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "volume",
+                "unitCategory": "SI"
+            },
             "quantity": 4
         },
         "635458df-5e1b-464b-84c4-6e491925bb94": {
@@ -34,7 +39,12 @@
                 "singular": "Sugar",
                 "plural": "Sugar"
             },
-            "unit": "tsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "volume",
+                "unitCategory": "SI"
+            },
             "quantity": 2
         }
     },
@@ -73,36 +83,9 @@
         "time": [
             "7-9 min"
         ],
-        "mentionedIngredientList": {
-            "keys": [
-                "56c32558-0b80-41f3-87b6-b681d9673756",
-                "635458df-5e1b-464b-84c4-6e491925bb94"
-            ],
-            "56c32558-0b80-41f3-87b6-b681d9673756": {
-                "id": "56c32558-0b80-41f3-87b6-b681d9673756",
-                "name": {
-                    "singular": "Balsamic Vinegar"
-                },
-                "unit": "tbsp",
-                "quantity": 4
-            },
-            "635458df-5e1b-464b-84c4-6e491925bb94": {
-                "id": "635458df-5e1b-464b-84c4-6e491925bb94",
-                "name": {
-                    "singular": "Sugar"
-                },
-                "unit": "tsp",
-                "quantity": 2
-            },
-            "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
-                "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
-                "name": {
-                    "singular": "Salt"
-                },
-                "unit": "g",
-                "quantity": 0
-            }
-
-        }
+        "mentionedIngredientList": [
+            "56c32558-0b80-41f3-87b6-b681d9673756",
+            "635458df-5e1b-464b-84c4-6e491925bb94"
+        ]
     }
 }

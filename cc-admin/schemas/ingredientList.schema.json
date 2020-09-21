@@ -43,7 +43,7 @@
             "properties": {
                 "id": { "type": "string", "format": "uuid" },
                 "name": { "$ref": "name.schema.json" },
-                "unit": { "type": "string" },
+                "unit": { "$ref": "unit.schema.json" },
                 "quantity": {
                     "type": "number",
                     "exclusiveminimum": 0

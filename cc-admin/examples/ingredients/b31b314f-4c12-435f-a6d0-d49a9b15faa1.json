@@ -9,16 +9,14 @@
     "category": "deli",
 
     "unit": {
-        "singular": "g",
-        "plural": "g",
-        "SI": "kg",
-        "unitCategory": "SI",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "cooking": 1,
-            "SI": 0.001
-        },
-        "additional": {
+            "SI": 1000
         }
     }
 }

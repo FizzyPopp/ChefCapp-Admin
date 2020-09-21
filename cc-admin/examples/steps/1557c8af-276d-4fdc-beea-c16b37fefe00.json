@@ -21,8 +21,12 @@
                 "singular": "Peanut Oil",
                 "plural": "Peanut Oil"
             },
-            "unitCategory": "SI",
-            "unit": "tbsp",
+            "unit": {
+                "singular": "tbsp",
+                "plural": "tbsp",
+                "measurementType": "volume",
+                "unitCategory": "SI"
+            },
             "quantity": 1
         }
     },
@@ -63,48 +67,12 @@
         ],
         "unit": [],
         "time": [ "18-20 min" ],
-        "mentionedIngredientList": {
-            "keys": [
-                "402dd73d-8296-4136-9f53-1a5276d09728",
-                "67054860-6770-4085-95c7-3ef82d9a2d93",
-                "60cb50d3-09e6-4d20-a252-daa74bba8fce",
-                "9267d19c-ad55-4466-beb1-e19014313f65"
-            ],
 
-            "402dd73d-8296-4136-9f53-1a5276d09728": {
-                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
-                "name": {
-                    "singular": "Potato",
-                    "plural": "Potatoes"
-                },
-                "unitCategory": "whole",
-                "unit": "",
-                "quantity": 8
-            },
-            "67054860-6770-4085-95c7-3ef82d9a2d93": {
-                "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
-                "name": {
-                    "singular": "Oil",
-                    "plural": "Oil"
-                },
-                "unitCategory": "SI",
-                "unit": "tbsp",
-                "quantity": 1
-            },
-            "60cb50d3-09e6-4d20-a252-daa74bba8fce": {
-                "id": "60cb50d3-09e6-4d20-a252-daa74bba8fce",
-                "name": { "singular": "Salt" },
-                "unitCategory": "SI",
-                "unit": "g",
-                "quantity": 0
-            },
-            "9267d19c-ad55-4466-beb1-e19014313f65": {
-                "id": "9267d19c-ad55-4466-beb1-e19014313f65",
-                "name": { "singular": "Black Pepper" },
-                "unitCategory": "SI",
-                "unit": "g",
-                "quantity": 0
-            }
-        }
+        "mentionedIngredientList": [
+            "402dd73d-8296-4136-9f53-1a5276d09728",
+            "67054860-6770-4085-95c7-3ef82d9a2d93",
+            "60cb50d3-09e6-4d20-a252-daa74bba8fce",
+            "9267d19c-ad55-4466-beb1-e19014313f65"
+        ]
     }
 }

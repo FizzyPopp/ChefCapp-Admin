@@ -9,25 +9,20 @@
     "category": "produce",
 
     "unit": {
-        "singular": "clove",
-        "plural": "cloves",
-        "SI": "kg",
-        "unitCategory": "specific",
+        "cooking": {
+            "singular": "clove",
+            "plural": "cloves",
+            "unitCategory": "specific"
+        },
+        "portion": {
+            "singular": "head",
+            "plural": "heads",
+            "unitCategory": "specific"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
-            "cooking": 1,
-            "storage": 0.05,
-            "SI": 0.003
-        },
-        "additional": {
-            "cooking": {
-                "singular": "clove",
-                "plural": "cloves"
-            },
-            "portion": {
-                "singular": "head",
-                "plural": "heads"
-            }
+            "cooking": 333.333333333,
+            "storage": 30.303030303
         }
     }
 }

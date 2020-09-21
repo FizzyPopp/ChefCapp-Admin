@@ -29,17 +29,12 @@
     "unit": {
         "cooking": {
             "singular": "",
-            "plural": ""
+            "plural": "",
+            "unitCategory": "whole"
         },
-        "unitCategory": "whole",
         "measurementType": "mass",
         "conversionFactorTo": {
-            "SI": 0.08
-        },
-        "SI": "kg",
-        "bulk": {
-            "singular": "bag",
-            "plural": "bags"
+            "cooking": 0.08
         }
     }
 }

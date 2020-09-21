@@ -8,20 +8,20 @@
     "category": "produce",
 
     "unit": {
-        "singular": "g",
-        "plural": "g",
-        "SI": "kg",
-        "unitCategory": "SI",
+        "cooking": {
+            "singular": "g",
+            "plural": "g",
+            "unitCategory": "SI"
+        },
+        "portion": {
+            "singular": "",
+            "plural": "",
+            "unitCategory": "whole"
+        },
         "measurementType": "mass",
         "conversionFactorTo": {
             "portion": 0.0357,
-            "SI": 0.001
-        },
-        "additional": {
-            "portion": {
-                "singular": "",
-                "plural": ""
-            }
+            "SI": 1000
         }
     }
 }

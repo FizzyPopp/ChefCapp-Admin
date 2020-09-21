@@ -9,25 +9,27 @@
     "category": "oils and condiments",
 
     "unit": {
-        "singular": "stick",
-        "plural": "sticks",
+        "cooking": {
+            "singular": "tbsp",
+            "plural": "tbsp",
+            "unitCategory": "SI"
+        },
+        "portion": {
+            "singular": "stick",
+            "plural": "sticks",
+            "unitCategory": "specific"
+        },
+        "bulk": {
+            "singular": "block",
+            "plural": "block",
+            "unitCategory": "specific"
+        },
         "SI": "L",
         "measurementType": "volume",
-        "unitCategory": "specific",
         "conversionFactorTo": {
-            "cooking": 0.125,
-            "bulk": 4,
-            "SI": 0.118294119
-        },
-        "additional": {
-            "cooking": {
-                "singular": "tbsp",
-                "plural": "tbsp"
-            },
-            "bulk": {
-                "singular": "block",
-                "plural": "block"
-            }
+            "cooking": 32,
+            "portion": 8,
+            "bulk": 2
         }
     }
 }

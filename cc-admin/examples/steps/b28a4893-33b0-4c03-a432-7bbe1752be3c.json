@@ -23,7 +23,13 @@
                 "singular": "Mayonnaise",
                 "plural": "Mayonnaise"
             },
-            "unit": "cup",
+            "unit": {
+                "singular": "cup",
+                "plural": "cup",
+                "measurementType": "volume",
+                "unitCategory": "SI"
+            },
+
             "quantity": 0.5
         }
     },
@@ -76,8 +82,6 @@
             "cup",
             "tsp"
         ],
-        "mentionedIngredientList": {
-            "keys": []
-        }
+        "mentionedIngredientList": []
     }
 }
