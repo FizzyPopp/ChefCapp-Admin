@@ -2,7 +2,7 @@
     "id": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
     "name": { "singular": "prepare and chop" },
 
-    "previous":"f680874b-cb0b-4b25-ba74-a8ed39824202",
+    "previous":"00000000-0000-0000-0000-000000000000",
     "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
 
     "type": "step",

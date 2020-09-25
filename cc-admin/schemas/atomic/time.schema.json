@@ -8,11 +8,11 @@
     "properties": {
         "cook": {
             "type": "integer",
-            "exclusiveMinimum": 0
+            "minimum": 0
         },
         "prepare": {
             "type": "integer",
-            "exclusiveMinimum": 0
+            "minimum": 0
         }
     }
 }

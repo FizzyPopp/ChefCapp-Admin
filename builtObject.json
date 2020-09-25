@@ -1,0 +1,2138 @@
+{
+    "errors": null,
+    "stepsCandidate": [
+        {
+            "id": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "name": {
+                "singular": "prepare and chop"
+            },
+            "previous": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+            "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "type": "step",
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": [
+                    "402dd73d-8296-4136-9f53-1a5276d09728",
+                    "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                    "168c32e7-4171-468f-82e9-08d2e4f69431",
+                    "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                    "74143f94-79c3-486c-893d-9f0a571f80e2",
+                    "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                    "f46e24db-4886-4dff-9b88-3fa255b12abe"
+                ],
+                "402dd73d-8296-4136-9f53-1a5276d09728": {
+                    "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                    "name": {
+                        "singular": "Baby Potato",
+                        "plural": "Baby Potatoes"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 8
+                },
+                "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
+                    "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                    "name": {
+                        "singular": "Yellow Onion",
+                        "plural": "Yellow Onions"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 1
+                },
+                "168c32e7-4171-468f-82e9-08d2e4f69431": {
+                    "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+                    "name": {
+                        "singular": "Green Bell Pepper",
+                        "plural": "Green Bell Peppers"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 2
+                },
+                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+                    "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                    "name": {
+                        "singular": "Parsley",
+                        "plural": "Parsley"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 15
+                },
+                "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                    "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                    "name": {
+                        "singular": "Green Onion",
+                        "plural": "Green Onions"
+                    },
+                    "unit": {
+                        "singular": "sprig",
+                        "plural": "sprigs",
+                        "measurementType": "mass",
+                        "unitCategory": "specific"
+                    },
+                    "quantity": 4
+                },
+                "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+                    "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                    "name": {
+                        "singular": "Cherry Tomato",
+                        "plural": "Cherry Tomatoes"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 250
+                },
+                "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+                    "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                    "name": {
+                        "singular": "Garlic",
+                        "plural": "Garlic"
+                    },
+                    "unit": {
+                        "singular": "clove",
+                        "plural": "cloves",
+                        "measurementType": "mass",
+                        "unitCategory": "specific"
+                    },
+                    "quantity": 3
+                }
+            },
+            "utensils": [
+                "baking sheet",
+                "knife"
+            ],
+            "appliances": [
+                "oven"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+                    "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+                    " into ½-inch cubes. Slice ",
+                    " into ½-inch cubes. Slice ",
+                    ". Core and cut ",
+                    ". Core and cut ",
+                    " into ½-inch pieces. Finely chop ",
+                    " into ½-inch pieces. Finely chop ",
+                    ". Thinly slice ",
+                    ". Thinly slice ",
+                    ". Halve ",
+                    ". Halve ",
+                    ". Peel, then mince ",
+                    ". Peel, then mince ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "onion",
+                    "peppers",
+                    "parsley",
+                    "green onions",
+                    "cherry tomatoes",
+                    "garlic"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "onion",
+                    "peppers",
+                    "parsley",
+                    "green onions",
+                    "cherry tomatoes",
+                    "garlic"
+                ]
+            },
+            "hash": "38ba9fb79437dc43bd12c764f8e9e2319dbb7ca3b12d5174c873c0cf6fffa1b1",
+            "timestamp": 1600826230315
+        },
+        {
+            "previous": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "id": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "next": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "type": "step",
+            "name": {
+                "singular": "bake potatoes"
+            },
+            "tags": [],
+            "calories": 2,
+            "time": {
+                "min": 18,
+                "max": 20,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 3
+                }
+            },
+            "utensils": [
+                "baking sheet"
+            ],
+            "appliances": [
+                "oven"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Toss the ",
+                    "Toss the ",
+                    " and ",
+                    " and ",
+                    " on the baking sheet. Season with ",
+                    " on the baking sheet. Season with ",
+                    " and ",
+                    " and ",
+                    ". Roast in middle of oven, flip halfway, and cook until golden-brown, ",
+                    ". Roast in middle of oven, flip halfway, and cook until golden-brown, ",
+                    ". While potatoes roast, proceed to the next step."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "oil",
+                    "salt",
+                    "pepper"
+                ],
+                "time": [
+                    "18-20 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "oil",
+                    "salt",
+                    "pepper"
+                ]
+            },
+            "prev": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "hash": "d30a7c9b8d659ba9fcd71a75d1ca717f8e1dc53cf74691bbc8331dcabc9ba28c",
+            "timestamp": 1600826230431
+        },
+        {
+            "previous": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "id": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "next": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "type": "step",
+            "name": {
+                "singular": "make aioli"
+            },
+            "tags": [],
+            "calories": 3,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": [
+                    "c764eb89-6fe4-4375-a41e-48b4548cb0da"
+                ],
+                "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
+                    "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+                    "name": {
+                        "singular": "Mayonnaise",
+                        "plural": "Mayonnaise"
+                    },
+                    "unit": {
+                        "singular": "cup",
+                        "plural": "cup",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 0.5
+                }
+            },
+            "utensils": [
+                "bowl"
+            ],
+            "appliances": [],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "While potatoes roast, make the aioli in a small bowl by stirring together ",
+                    "While potatoes roast, make the aioli in a small bowl by stirring together ",
+                    " ",
+                    " ",
+                    " ",
+                    " ",
+                    ", ",
+                    ", ",
+                    " the chopped ",
+                    " the chopped ",
+                    " and ",
+                    " and ",
+                    " ",
+                    " ",
+                    " minced ",
+                    " minced ",
+                    ". Set aside."
+                ],
+                "quantity": [
+                    "½",
+                    "half of",
+                    "½"
+                ],
+                "name": [
+                    "mayonnaise",
+                    "parsley",
+                    "garlic"
+                ],
+                "time": [],
+                "unit": [
+                    "cup",
+                    "tsp"
+                ],
+                "mentionedIngredientList": [
+                    "mayonnaise",
+                    "parsley",
+                    "garlic"
+                ]
+            },
+            "prev": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "hash": "45c2624fd5508e6fe6ccd69b5e34d794a1420eb4c960b78779045968727436b8",
+            "timestamp": 1600826230516
+        },
+        {
+            "previous": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "id": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "next": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "type": "step",
+            "name": {
+                "singular": "soften onions"
+            },
+            "tags": [],
+            "calories": 4,
+            "time": {
+                "min": 2,
+                "max": 3,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 1
+                }
+            },
+            "cookware": [
+                "pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Heat a large non-stick pan over medium heat. When hot, add ",
+                    "Heat a large non-stick pan over medium heat. When hot, add ",
+                    ", then the sliced ",
+                    ", then the sliced ",
+                    ". Cook, stirring often, until slightly softened, ",
+                    ". Cook, stirring often, until slightly softened, ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "oil",
+                    "onions"
+                ],
+                "time": [
+                    "2-3 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "oil",
+                    "onions"
+                ]
+            },
+            "prev": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "hash": "8c57513fb468979ed2c9f0a5dff272a9859c276d9d60a106a48aff78c03aadab",
+            "timestamp": 1600826230695
+        },
+        {
+            "previous": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "id": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "next": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "type": "step",
+            "name": {
+                "singular": "make balsamic glaze"
+            },
+            "tags": [],
+            "calories": 5,
+            "time": {
+                "min": 7,
+                "max": 8,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "56c32558-0b80-41f3-87b6-b681d9673756",
+                    "635458df-5e1b-464b-84c4-6e491925bb94"
+                ],
+                "56c32558-0b80-41f3-87b6-b681d9673756": {
+                    "id": "56c32558-0b80-41f3-87b6-b681d9673756",
+                    "name": {
+                        "singular": "Balsamic Vinegar",
+                        "plural": "Balsamic Vinegar"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 4
+                },
+                "635458df-5e1b-464b-84c4-6e491925bb94": {
+                    "id": "635458df-5e1b-464b-84c4-6e491925bb94",
+                    "name": {
+                        "singular": "Sugar",
+                        "plural": "Sugar"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 2
+                }
+            },
+            "utensils": [
+                "pan"
+            ],
+            "appliances": [
+                "stove",
+                "bowl"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Add ",
+                    "Add ",
+                    " and ",
+                    " and ",
+                    " into the pan, and season with ",
+                    " into the pan, and season with ",
+                    ". Cook for ",
+                    ". Cook for ",
+                    ", until dark golden-brown. Remove pan from heat, and transfer to another small bowl and set aside. Wipe pan clean carefully."
+                ],
+                "quantity": [],
+                "name": [
+                    "balsamic vinegar",
+                    "sugar",
+                    "salt"
+                ],
+                "time": [
+                    "7-9 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "balsamic vinegar",
+                    "sugar",
+                    "salt"
+                ]
+            },
+            "prev": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "hash": "c49a598108f01f375046843872866a7d59e1bf5bbeb077a19db8c66e0f358f04",
+            "timestamp": 1600826230808
+        },
+        {
+            "previous": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "id": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "next": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "type": "step",
+            "name": {
+                "singular": "cook the meat and stuff"
+            },
+            "tags": [],
+            "calories": 6,
+            "time": {
+                "min": 6,
+                "max": 9,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "unitCategory": "SI",
+                        "measurementType": "volume"
+                    },
+                    "quantity": 1
+                },
+                "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+                    "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                    "name": {
+                        "singular": "Ground Beef"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "unitCategory": "SI",
+                        "measurementType": "mass"
+                    },
+                    "quantity": 500
+                }
+            },
+            "cookware": [
+                "pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Heat the same pan over medium-high heat. When hot, add ",
+                    "Heat the same pan over medium-high heat. When hot, add ",
+                    ", then the cut ",
+                    ", then the cut ",
+                    ". Cook for ",
+                    ". Cook for ",
+                    ", until softened. Add ",
+                    ", until softened. Add ",
+                    " and remaining minced ",
+                    " and remaining minced ",
+                    ". Break up beef into small pieces, and cook for ",
+                    ". Break up beef into small pieces, and cook for ",
+                    ", until no pink remains. Season with ",
+                    ", until no pink remains. Season with ",
+                    " and ",
+                    " and ",
+                    ". While the mixture cooks, proceed to the next step."
+                ],
+                "quantity": [],
+                "name": [
+                    "oil",
+                    "peppers",
+                    "ground beef",
+                    "garlic",
+                    "ground beef",
+                    "salt"
+                ],
+                "time": [
+                    "3-4 min",
+                    "3-5 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "oil",
+                    "peppers",
+                    "ground beef",
+                    "garlic",
+                    "salt"
+                ]
+            },
+            "prev": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "hash": "1fa031ae8f8f29a30877b2e245bc12ada43d6800c3ee7dfc1d2937bd5a79ca5d",
+            "timestamp": 1600826230900
+        },
+        {
+            "previous": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "id": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "next": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "type": "step",
+            "name": {
+                "singular": "make scrambled eggs"
+            },
+            "tags": [],
+            "calories": 7,
+            "time": {
+                "min": 2,
+                "max": 3,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                    "dbaa2677-0efd-49b8-af59-57bc3c7e17e4"
+                ],
+                "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
+                    "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                    "name": {
+                        "singular": "Butter",
+                        "plural": "Butter"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "unitCategory": "SI",
+                        "measurementType": "volume"
+                    },
+                    "quantity": 4
+                },
+                "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
+                    "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+                    "name": {
+                        "singular": "Egg",
+                        "plural": "Eggs"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "unitCategory": "whole",
+                        "measurementType": "mass"
+                    },
+                    "quantity": 4
+                }
+            },
+            "cookware": [
+                "non-stick pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "While beef cooks, heat a medium non-stick pan over medium-low heat. When hot, add ",
+                    "While beef cooks, heat a medium non-stick pan over medium-low heat. When hot, add ",
+                    " ",
+                    " ",
+                    " ",
+                    " ",
+                    " and swirl pan, until melted. Crack in ",
+                    " and swirl pan, until melted. Crack in ",
+                    " ",
+                    " ",
+                    ". Season with ",
+                    ". Season with ",
+                    " and ",
+                    " and ",
+                    ". Pan-fry, covered, until egg white is set ",
+                    ". Pan-fry, covered, until egg white is set ",
+                    "."
+                ],
+                "quantity": [
+                    "4",
+                    "4"
+                ],
+                "name": [
+                    "butter",
+                    "eggs",
+                    "salt",
+                    "pepper"
+                ],
+                "time": [
+                    "2-3 min"
+                ],
+                "unit": [
+                    "tbsp"
+                ],
+                "mentionedIngredientList": [
+                    "butter",
+                    "eggs",
+                    "salt",
+                    "pepper"
+                ]
+            },
+            "prev": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "hash": "a211ffff84f9207f3d5d91954eaba3c4adb658e85d7eca0d00865e07b59c72a2",
+            "timestamp": 1600826230987
+        },
+        {
+            "previous": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "id": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "next": "5ff24809-da01-4f09-b845-b693fc21aadf",
+            "type": "step",
+            "name": {
+                "singular": "mix in everything"
+            },
+            "tags": [],
+            "calories": 8,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": []
+            },
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Add roasted ",
+                    "Add roasted ",
+                    ", halved ",
+                    ", halved ",
+                    ", half the ",
+                    ", half the ",
+                    " and remaining ",
+                    " and remaining ",
+                    " in the pan with ",
+                    " in the pan with ",
+                    ". Stir together."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "tomatoes",
+                    "green onions",
+                    "parsley",
+                    "ground beef"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "tomatoes",
+                    "green onions",
+                    "parsley",
+                    "ground beef"
+                ]
+            },
+            "hash": "a23784d438386e59b77dab5d6ca7f59dcb16c32361cfc71f69e5f33eb1422044",
+            "timestamp": 1600826231086
+        },
+        {
+            "previous": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "id": "5ff24809-da01-4f09-b845-b693fc21aadf",
+            "next": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+            "type": "step",
+            "name": {
+                "singular": "plate"
+            },
+            "tags": [],
+            "calories": 9,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": []
+            },
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Divide hash between bowls and top with pan-fried eggs and balsamic sauce. Dollop over aioli. Sprinkle over remaining ",
+                    "Divide hash between bowls and top with pan-fried eggs and balsamic sauce. Dollop over aioli. Sprinkle over remaining ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "green onions"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "green onions"
+                ]
+            },
+            "hash": "b14867470e17820311e5600e515a021646c9dd02bb8dded3a4b8460617feacc5",
+            "timestamp": 1600826231171
+        }
+    ],
+    "recipeCandidate": {
+        "type": "recipe",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "",
+        "tags": [],
+        "time": {
+            "cook": 0,
+            "prepare": 0
+        },
+        "ingredients": {
+            "keys": [
+                "402dd73d-8296-4136-9f53-1a5276d09728",
+                "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+                "56c32558-0b80-41f3-87b6-b681d9673756",
+                "635458df-5e1b-464b-84c4-6e491925bb94",
+                "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                "dbaa2677-0efd-49b8-af59-57bc3c7e17e4"
+            ],
+            "402dd73d-8296-4136-9f53-1a5276d09728": {
+                "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                "name": {
+                    "singular": "Baby Potato",
+                    "plural": "Baby Potatoes"
+                },
+                "unit": {
+                    "singular": "",
+                    "plural": "",
+                    "measurementType": "mass",
+                    "unitCategory": "whole"
+                },
+                "quantity": 8
+            },
+            "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
+                "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                "name": {
+                    "singular": "Yellow Onion",
+                    "plural": "Yellow Onions"
+                },
+                "unit": {
+                    "singular": "",
+                    "plural": "",
+                    "measurementType": "mass",
+                    "unitCategory": "whole"
+                },
+                "quantity": 1
+            },
+            "168c32e7-4171-468f-82e9-08d2e4f69431": {
+                "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+                "name": {
+                    "singular": "Green Bell Pepper",
+                    "plural": "Green Bell Peppers"
+                },
+                "unit": {
+                    "singular": "",
+                    "plural": "",
+                    "measurementType": "mass",
+                    "unitCategory": "whole"
+                },
+                "quantity": 2
+            },
+            "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+                "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                "name": {
+                    "singular": "Parsley",
+                    "plural": "Parsley"
+                },
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "measurementType": "mass",
+                    "unitCategory": "SI"
+                },
+                "quantity": 15
+            },
+            "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                "name": {
+                    "singular": "Green Onion",
+                    "plural": "Green Onions"
+                },
+                "unit": {
+                    "singular": "sprig",
+                    "plural": "sprigs",
+                    "measurementType": "mass",
+                    "unitCategory": "specific"
+                },
+                "quantity": 4
+            },
+            "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+                "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                "name": {
+                    "singular": "Cherry Tomato",
+                    "plural": "Cherry Tomatoes"
+                },
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "measurementType": "mass",
+                    "unitCategory": "SI"
+                },
+                "quantity": 250
+            },
+            "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+                "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                "name": {
+                    "singular": "Garlic",
+                    "plural": "Garlic"
+                },
+                "unit": {
+                    "singular": "clove",
+                    "plural": "cloves",
+                    "measurementType": "mass",
+                    "unitCategory": "specific"
+                },
+                "quantity": 3
+            },
+            "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                "name": {
+                    "singular": "Peanut Oil",
+                    "plural": "Peanut Oil"
+                },
+                "unit": {
+                    "singular": "tbsp",
+                    "plural": "tbsp",
+                    "measurementType": "volume",
+                    "unitCategory": "SI"
+                },
+                "quantity": 3
+            },
+            "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
+                "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+                "name": {
+                    "singular": "Mayonnaise",
+                    "plural": "Mayonnaise"
+                },
+                "unit": {
+                    "singular": "cup",
+                    "plural": "cup",
+                    "measurementType": "volume",
+                    "unitCategory": "SI"
+                },
+                "quantity": 0.5
+            },
+            "56c32558-0b80-41f3-87b6-b681d9673756": {
+                "id": "56c32558-0b80-41f3-87b6-b681d9673756",
+                "name": {
+                    "singular": "Balsamic Vinegar",
+                    "plural": "Balsamic Vinegar"
+                },
+                "unit": {
+                    "singular": "tbsp",
+                    "plural": "tbsp",
+                    "measurementType": "volume",
+                    "unitCategory": "SI"
+                },
+                "quantity": 4
+            },
+            "635458df-5e1b-464b-84c4-6e491925bb94": {
+                "id": "635458df-5e1b-464b-84c4-6e491925bb94",
+                "name": {
+                    "singular": "Sugar",
+                    "plural": "Sugar"
+                },
+                "unit": {
+                    "singular": "tbsp",
+                    "plural": "tbsp",
+                    "measurementType": "volume",
+                    "unitCategory": "SI"
+                },
+                "quantity": 2
+            },
+            "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+                "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                "name": {
+                    "singular": "Ground Beef"
+                },
+                "unit": {
+                    "singular": "g",
+                    "plural": "g",
+                    "unitCategory": "SI",
+                    "measurementType": "mass"
+                },
+                "quantity": 500
+            },
+            "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
+                "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                "name": {
+                    "singular": "Butter",
+                    "plural": "Butter"
+                },
+                "unit": {
+                    "singular": "tbsp",
+                    "plural": "tbsp",
+                    "unitCategory": "SI",
+                    "measurementType": "volume"
+                },
+                "quantity": 4
+            },
+            "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
+                "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+                "name": {
+                    "singular": "Egg",
+                    "plural": "Eggs"
+                },
+                "unit": {
+                    "singular": "",
+                    "plural": "",
+                    "unitCategory": "whole",
+                    "measurementType": "mass"
+                },
+                "quantity": 4
+            }
+        },
+        "steps": [
+            "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "900491c2-4181-4ceb-8366-e600edbc8440",
+            "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "5ff24809-da01-4f09-b845-b693fc21aadf"
+        ]
+    },
+    "stampedSteps": [
+        {
+            "id": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "name": {
+                "singular": "prepare and chop"
+            },
+            "previous": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+            "next": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "type": "step",
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": [
+                    "402dd73d-8296-4136-9f53-1a5276d09728",
+                    "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                    "168c32e7-4171-468f-82e9-08d2e4f69431",
+                    "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                    "74143f94-79c3-486c-893d-9f0a571f80e2",
+                    "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                    "f46e24db-4886-4dff-9b88-3fa255b12abe"
+                ],
+                "402dd73d-8296-4136-9f53-1a5276d09728": {
+                    "id": "402dd73d-8296-4136-9f53-1a5276d09728",
+                    "name": {
+                        "singular": "Baby Potato",
+                        "plural": "Baby Potatoes"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 8
+                },
+                "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd": {
+                    "id": "a0b05d47-fc8e-40a6-ab2e-6a24b3f3ffbd",
+                    "name": {
+                        "singular": "Yellow Onion",
+                        "plural": "Yellow Onions"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 1
+                },
+                "168c32e7-4171-468f-82e9-08d2e4f69431": {
+                    "id": "168c32e7-4171-468f-82e9-08d2e4f69431",
+                    "name": {
+                        "singular": "Green Bell Pepper",
+                        "plural": "Green Bell Peppers"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "measurementType": "mass",
+                        "unitCategory": "whole"
+                    },
+                    "quantity": 2
+                },
+                "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a": {
+                    "id": "50e15e5c-64bb-4ddf-aecf-f9b3c5e2ba5a",
+                    "name": {
+                        "singular": "Parsley",
+                        "plural": "Parsley"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 15
+                },
+                "74143f94-79c3-486c-893d-9f0a571f80e2": {
+                    "id": "74143f94-79c3-486c-893d-9f0a571f80e2",
+                    "name": {
+                        "singular": "Green Onion",
+                        "plural": "Green Onions"
+                    },
+                    "unit": {
+                        "singular": "sprig",
+                        "plural": "sprigs",
+                        "measurementType": "mass",
+                        "unitCategory": "specific"
+                    },
+                    "quantity": 4
+                },
+                "68faa9f3-bc96-4d2f-9827-edb16385c44a": {
+                    "id": "68faa9f3-bc96-4d2f-9827-edb16385c44a",
+                    "name": {
+                        "singular": "Cherry Tomato",
+                        "plural": "Cherry Tomatoes"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 250
+                },
+                "f46e24db-4886-4dff-9b88-3fa255b12abe": {
+                    "id": "f46e24db-4886-4dff-9b88-3fa255b12abe",
+                    "name": {
+                        "singular": "Garlic",
+                        "plural": "Garlic"
+                    },
+                    "unit": {
+                        "singular": "clove",
+                        "plural": "cloves",
+                        "measurementType": "mass",
+                        "unitCategory": "specific"
+                    },
+                    "quantity": 3
+                }
+            },
+            "utensils": [
+                "baking sheet",
+                "knife"
+            ],
+            "appliances": [
+                "oven"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+                    "Preheat the oven to 425°F. Line a baking sheet with parchment paper. Cut ",
+                    " into ½-inch cubes. Slice ",
+                    " into ½-inch cubes. Slice ",
+                    ". Core and cut ",
+                    ". Core and cut ",
+                    " into ½-inch pieces. Finely chop ",
+                    " into ½-inch pieces. Finely chop ",
+                    ". Thinly slice ",
+                    ". Thinly slice ",
+                    ". Halve ",
+                    ". Halve ",
+                    ". Peel, then mince ",
+                    ". Peel, then mince ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "onion",
+                    "peppers",
+                    "parsley",
+                    "green onions",
+                    "cherry tomatoes",
+                    "garlic"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "onion",
+                    "peppers",
+                    "parsley",
+                    "green onions",
+                    "cherry tomatoes",
+                    "garlic"
+                ]
+            },
+            "hash": "38ba9fb79437dc43bd12c764f8e9e2319dbb7ca3b12d5174c873c0cf6fffa1b1",
+            "timestamp": 1600826230315
+        },
+        {
+            "previous": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "id": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "next": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "type": "step",
+            "name": {
+                "singular": "bake potatoes"
+            },
+            "tags": [],
+            "calories": 2,
+            "time": {
+                "min": 18,
+                "max": 20,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 3
+                }
+            },
+            "utensils": [
+                "baking sheet"
+            ],
+            "appliances": [
+                "oven"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Toss the ",
+                    "Toss the ",
+                    " and ",
+                    " and ",
+                    " on the baking sheet. Season with ",
+                    " on the baking sheet. Season with ",
+                    " and ",
+                    " and ",
+                    ". Roast in middle of oven, flip halfway, and cook until golden-brown, ",
+                    ". Roast in middle of oven, flip halfway, and cook until golden-brown, ",
+                    ". While potatoes roast, proceed to the next step."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "oil",
+                    "salt",
+                    "pepper"
+                ],
+                "time": [
+                    "18-20 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "oil",
+                    "salt",
+                    "pepper"
+                ]
+            },
+            "prev": "b0dab33b-dd59-45f0-8e74-8c4bfa5e27e2",
+            "hash": "d30a7c9b8d659ba9fcd71a75d1ca717f8e1dc53cf74691bbc8331dcabc9ba28c",
+            "timestamp": 1600826230431
+        },
+        {
+            "previous": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "id": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "next": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "type": "step",
+            "name": {
+                "singular": "make aioli"
+            },
+            "tags": [],
+            "calories": 3,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": [
+                    "c764eb89-6fe4-4375-a41e-48b4548cb0da"
+                ],
+                "c764eb89-6fe4-4375-a41e-48b4548cb0da": {
+                    "id": "c764eb89-6fe4-4375-a41e-48b4548cb0da",
+                    "name": {
+                        "singular": "Mayonnaise",
+                        "plural": "Mayonnaise"
+                    },
+                    "unit": {
+                        "singular": "cup",
+                        "plural": "cup",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 0.5
+                }
+            },
+            "utensils": [
+                "bowl"
+            ],
+            "appliances": [],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "While potatoes roast, make the aioli in a small bowl by stirring together ",
+                    "While potatoes roast, make the aioli in a small bowl by stirring together ",
+                    " ",
+                    " ",
+                    " ",
+                    " ",
+                    ", ",
+                    ", ",
+                    " the chopped ",
+                    " the chopped ",
+                    " and ",
+                    " and ",
+                    " ",
+                    " ",
+                    " minced ",
+                    " minced ",
+                    ". Set aside."
+                ],
+                "quantity": [
+                    "½",
+                    "half of",
+                    "½"
+                ],
+                "name": [
+                    "mayonnaise",
+                    "parsley",
+                    "garlic"
+                ],
+                "time": [],
+                "unit": [
+                    "cup",
+                    "tsp"
+                ],
+                "mentionedIngredientList": [
+                    "mayonnaise",
+                    "parsley",
+                    "garlic"
+                ]
+            },
+            "prev": "1557c8af-276d-4fdc-beea-c16b37fefe00",
+            "hash": "45c2624fd5508e6fe6ccd69b5e34d794a1420eb4c960b78779045968727436b8",
+            "timestamp": 1600826230516
+        },
+        {
+            "previous": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "id": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "next": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "type": "step",
+            "name": {
+                "singular": "soften onions"
+            },
+            "tags": [],
+            "calories": 4,
+            "time": {
+                "min": 2,
+                "max": 3,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "mass",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 1
+                }
+            },
+            "cookware": [
+                "pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Heat a large non-stick pan over medium heat. When hot, add ",
+                    "Heat a large non-stick pan over medium heat. When hot, add ",
+                    ", then the sliced ",
+                    ", then the sliced ",
+                    ". Cook, stirring often, until slightly softened, ",
+                    ". Cook, stirring often, until slightly softened, ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "oil",
+                    "onions"
+                ],
+                "time": [
+                    "2-3 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "oil",
+                    "onions"
+                ]
+            },
+            "prev": "b28a4893-33b0-4c03-a432-7bbe1752be3c",
+            "hash": "8c57513fb468979ed2c9f0a5dff272a9859c276d9d60a106a48aff78c03aadab",
+            "timestamp": 1600826230695
+        },
+        {
+            "previous": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "id": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "next": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "type": "step",
+            "name": {
+                "singular": "make balsamic glaze"
+            },
+            "tags": [],
+            "calories": 5,
+            "time": {
+                "min": 7,
+                "max": 8,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "56c32558-0b80-41f3-87b6-b681d9673756",
+                    "635458df-5e1b-464b-84c4-6e491925bb94"
+                ],
+                "56c32558-0b80-41f3-87b6-b681d9673756": {
+                    "id": "56c32558-0b80-41f3-87b6-b681d9673756",
+                    "name": {
+                        "singular": "Balsamic Vinegar",
+                        "plural": "Balsamic Vinegar"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 4
+                },
+                "635458df-5e1b-464b-84c4-6e491925bb94": {
+                    "id": "635458df-5e1b-464b-84c4-6e491925bb94",
+                    "name": {
+                        "singular": "Sugar",
+                        "plural": "Sugar"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "measurementType": "volume",
+                        "unitCategory": "SI"
+                    },
+                    "quantity": 2
+                }
+            },
+            "utensils": [
+                "pan"
+            ],
+            "appliances": [
+                "stove",
+                "bowl"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "Add ",
+                    "Add ",
+                    " and ",
+                    " and ",
+                    " into the pan, and season with ",
+                    " into the pan, and season with ",
+                    ". Cook for ",
+                    ". Cook for ",
+                    ", until dark golden-brown. Remove pan from heat, and transfer to another small bowl and set aside. Wipe pan clean carefully."
+                ],
+                "quantity": [],
+                "name": [
+                    "balsamic vinegar",
+                    "sugar",
+                    "salt"
+                ],
+                "time": [
+                    "7-9 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "balsamic vinegar",
+                    "sugar",
+                    "salt"
+                ]
+            },
+            "prev": "83a5da3a-864c-4b01-81e5-487210c1a826",
+            "hash": "c49a598108f01f375046843872866a7d59e1bf5bbeb077a19db8c66e0f358f04",
+            "timestamp": 1600826230808
+        },
+        {
+            "previous": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "id": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "next": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "type": "step",
+            "name": {
+                "singular": "cook the meat and stuff"
+            },
+            "tags": [],
+            "calories": 6,
+            "time": {
+                "min": 6,
+                "max": 9,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                    "67054860-6770-4085-95c7-3ef82d9a2d93"
+                ],
+                "67054860-6770-4085-95c7-3ef82d9a2d93": {
+                    "id": "67054860-6770-4085-95c7-3ef82d9a2d93",
+                    "name": {
+                        "singular": "Peanut Oil",
+                        "plural": "Peanut Oil"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "unitCategory": "SI",
+                        "measurementType": "volume"
+                    },
+                    "quantity": 1
+                },
+                "4430d4af-0407-4eae-a8bc-ea72f0d44f54": {
+                    "id": "4430d4af-0407-4eae-a8bc-ea72f0d44f54",
+                    "name": {
+                        "singular": "Ground Beef"
+                    },
+                    "unit": {
+                        "singular": "g",
+                        "plural": "g",
+                        "unitCategory": "SI",
+                        "measurementType": "mass"
+                    },
+                    "quantity": 500
+                }
+            },
+            "cookware": [
+                "pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Heat the same pan over medium-high heat. When hot, add ",
+                    "Heat the same pan over medium-high heat. When hot, add ",
+                    ", then the cut ",
+                    ", then the cut ",
+                    ". Cook for ",
+                    ". Cook for ",
+                    ", until softened. Add ",
+                    ", until softened. Add ",
+                    " and remaining minced ",
+                    " and remaining minced ",
+                    ". Break up beef into small pieces, and cook for ",
+                    ". Break up beef into small pieces, and cook for ",
+                    ", until no pink remains. Season with ",
+                    ", until no pink remains. Season with ",
+                    " and ",
+                    " and ",
+                    ". While the mixture cooks, proceed to the next step."
+                ],
+                "quantity": [],
+                "name": [
+                    "oil",
+                    "peppers",
+                    "ground beef",
+                    "garlic",
+                    "ground beef",
+                    "salt"
+                ],
+                "time": [
+                    "3-4 min",
+                    "3-5 min"
+                ],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "oil",
+                    "peppers",
+                    "ground beef",
+                    "garlic",
+                    "salt"
+                ]
+            },
+            "prev": "900491c2-4181-4ceb-8366-e600edbc8440",
+            "hash": "1fa031ae8f8f29a30877b2e245bc12ada43d6800c3ee7dfc1d2937bd5a79ca5d",
+            "timestamp": 1600826230900
+        },
+        {
+            "previous": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "id": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "next": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "type": "step",
+            "name": {
+                "singular": "make scrambled eggs"
+            },
+            "tags": [],
+            "calories": 7,
+            "time": {
+                "min": 2,
+                "max": 3,
+                "unit": "min"
+            },
+            "ingredients": {
+                "keys": [
+                    "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                    "dbaa2677-0efd-49b8-af59-57bc3c7e17e4"
+                ],
+                "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca": {
+                    "id": "9a8cc5ba-07e1-4593-860b-e05c8dbc20ca",
+                    "name": {
+                        "singular": "Butter",
+                        "plural": "Butter"
+                    },
+                    "unit": {
+                        "singular": "tbsp",
+                        "plural": "tbsp",
+                        "unitCategory": "SI",
+                        "measurementType": "volume"
+                    },
+                    "quantity": 4
+                },
+                "dbaa2677-0efd-49b8-af59-57bc3c7e17e4": {
+                    "id": "dbaa2677-0efd-49b8-af59-57bc3c7e17e4",
+                    "name": {
+                        "singular": "Egg",
+                        "plural": "Eggs"
+                    },
+                    "unit": {
+                        "singular": "",
+                        "plural": "",
+                        "unitCategory": "whole",
+                        "measurementType": "mass"
+                    },
+                    "quantity": 4
+                }
+            },
+            "cookware": [
+                "non-stick pan"
+            ],
+            "appliances": [
+                "stove"
+            ],
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "unit",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "quantity",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "time",
+                    "copy"
+                ],
+                "copy": [
+                    "While beef cooks, heat a medium non-stick pan over medium-low heat. When hot, add ",
+                    "While beef cooks, heat a medium non-stick pan over medium-low heat. When hot, add ",
+                    " ",
+                    " ",
+                    " ",
+                    " ",
+                    " and swirl pan, until melted. Crack in ",
+                    " and swirl pan, until melted. Crack in ",
+                    " ",
+                    " ",
+                    ". Season with ",
+                    ". Season with ",
+                    " and ",
+                    " and ",
+                    ". Pan-fry, covered, until egg white is set ",
+                    ". Pan-fry, covered, until egg white is set ",
+                    "."
+                ],
+                "quantity": [
+                    "4",
+                    "4"
+                ],
+                "name": [
+                    "butter",
+                    "eggs",
+                    "salt",
+                    "pepper"
+                ],
+                "time": [
+                    "2-3 min"
+                ],
+                "unit": [
+                    "tbsp"
+                ],
+                "mentionedIngredientList": [
+                    "butter",
+                    "eggs",
+                    "salt",
+                    "pepper"
+                ]
+            },
+            "prev": "52ed1c74-8c7c-4a81-bb23-b98d7ce89e9c",
+            "hash": "a211ffff84f9207f3d5d91954eaba3c4adb658e85d7eca0d00865e07b59c72a2",
+            "timestamp": 1600826230987
+        },
+        {
+            "previous": "25f031f2-a33c-4362-8a03-af7b7977e92b",
+            "id": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "next": "5ff24809-da01-4f09-b845-b693fc21aadf",
+            "type": "step",
+            "name": {
+                "singular": "mix in everything"
+            },
+            "tags": [],
+            "calories": 8,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": []
+            },
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Add roasted ",
+                    "Add roasted ",
+                    ", halved ",
+                    ", halved ",
+                    ", half the ",
+                    ", half the ",
+                    " and remaining ",
+                    " and remaining ",
+                    " in the pan with ",
+                    " in the pan with ",
+                    ". Stir together."
+                ],
+                "quantity": [],
+                "name": [
+                    "potatoes",
+                    "tomatoes",
+                    "green onions",
+                    "parsley",
+                    "ground beef"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "potatoes",
+                    "tomatoes",
+                    "green onions",
+                    "parsley",
+                    "ground beef"
+                ]
+            },
+            "hash": "a23784d438386e59b77dab5d6ca7f59dcb16c32361cfc71f69e5f33eb1422044",
+            "timestamp": 1600826231086
+        },
+        {
+            "previous": "3394289b-1e0c-4459-9da9-a28785e0c112",
+            "id": "5ff24809-da01-4f09-b845-b693fc21aadf",
+            "next": "f680874b-cb0b-4b25-ba74-a8ed39824202",
+            "type": "step",
+            "name": {
+                "singular": "plate"
+            },
+            "tags": [],
+            "calories": 9,
+            "time": {
+                "min": 0,
+                "max": 0
+            },
+            "ingredients": {
+                "keys": []
+            },
+            "instructions": {
+                "abstract": [
+                    "copy",
+                    "copy",
+                    "name",
+                    "copy"
+                ],
+                "copy": [
+                    "Divide hash between bowls and top with pan-fried eggs and balsamic sauce. Dollop over aioli. Sprinkle over remaining ",
+                    "."
+                ],
+                "quantity": [],
+                "name": [
+                    "green onions"
+                ],
+                "time": [],
+                "unit": [],
+                "mentionedIngredientList": [
+                    "green onions"
+                ]
+            },
+            "hash": "b14867470e17820311e5600e515a021646c9dd02bb8dded3a4b8460617feacc5",
+            "timestamp": 1600826231171
+        }
+    ]
+}

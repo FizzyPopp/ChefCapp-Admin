@@ -419,17 +419,22 @@ let _pushStep = async (candidate) => {
 }
 
 let _pushRecipe = async (candRecipe, steps) => {
-    ret = {
+    let ret = {
         errors: [],
         writeResults: {}
     };
 
-    const recipe = await _stampObject(candRecipe,'recipe')
+    var recipe = {}
+    try {
+        recipe = await _stampObject(candRecipe,'recipe')
+        msg('Recipe is stamped with hash  ' + recipe.hash)
+    } catch (e) { ret.errors.push(e) }
 
     for (let step of steps) {
         if (step.hash && step.timestamp) {
             const stepRef = _db.collection('step').doc(step.hash)
             try {
+                msg('pushing step id: ' + step.id + ' | hash: ' + step.hash);
                 ret.writeResults[step.id] = await stepRef.set(step);
             } catch (e) { ret.errors.push(e); }
         } else {
@@ -443,6 +448,7 @@ let _pushRecipe = async (candRecipe, steps) => {
     if (ret.errors.length === 0 ) {
         const recipeRef = _db.collection('recipe').doc(recipe.hash)
         try {
+            msg('pushing recipe id: ' + recipe.id + ' | hash: ' + recipe.hash);
             ret.writeResults[recipe.id] = await recipeRef.set(recipe);
         } catch (e) { ret.errors.push(e); }
     }

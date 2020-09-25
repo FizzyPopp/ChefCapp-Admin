@@ -38,12 +38,14 @@ app.post('/recipe/add', (req, res) => {
     let recipe = req.body.recipe;
     // msg('recipe candidate: ' + strfy(recipe));
     let result = cca.db.confirmRecipe(recipe, steps)
-    if (result.validity === true) {
+    if (result.validity === false) {
+        msg('Invalid recipe/step semantics');
+        res.json(result);
+    } else {
+        msg('Valid recipe/step semantics, attempting push');
         cca.db.pushRecipe(recipe, steps)
            .then((ret) => res.json(ret))
            .catch((ret) => res.json(ret));
-    } else {
-        res.json(result);
     }
 });
 
@@ -57,7 +59,7 @@ app.post('/recipe/build', (req, res) => {
 })
 
 app.post('/instruction/parse', (req, res) => {
-    let instr = req.body;
+    let instr = req.body.instructions;
     let instructions = cca.parser.transform(instr);
     // msg('request body:' + strfy(req.body));
     msg('transformed instructions:' + strfy(instructions));

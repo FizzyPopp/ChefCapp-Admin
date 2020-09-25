@@ -36,7 +36,7 @@ examples.forEach((obj) => {
     cca.db.stampObject(obj, obj.type)
        .then((stamped) => {
            msg('stamped obj: ' + strfy(stamped));
-           cca.db.pushObject(stamped.obj, stamped.obj.type) })
+           return cca.db.pushObject(stamped.obj, stamped.obj.type) })
         .then((ret) => {
             msg('returned: ' + strfy(ret));
         })

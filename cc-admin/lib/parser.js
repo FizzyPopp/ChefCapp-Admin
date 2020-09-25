@@ -28,6 +28,7 @@ exports.transform = (markdown) => {
 
     var nodeType = '';
     var copyText = '';
+    console.log("tree: " + JSON.stringify(tree));
 
     visit(tree, visitor);
 
@@ -35,9 +36,8 @@ exports.transform = (markdown) => {
         // console.log(node);
         switch (node.type) {
             case 'text':
-
                 copyText = copyText + node.value;
-                // console.log("copyText: " + copyText);
+                console.log("copyText: " + copyText);
                 nodeType = 'copy';
                 break;
             case 'name':
@@ -62,6 +62,11 @@ exports.transform = (markdown) => {
                 break;
         }
     };
+
+    if (copyText !== '') {
+        instructions.abstract.push('copy');
+        instructions.copy.push(copyText);
+    }
 
     return instructions;
 };
