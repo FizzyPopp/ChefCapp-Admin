@@ -28,7 +28,7 @@ exports.transform = (markdown) => {
 
     var nodeType = '';
     var copyText = '';
-    console.log("tree: " + JSON.stringify(tree));
+    // console.log("tree: " + JSON.stringify(tree));
 
     visit(tree, visitor);
 

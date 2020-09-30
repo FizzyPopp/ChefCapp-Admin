@@ -7,9 +7,8 @@
     "tags": [],
     "calories": 2,
     "time": {
-        "min": 18,
-        "max": 20,
-        "unit": "min"
+        "cook": 20,
+        "prepare": 0
     },
     "ingredients": {
         "keys": [

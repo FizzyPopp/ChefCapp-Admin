@@ -163,6 +163,12 @@ let _buildRecipe = async (candidate) => {
 
     candidate.forEach((step) => {
         recipe.steps.push(step.id);
+        if ( step.time.cook ) {
+            recipe.time.cook += step.time.cook;
+        }
+        if ( step.time.prepare ) {
+            recipe.time.prepare += step.time.prepare;
+        }
         step.ingredients.keys.forEach((key) => {
             if (recipe.ingredients.keys.includes(key) === false) {
                 recipe.ingredients.keys.push(key);
@@ -171,7 +177,6 @@ let _buildRecipe = async (candidate) => {
                 recipe.ingredients[key].quantity += step.ingredients[key].quantity;
             }
         })
-
     })
     // msg('stampedSteps: ' + strfy(ret.stampedSteps));
     ret.recipeCandidate = recipe;
@@ -179,12 +184,14 @@ let _buildRecipe = async (candidate) => {
     return new Promise ((resolve, reject) => {
         if (ret.errors.length === 0)
         {
-            msg("returning: " + strfy(ret));
+            msg("returning: ");
+            console.log(ret)
             ret.errors = null;
             resolve(ret);
         } else
         {
-            msg("returning: " + strfy(ret));
+            msg("returning: ");
+            console.log(ret)
             reject(ret);
         }
     })
@@ -370,7 +377,11 @@ let _confirmRecipe = (candRecipe, candSteps) => {
         validity: false
     };
 
+    msg("Confirming candidate: ");
+    msg(candRecipe);
+
     if (candRecipe.steps.length === candSteps.length) {
+        msg("Step array lengths good, checking ID and pointer link mismatch")
         for (let i = 0 ; i < candSteps.length ; i++) {
             if(candSteps[i].id != candRecipe.steps[i]) {
                 ret.errors.push('ID mismatch - recipe has: ' + candRecipe.steps[i] + ' | step has: ' + candSteps[i].id);
@@ -395,7 +406,9 @@ let _confirmRecipe = (candRecipe, candSteps) => {
         ret.errors.push('Unequal lengths of recipe.steps versus candidate steps array');
     }
 
+
     if (ret.errors.length === 0) {
+        msg("Recipe sematics valid.")
         ret.errors = null
         ret.validity = true;
     }
@@ -424,9 +437,10 @@ let _pushRecipe = async (candRecipe, steps) => {
         writeResults: {}
     };
 
-    var recipe = {}
+    var recipe = {}   
     try {
-        recipe = await _stampObject(candRecipe,'recipe')
+        let stampedResult = await _stampObject(candRecipe,'recipe')
+        recipe = stampedResult.obj;
         msg('Recipe is stamped with hash  ' + recipe.hash)
     } catch (e) { ret.errors.push(e) }
 

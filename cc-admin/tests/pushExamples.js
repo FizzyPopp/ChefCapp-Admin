@@ -5,7 +5,7 @@ const root = __dirname + '/../';
 var exroot = root + 'examples/';
 var exdirs = [
     exroot + 'steps/',
-    // exroot + 'ingredients/',
+    exroot + 'ingredients/',
     exroot + 'recipes/'
 ];
 var reJson = /\.json$/;

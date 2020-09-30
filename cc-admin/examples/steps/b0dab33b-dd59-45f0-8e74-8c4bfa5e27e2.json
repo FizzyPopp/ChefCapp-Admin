@@ -8,8 +8,8 @@
     "type": "step",
 
     "time": {
-        "min": 0,
-        "max": 0
+        "cook": 0,
+        "prepare": 0
     },
 
     "ingredients": {
