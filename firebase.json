@@ -5,6 +5,22 @@
   },
   "hosting": [
     {
+      "target": "admin-client",
+      "public": "public/admin/client/web",
+      "ignore": [
+        "staging/",
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "landing",
       "public": "public/landing",
       "ignore": [
@@ -22,7 +38,7 @@
     },
     {
       "target": "admin",
-      "public": "public/admin",
+      "public": "public/admin/client",
       "ignore": [
         "public/admin/staging/",
         "firebase.json",

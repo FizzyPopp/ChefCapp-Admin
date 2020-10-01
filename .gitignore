@@ -69,7 +69,7 @@ node_modules/
 secrets/
 
 # don't bother uploading staging/dev directories
-public/admin/staging/
+public/admin/
 build.tar.xz
 
 # PRIVATE KEY

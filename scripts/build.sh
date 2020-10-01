@@ -26,6 +26,7 @@ _client_build=$($JQ -r .paths.src.client.build "$cca$_conf")
 # load in web directories
 _web_develop=$($JQ -r .paths.web.develop "$cca$_conf")
 _web_release=$($JQ -r .paths.web.release "$cca$_conf")
+_web_client=$($JQ -r .paths.web.client "$cca$_conf")
 
 # get server package metadata from package.json
 package_json="$cca$_src_server/package.json"
@@ -42,7 +43,7 @@ fi
 if [[ "$target" = "REL" ]]
 then
     echo "Release build of $name at v$version"
-    _dest="$_web_release/v$version"
+    _dest="$_web_release/"
 fi
 echo "Destination $cca$_dest"
 
@@ -105,8 +106,13 @@ else
     printf 'Running npm install %s\n' "$_src_server/$name-$version.tgz"
     npm install "$cca$_server_build/$name-$version.tgz"
 
-    printf 'Copying client app build to %s ... \n' "$_dest"
-    cp -R "$cca$_client_build" "$cca$_dest"
+    if [ ! -d "$cca$_web_client" ]
+    then
+        mkdir -p "$cca$_web_client"
+    fi
+
+    printf 'Copying client app build to %s/client ... \n' "$_web_client"
+    cp -R "$cca$_client_build" "$cca$_web_client"
     printf 'Done.\n'
 
     printf 'Copying server.js to %s ...\n' "$_dest"

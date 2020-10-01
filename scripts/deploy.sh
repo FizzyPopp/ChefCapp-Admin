@@ -33,7 +33,8 @@ name=$($JQ -r .name "$package_json")
 
 git submodule update --remote --merge
 firebase deploy --only hosting:landing
-firebase deploy --only hosting:admin
+# firebase deploy --only hosting:admin
+firebase deploy --only hosting:admin-client
 
 printf 'Pushing build package to AWS...\n'
 rsync --progress -avz -e "ssh -i $HOME/.ssh/standoffish-AWS-00.pem" "$cca/build.tar.xz" "ubuntu@ec2-3-17-181-130.us-east-2.compute.amazonaws.com:/home/ubuntu"

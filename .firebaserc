@@ -11,7 +11,7 @@
         "landing": [
           "chef-capp"
         ],
-        "admin": [
+        "admin-client": [
           "chef-capp-admin"
         ]
       }

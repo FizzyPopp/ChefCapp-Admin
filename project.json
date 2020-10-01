@@ -14,8 +14,8 @@
         "web": {
             "root": "/public",
             "develop": "/public/admin/staging",
-            "release": "/public/admin"
-
+            "release": "/public/admin",
+            "client": "/public/admin/client"
         }
     }
 }
