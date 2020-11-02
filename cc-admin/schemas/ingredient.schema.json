@@ -51,21 +51,20 @@
         "unit": {
             "type": "object",
             "description": "This is an object, the propeties and fields have been moved to below to keep this part a bit neater",
-           
+
             "properties": {
                 "density": {
                     "description": "SI standard kg/m^3",
                     "type": "number"
                 },
 
+                "measurementType": { "$ref": "vocabulary.measurementType.schema.json" },
+
                 "cooking": {
                     "description": "Smallest usable unit for a given ingredient.",
-                    "type": "object",
-                    "properties": {
-                        "singular": { "type": "string" },
-                        "singular": { "type": "string" },
-                        "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
-                    }
+                    "singular": { "type": "string" },
+                    "singular": { "type": "string" },
+                    "unitCategory": { "$ref": "vocabulary.unitCategory.schema.json" }
                 },
 
                 "portion": {

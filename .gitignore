@@ -57,6 +57,7 @@ node_modules/
 
 # Output of 'npm pack'
 *.tgz
+*.tgz
 
 # Yarn Integrity file
 .yarn-integrity
@@ -64,6 +65,10 @@ node_modules/
 # dotenv environment variables file
 .env
 
+# risky files
+debug.json
+firestore.indexes.json
+*.rules
 
 # SECRETS
 secrets/

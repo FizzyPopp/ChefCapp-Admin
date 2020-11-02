@@ -123,7 +123,7 @@ else
     printf 'Done.\n'
 
     printf 'Creating and compressing dir archive...\n'
-    tar -Jcf "$cca/build.tar.xz" .nvmrc -- *
+    tar -c -I 'xz -5 -T0' -f "$cca/build.tar.xz" .nvmrc -- *
     printf 'Done.\n'
 
     printf '%s - \n' "$cca$_dest"

@@ -40,6 +40,7 @@ var _db = _admin.firestore();
 
 _schemas.validate = {};
 for (let key in _schemas.list) {
+    msg('Adding schema to ajv:' + key);
     _ajv.addSchema(_schemas.list[key], _schemas.list[key].title);
 }
 
@@ -47,22 +48,6 @@ for (let key in _schemas.list) {
 for (let key in _schemas.list) {
     _schemas.validate[key] = _ajv.compile(_schemas.list[key]);
 }
-
-
-
-/**
- * @function authenticate
- *
- */
-let _authenticate = (idToken) => {
-    var uid = _firebase.auth().verifyIdToken(idToken)
-         .then((decodedToken) => {
-             return decodedToken.uid;
-         })
-         .catch((error) => {
-         });
-}
-
 
 
 /**
@@ -77,7 +62,7 @@ _db.getObject = (colName, id) => {
         docRef.get()
               .then ((doc) => {
                   return doc;
-              })
+              } )
               .catch ((err) => {
                   console.log("Could not find document with id " + uuid);
                   throw err;
@@ -94,6 +79,7 @@ _db.getObject = (colName, id) => {
  * @exports
  */
 let _buildRecipe = async (candidate) => {
+    msg('Building recipe candidate.');
     let ret = {
         errors: [],
         stepsCandidate: candidate,
@@ -120,6 +106,7 @@ let _buildRecipe = async (candidate) => {
         steps: []
     }
 
+    msg('Validating steps against schema.');
     candidate.forEach((step) => {
         let parsedInstructions = _parser.transform(step.instructions);
         step.instructions = parsedInstructions;
@@ -151,16 +138,19 @@ let _buildRecipe = async (candidate) => {
         candidate[end].id = uuid.v4();
         candidate[end].prev = candidate[end-1].id;
     }
-
+    msg('Step ids ordered, stamping...');
     for (let step of candidate ) {
-        await _stampObject(step, 'step').then((res) => {
-            // msg(ret.stampedSteps)
-            ret.stampedSteps.push(res.obj);
-        }).catch((err) => {
+        let stampResult = await _stampObject(step, 'step');
+        if (stampResult.errors === null) {
+            ret.stampedSteps.push(stampResult.obj);
+            msg('Got back stamped step with id: ' + stampResult.obj.id);
+        } else {
+            msg('Found error while stamping step:' + strfy(err.errors));
             ret.errors.push(err.errors);
-        });
+        }
     }
 
+    msg('Composing cook time from step information.');
     candidate.forEach((step) => {
         recipe.steps.push(step.id);
         if ( step.time.cook ) {
@@ -184,14 +174,13 @@ let _buildRecipe = async (candidate) => {
     return new Promise ((resolve, reject) => {
         if (ret.errors.length === 0)
         {
-            msg("returning: ");
+            msg("recipeBuild found no errors, returning: ");
             console.log(ret)
             ret.errors = null;
             resolve(ret);
         } else
         {
-            msg("returning: ");
-            console.log(ret)
+            msg("recipeBuild returning with errors: " + strfy(ret.errors));
             reject(ret);
         }
     })
@@ -219,7 +208,6 @@ let _find = (candidate) => {
               .catch ((err) => {
                   return ret;
               });
-
     } catch (err) { return ret; }
 };
 
@@ -245,14 +233,17 @@ let _stampObject = async (object, type) => {
         if ( ret.validity ) {
             const objectCollection = object.type;
             object.hash = _hash(object);
-            msg('hashed incoming object: ' + object.hash);
+            ret.hash = object.hash;
+            msg('Hashed incoming object: ' + object.hash);
+            msg('Object ID: ' + object.id);
 
             const collectionRef = _db.collection(objectCollection)
             const sameHashRef = collectionRef.doc(object.hash);
-            const sameHash = await sameHashRef.get()
-
-            if (!sameHash.exists) { //skip upload if there's already a document with the same hash
-                ret.hash = object.hash
+            const hashCheckResult = await sameHashRef.get()
+            if (hashCheckResult.exists) {
+                msg('Found object in db with same hash: ' + temp.hash + ' and timestamp: ' + temp.timestamp);
+                ret.obj = hashCheckResult.data();
+            } else {
                 if (object.id === uuid.NIL) {
                     object.id = uuid.v4();
                 }
@@ -260,12 +251,10 @@ let _stampObject = async (object, type) => {
 
                 object.timestamp = Date.now();
                 ret.timestamp = object.timestamp;
-
                 ret.obj = object;
-                msg('Stamped incoming object with id: ' + object.id);
-            } else {
-                ret.errors.push("Object with same hash found.");
+                msg('Stamped incoming object with id: ' + object.id + ' and timestamp: ' + object.timestamp);
             }
+
         } else {
             ret.errors.push(_schemas.validate[object.type].errors);
         }
@@ -378,10 +367,11 @@ let _confirmRecipe = (candRecipe, candSteps) => {
     };
 
     msg("Confirming candidate: ");
-    msg(candRecipe);
+    msg(strfy(candRecipe));
 
     if (candRecipe.steps.length === candSteps.length) {
         msg("Step array lengths good, checking ID and pointer link mismatch")
+        msg(strfy(candSteps));
         for (let i = 0 ; i < candSteps.length ; i++) {
             if(candSteps[i].id != candRecipe.steps[i]) {
                 ret.errors.push('ID mismatch - recipe has: ' + candRecipe.steps[i] + ' | step has: ' + candSteps[i].id);
@@ -445,6 +435,7 @@ let _pushRecipe = async (candRecipe, steps) => {
     } catch (e) { ret.errors.push(e) }
 
     for (let step of steps) {
+        msg('Checking step stamp status:' + strfy(step));
         if (step.hash && step.timestamp) {
             const stepRef = _db.collection('step').doc(step.hash)
             try {
@@ -477,14 +468,32 @@ let _pushRecipe = async (candRecipe, steps) => {
     })
 }
 
-
-
 let _pushObject = async (candidate, type) => {
     msg('pushing obj with id: ' + candidate.id + ' | type: ' + type);
     if (dbTypes.includes(type)){
         const candidateRef = _db.collection(type).doc(candidate.hash)
         return candidateRef.set(candidate)
     }
+}
+
+let _verifyIdToken = async (idToken) => {
+    _admin.auth().verifyIdToken(idToken)
+        .then((decodedToken) => {
+            let uid = decodedToken.uid;
+            return uid;
+        }).catch((error) => {
+            return error;
+        });
+}
+
+let _addAdministrator = (uid) => {
+    admin.auth().setCustomUserClaims(uid, {admin: true})
+         .then(() => {
+             return true;
+         })
+         .catch((error) => {
+             return error;
+         });
 }
 
 /**
@@ -515,3 +524,4 @@ exports.db.pushIngredient = _pushIngredient;
 exports.db.pushStep = _pushStep;
 exports.db.pushRecipe = _pushRecipe;
 exports.db.pushObject = _pushObject;
+exports.verifyIdToken = _verifyIdToken;

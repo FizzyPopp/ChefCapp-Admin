@@ -22,7 +22,7 @@ exdirs.forEach ((path) => {
     fileList.forEach ((file) => {
         if (file.match(reJson)) {
             let uri = path + file;
-            // console.log('Importing obj: ' + uri);
+            console.log('Importing obj: ' + uri);
             let obj = require(uri);
 
             obj.path = uri;

@@ -1,5 +1,5 @@
 'use strict'
 // let n = '';
 exports.name = (n) => {
-    return (m) => console.log(n + ' => ' + m);
+    return (m) => console.log('[' + new Date().toISOString() + '] ' + n + ' => ' + m);
 }
