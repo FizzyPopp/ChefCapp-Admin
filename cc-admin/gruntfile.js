@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = (grunt) => {
     let firebase = require("./firebase.json");
     // Project configuration.
     grunt.initConfig({
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['build']);
     grunt.registerTask('build', ['step1', 'step2', 'step3']);
     grunt.registerTask('deploy', ['step1', 'step2', 'step3']);
     grunt.registerMultiTask('log', 'Log stuff.', () => {

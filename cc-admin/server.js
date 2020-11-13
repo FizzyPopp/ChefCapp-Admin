@@ -1,7 +1,7 @@
 'use strict'
 
 var express = require('express');
-var cors = require('cors')
+var cors = require('cors');
 var cca = require('cc-admin');
 var msg = (m) => console.log('[' + new Date().toISOString() + '] SRV => ' + m);
 var strfy = JSON.stringify;
