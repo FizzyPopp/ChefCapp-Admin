@@ -2,10 +2,10 @@
 set -euo pipefail
 
 
-if [[ -z "${cca+1}" || -z "${JQ+1}" ]]
+if [[ -z "${cca+1}" || -z "${jq+1}" ]]
 then
     printf "Project root not set or jq unavailable, make sure \$cca is set and jq command is available then try building."
-    exit 0;
+    exit 1;
 fi
 
 export PATH="$PATH:$PWD/scripts"
@@ -16,22 +16,22 @@ dry_run=""
 _conf="/project.json"
 
 # load in source directories
-_src_server=$($JQ -r .paths.src.server.root "$cca$_conf")
-_src_client=$($JQ -r .paths.src.client.root "$cca$_conf")
+_src_server=$($jq -r .paths.src.server.root "$cca$_conf")
+_src_client=$($jq -r .paths.src.client.root "$cca$_conf")
 
 # load in build output directories
-_server_build=$($JQ -r .paths.src.server.build "$cca$_conf")
-_client_build=$($JQ -r .paths.src.client.build "$cca$_conf")
+_server_build=$($jq -r .paths.src.server.build "$cca$_conf")
+_client_build=$($jq -r .paths.src.client.build "$cca$_conf")
 
 # load in web directories
-_web_develop=$($JQ -r .paths.web.develop "$cca$_conf")
-_web_release=$($JQ -r .paths.web.release "$cca$_conf")
-_web_client=$($JQ -r .paths.web.client "$cca$_conf")
+_web_develop=$($jq -r .paths.web.develop "$cca$_conf")
+_web_release=$($jq -r .paths.web.release "$cca$_conf")
+_web_client=$($jq -r .paths.web.client "$cca$_conf")
 
 # get server package metadata from package.json
 package_json="$cca$_src_server/package.json"
-version=$($JQ -r .version "$package_json")
-name=$($JQ -r .name "$package_json")
+version=$($jq -r .version "$package_json")
+name=$($jq -r .name "$package_json")
 
 
 # Assigning the correct directories based on target
@@ -61,6 +61,7 @@ else
     cd "$cca$_server_build"
     npm install
     npm pack "$cca$_src_server"
+
 fi
 
 printf 'Building flutter client application for %s\n' "$target"
@@ -85,6 +86,7 @@ fi
 
 if [[ $dry_run ]]
 then
+    printf 'dryrun \n'
     printf 'cd %s \n' "$cca$_dest"
 
     printf 'Running npm install %s \n' "$_server_build/$name-$version.tgz"
@@ -97,21 +99,15 @@ then
     printf '%s - \n' "$cca$_dest"
     printf 'cp %s %s \n' "$cca$_src_server/server.js" "$cca$_dest"
 else
-    if [ ! -d "$cca$_dest" ]
-    then
-        mkdir -p "$cca$_dest"
-    fi
+    mkdir -p "$cca$_dest"
     cd "$cca$_dest"
+    pwd
 
-    printf 'Running npm install %s\n' "$_src_server/$name-$version.tgz"
+    printf 'Running npm install %s\n' "$cca$_server_build/$name-$version.tgz"
     npm install "$cca$_server_build/$name-$version.tgz"
 
-    if [ ! -d "$cca$_web_client" ]
-    then
-        mkdir -p "$cca$_web_client"
-    fi
-
-    printf 'Copying client app build to %s/client ... \n' "$_web_client"
+    mkdir -p "$cca$_web_client"
+    printf 'Copying client app build to %s ... \n' "$_web_client"
     cp -R "$cca$_client_build" "$cca$_web_client"
     printf 'Done.\n'
 
