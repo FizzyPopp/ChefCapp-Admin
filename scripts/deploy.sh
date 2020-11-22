@@ -37,4 +37,4 @@ firebase deploy --only hosting:landing
 firebase deploy --only hosting:admin-client
 
 printf 'Pushing build package to AWS...\n'
-rsync --progress -avz -e "ssh -i $HOME/.ssh/standoffish-AWS-00.pem" "$cca/build.tar.xz" "$1":/home/ubuntu
+rsync --progress -avz "$cca/build.tar.xz" "$1":/home/cca
