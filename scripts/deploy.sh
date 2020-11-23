@@ -36,5 +36,5 @@ firebase deploy --only hosting:landing
 # firebase deploy --only hosting:admin
 firebase deploy --only hosting:admin-client
 
-printf 'Pushing build package to AWS...\n'
+printf 'Pushing build package to %s...\n' "$1"
 rsync --progress -avz "$cca/build.tar.xz" "$1":/home/cca
