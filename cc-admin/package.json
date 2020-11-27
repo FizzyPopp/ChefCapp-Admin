@@ -1,8 +1,11 @@
 {
   "name": "cc-admin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Administrative tooling for ChefCapp",
   "main": "index.js",
+  "bin": {
+    "cca-service": "bin/server.js"
+  },
   "dependencies": {
     "ajv": "^6.12.4",
     "express": "^4.17.1",
@@ -16,19 +19,16 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.13.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "grunt-contrib-uglify": "^5.0.0",
     "jest": "^26.4.2"
   },
   "scripts": {
     "test": "jest",
-    "stage-dev": "bash scripts/build-dev"
+    "build": "bash scripts/build-admin-server.sh"
   },
   "files": [
     "lib/",
     "schemas/",
-    "examples/",
-    "./server.js"
+    "examples/"
   ],
   "author": "ChefCapp",
   "license": "Proprietary"

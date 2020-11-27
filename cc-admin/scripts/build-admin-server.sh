@@ -68,33 +68,5 @@ npm pack
 mkdir -p "$cca$_module_root/build"
 
 # printf 'mv %s %s \n' "$cca$_module_root/$package_file" "$cca$_module_root/build/$package_file"
-mv "$cca$_module_root/$package_file" "$cca$_package_root/$package_file"
-
-
-
-printf 'mkdir -p %s \n' "$cca$_temp"
-mkdir -p "$cca$_temp"
-cd "$cca$_temp"
-printf 'cd: '
-pwd
-
-printf 'Running npm install %s \n' "$_src/$package_file"
-printf 'npm install %s \n' "$cca$_package_root/$package_file"
-npm install "$cca$_package_root/$package_file"
-
-printf 'Copying %s/server.js to temp directory %s ...\n' "$cca$_src" "$cca$_temp"
-cp "$cca$_src/server.js" "$cca$_temp"
-printf 'Generating nvmrc...\n'
-touch .nvmrc
-echo 'lts/dubnium' > .nvmrc
-printf 'Done.\n'
-printf '%s - \n' "$cca$_temp"
-ls -al
-
-printf 'Creating and compressing dir archive and stashing into package destination...\n'
-mkdir -p "$cca$_dest"
-tar -c -I 'xz -5 -T0' -f "$cca$_dest/cca-server.tar.xz" .nvmrc -- *
-printf 'Done.\n'
-
-printf '%s - \n' "$cca$_dest"
-ls -al "$cca$_dest"
+cp "$cca$_module_root/$package_file" "$cca$_package_root/$package_file"
+mv "$cca$_module_root/$package_file" "$cca$_package_root/deploy.tgz"

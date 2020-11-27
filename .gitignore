@@ -75,6 +75,7 @@ secrets/
 
 # don't bother uploading staging/dev directories
 public/admin/
+public/admin-server/*
 public/tmp/
 
 # PRIVATE KEY
