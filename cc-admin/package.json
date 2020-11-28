@@ -19,6 +19,13 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.13.0",
+<<<<<<< Updated upstream
+=======
+    "grunt": "^1.3.0",
+    "grunt-cli": "^1.3.0",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-contrib-uglify": "^5.0.0",
+>>>>>>> Stashed changes
     "jest": "^26.4.2"
   },
   "scripts": {
