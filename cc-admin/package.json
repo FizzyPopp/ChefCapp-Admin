@@ -1,6 +1,6 @@
 {
   "name": "cc-admin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Administrative tooling for ChefCapp",
   "main": "index.js",
   "dependencies": {
