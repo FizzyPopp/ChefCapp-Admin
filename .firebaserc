@@ -9,6 +9,7 @@
           "public/index.html"
         ],
         "landing": [
+          "cc-landing/",
           "chef-capp"
         ],
         "admin-client": [
