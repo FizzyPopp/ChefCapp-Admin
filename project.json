@@ -1,4 +1,8 @@
 {
+    "targets": [
+        "adminClient",
+        "ccAdmin"
+    ],
     "paths":{
         "adminClient": {
             "src": {
@@ -10,11 +14,11 @@
                 "release": "/public/admin-client/release"
             }
         },
-        "adminServer": {
+        "ccApiEngine": {
             "src": {
-                "root": "/cc-admin",
-                "package": "/cc-admin/build",
-                "temp": "/cc-admin/temp"
+                "root": "/cc-api-engine",
+                "package": "/cc-api-engine/build",
+                "temp": "/cc-api-engine/temp"
             },
             "dest": {
                 "temp": "/public/admin-server/tmp",

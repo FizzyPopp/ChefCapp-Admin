@@ -7,7 +7,7 @@ const crypto = require('crypto');
 const uuid = require('uuid');
 const deserializeInstructions = require('./lib/utils/stringifyInstructions');
 const msg = require('./lib/utils/msg')
-      .name('CCA');
+      .name('CCAPIengine');
 const strfy = require('./lib/utils/strfy')
       .space(2);
 var _admin = require('firebase-admin');
@@ -57,7 +57,7 @@ for (let key in _schemas.list) {
  * @exports
  */
 _db.getObject = (colName, id) => {
-    if (uuidv4.validate(uuid)) {
+    if (uuid.validate(uuid)) {
         let docRef = exports.db.collection(colName).doc(uuid);
         docRef.get()
               .then ((doc) => {
@@ -145,8 +145,8 @@ let _buildRecipe = async (candidate) => {
             ret.stampedSteps.push(stampResult.obj);
             msg('Got back stamped step with id: ' + stampResult.obj.id);
         } else {
-            msg('Found error while stamping step:' + strfy(err.errors));
-            ret.errors.push(err.errors);
+            msg('Found error while stamping step:' + strfy(stampResult.errors));
+            ret.errors.push(stampResult.errors);
         }
     }
 
@@ -196,13 +196,13 @@ let _buildRecipe = async (candidate) => {
  * - name
  */
 let _find = (candidate) => {
-    let ret = uuidv4.NIL;
+    let ret = uuid.NIL;
 
     try {
         const docRef = exports.db.collection(candidate.type).doc(candidate.id);
         docRef.get()
               .then ((doc) => {
-                  obj = doc.data()
+                  let obj = doc.data()
                   return obj.id;
               })
               .catch ((err) => {
@@ -241,7 +241,7 @@ let _stampObject = async (object, type) => {
             const sameHashRef = collectionRef.doc(object.hash);
             const hashCheckResult = await sameHashRef.get()
             if (hashCheckResult.exists) {
-                msg('Found object in db with same hash: ' + temp.hash + ' and timestamp: ' + temp.timestamp);
+                msg('Found object in db with same hash: ' + object.hash + ' and timestamp: ' + hashCheckResult.data().timestamp);
                 ret.obj = hashCheckResult.data();
             } else {
                 if (object.id === uuid.NIL) {
@@ -487,7 +487,7 @@ let _verifyIdToken = async (idToken) => {
 }
 
 let _addAdministrator = (uid) => {
-    admin.auth().setCustomUserClaims(uid, {admin: true})
+    _admin.auth().setCustomUserClaims(uid, {admin: true})
          .then(() => {
              return true;
          })

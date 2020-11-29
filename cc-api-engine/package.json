@@ -1,10 +1,10 @@
 {
-  "name": "cc-admin",
+  "name": "cc-api-engine",
   "version": "0.0.3",
-  "description": "Administrative tooling for ChefCapp",
+  "description": "API engine for ChefCapp",
   "main": "index.js",
   "bin": {
-    "cca-service": "bin/server.js"
+    "ccapi-run": "bin/server.js"
   },
   "dependencies": {
     "ajv": "^6.12.4",

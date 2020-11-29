@@ -6,10 +6,13 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 12,
+        "ecmaVersion": 11,
         "sourceType": "module"
     },
     "rules": {
         "no-unused-vars": "warn"
+    },
+    "globals": {
+        "Promise": true
     }
 };
