@@ -66,6 +66,7 @@ node_modules/
 
 # spicy dirs
 temp/
+build/
 
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*

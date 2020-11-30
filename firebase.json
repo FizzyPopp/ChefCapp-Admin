@@ -6,7 +6,7 @@
   "hosting": [
     {
       "target": "admin-client",
-      "public": "public/admin/client/web",
+      "public": "cc-admin-client/chef_capp_admin_client/build/web",
       "ignore": [
         "staging/",
         "firebase.json",
@@ -22,7 +22,7 @@
     },
     {
       "target": "landing",
-      "public": "public/landing",
+      "public": "cc-landing",
       "ignore": [
         "staging/",
         "firebase.json",

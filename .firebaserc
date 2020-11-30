@@ -5,11 +5,11 @@
   "targets": {
     "chef-capp": {
       "hosting": {
-        "landing": [
-          "chef-capp"
-        ],
         "admin-client": [
           "chef-capp-admin"
+        ],
+        "landing": [
+          "chef-capp"
         ]
       }
     }

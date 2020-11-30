@@ -1,21 +1,30 @@
 {
+    "targets": [
+        "adminClient",
+        "ccAdmin"
+    ],
     "paths":{
-        "src": {
-            "client": {
+        "adminClient": {
+            "src": {
                 "root": "/cc-admin-client/chef_capp_admin_client",
                 "build": "/cc-admin-client/chef_capp_admin_client/build/web"
             },
-            "server": {
-                "root": "/cc-admin",
-                "build": "/cc-admin/build",
-                "temp": "/cc-admin/temp"
+            "dest":{
+                "develop": "/public/admin-client/develop",
+                "release": "/public/admin-client/release"
             }
         },
-        "web": {
-            "root": "/public",
-            "develop": "/public/admin/staging",
-            "release": "/public/admin",
-            "client": "/public/admin/client"
+        "ccApiEngine": {
+            "src": {
+                "root": "/cc-api-engine",
+                "package": "/cc-api-engine/build",
+                "temp": "/cc-api-engine/temp"
+            },
+            "dest": {
+                "temp": "/public/admin-server/tmp",
+                "develop": "/public/admin-server/develop",
+                "release": "/public/admin-server/release"
+            }
         }
     }
 }

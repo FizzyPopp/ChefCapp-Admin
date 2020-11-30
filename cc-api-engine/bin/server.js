@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 'use strict'
 
 var express = require('express');
-var cors = require('cors')
-var cca = require('cc-admin');
+var cors = require('cors');
+var cca = require('cc-api-engine');
 var msg = (m) => console.log('[' + new Date().toISOString() + '] SRV => ' + m);
 var strfy = JSON.stringify;
 const port = 3000;

@@ -1,7 +1,8 @@
 [submodule "cc-admin-client"]
 	path = cc-admin-client
 	url = git@github.com:FizzyPopp/ChefCapp-Admin-Client.git
-	branch = arda
-[submodule "public/landing"]
-	path = public/landing
+	branch = liam
+[submodule "cc-landing"]
+	path = cc-landing
 	url = git@github.com:marycc001/Chef-Capp-Landing.git
+	branch = master
