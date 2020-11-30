@@ -23,7 +23,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "bash scripts/build-admin-server.sh"
+    "build": "bash scripts/build.sh"
   },
   "files": [
     "lib/",
