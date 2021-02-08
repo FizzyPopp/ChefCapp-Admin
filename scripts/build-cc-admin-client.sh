@@ -38,5 +38,10 @@ printf 'Done.\n'
 
 printf 'Running Flutter web build...\n'
 cd "$cca$_src"
+flutter channel beta
+flutter upgrade
+flutter pub get
+flutter pub upgrade
 flutter build web
+flutter channel stable
 printf 'Done.\n'

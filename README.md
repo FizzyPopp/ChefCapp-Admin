@@ -139,7 +139,8 @@ EEEEEE.wmv
 Make sure you have the `init.sh` edited and sourced.
 
 ``` sh
-$ build.sh
+$ build-cc-admin-client.sh
+$ deploy-cc-admin-client.sh
 ```
 
 npm can be used to install the built package (found under `cc-admin/builds/`)

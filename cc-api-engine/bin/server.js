@@ -19,7 +19,7 @@ if (flags.length > 0) {
 
 const corsOptions = {
   orign: corsOrigin,
-  optionsSuccessStatus: 204 // some legacy browsers (IE11, various SmartTVs) choke on 204, use 200 instead
+  optionsSuccessStatus: 204 // some legacy browsers (IE11, various SmartTVs) choke on 204, luckily we don't support legacy browsers
 }
 
 var app = express();
@@ -31,8 +31,37 @@ app.use(cors(corsOptions));
 msg('cc-admin service running on port ' + port);
 
 app.get('/', (req, res) => {
-  res.send('index.html');
+    res.send('index.html');
 });
+
+app.post('/recipe/save', (req,res) => {
+           let steps = req.body.steps;
+           let recipe = req.body.recipe;
+           let idToken = req.body.idToken;
+           msg('recipe candidate: ' + strfy(recipe));
+           msg('step candidate: ' + strfy(steps));
+           let result = cca.db.confirmRecipe(recipe, steps)
+
+           if (result.validity === false) {
+               msg('Invalid recipe/step semantics');
+               msg(strfy(result))
+               res.json(result);
+           } else {
+               msg('Valid recipe/step semantics, attempting push');
+               cca.db.pushRecipe(recipe, steps)
+                  .then((ret) => {
+                      msg('returned good: ')
+                      msg (ret);
+                      res.json(ret)
+                  })
+                  .catch((ret) => {
+                      msg('recipe/add returned errors: ')
+                      msg (strfy(ret));
+                      res.json(ret)
+                  });
+           }
+
+})
 
 app.post('/recipe/add', (req, res) => {
     // let idToken = req.idToken;
@@ -48,6 +77,7 @@ app.post('/recipe/add', (req, res) => {
 
            if (result.validity === false) {
                msg('Invalid recipe/step semantics');
+               msg(strfy(result))
                res.json(result);
            } else {
                msg('Valid recipe/step semantics, attempting push');
@@ -65,11 +95,10 @@ app.post('/recipe/add', (req, res) => {
            }
        // }).catch((error) => {
        //     msg("Failed to validate uid: " + idToken);
-       //     msg("Got error: " + strfy(error))
+       //     msg("Got error:  op" + strfy(error))
        //     res.json(error)
        // })
 });
-
 
 app.post('/recipe/build', (req, res) => {
     let candidate = req.body;
@@ -78,6 +107,7 @@ app.post('/recipe/build', (req, res) => {
        .then((ret) => res.json(ret))
        .catch((ret) => res.json(ret));
 })
+
 app.post('/instruction/parse', (req, res) => {
 
     let instr = req.body.instructions;
@@ -100,6 +130,7 @@ app.post('/ingredient/add', (req, res) => {
                return cca.db.pushIngredient(candidate)
            }).then((ret) => {
                msg('object pushed: ' + strfy(ret));
+               msg(strfy(ret));
                res.json(ret)
            })
            .catch((ret) => {
@@ -116,7 +147,17 @@ app.post('/ingredient/add', (req, res) => {
 });
 
 app.post('/unit/add', (req, res) => {
-
+    let candidate = req.body;
+    cca.db.addUnit(candidate)
+       .then((ret) => {
+           msg('unit candidate added to database: ' + candidate.singular);
+           res.json(ret);
+       })
+       .catch((ret) => {
+           msg('err found: ' + strfy(ret));
+           msg(strfy(ret));
+           res.json(ret.errors)
+       })
 });
 
 app.post('/echo', (req, res) => {

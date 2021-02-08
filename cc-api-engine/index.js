@@ -10,7 +10,12 @@ const msg = require('./lib/utils/msg')
       .name('CCAPIengine');
 const strfy = require('./lib/utils/strfy')
       .space(2);
+
+const {Storage} = require('@google-cloud/storage');
+const storage = new Storage();
+
 var _admin = require('firebase-admin');
+
 var _funcs = require('firebase-functions');
 var _schemas = require('./lib/schemas')
     .init(__dirname);
@@ -120,12 +125,12 @@ let _buildRecipe = async (candidate) => {
 
 
     if (candidate[0].id === uuid.NIL) {
-        candidate[0].prev = uuid.NIL;
+        candidate[0].previous = uuid.NIL;
         candidate[0].id = uuid.v4();
     }
 
-    for (let i = 1 ; i < candidate.length - 2 ; i++) {
-        candidate[i].prev = candidate[i-1].id;
+    for (let i = 1 ; i < candidate.length - 1 ; i++) {
+        candidate[i].previous = candidate[i-1].id;
         if (candidate[i].id === uuid.NIL) {
             candidate[i].id = uuid.v4();
         }
@@ -136,7 +141,8 @@ let _buildRecipe = async (candidate) => {
     if (candidate[end].id === uuid.NIL) {
         candidate[end].next = uuid.NIL;
         candidate[end].id = uuid.v4();
-        candidate[end].prev = candidate[end-1].id;
+        candidate[end].previous = candidate[end-1].id;
+        candidate[end-1].next = candidate[end].id;
     }
     msg('Step ids ordered, stamping...');
     for (let step of candidate ) {
@@ -348,18 +354,72 @@ let _validate = (candidate) => {
     return ret;
 };
 
+
+/**
+ * @func addUnit
+ *
+ * @param {Object} unit - With required field 'singular' and optional field 'plural'
+ * @param {Array} ingredient - Optional, array of ingredients used to populate 'usedIn' field
+ */
 let _addUnit = async (unit) => {
-    let specificUnitRef = _db.collection('ingredient-metadata').doc('specific-units');
-    if (typeof unit === 'string'){
-        specificUnitRef.get().then((doc) => {
-            let newkeys = doc.get('keys');
-            if (!newkeys.includes(unit)){
-                newkeys.push(unit);
-            }
-        })
+    let ret = {
+        warnings: [],
+        errors: [],
+        unit: {}
     }
+    let ingredients = unit.usedIn;
+    unit.usedIn = [];
+    // error checking for input semantics
+    if (typeof unit === 'object') { // typechek for object
+        if (typeof ingredients.length === 'number') {
+            unit.usedIn = [];
+            for (let id of ingredients) {
+                if (uuid.validate(id) === false) {
+                    ret.warnings.push('Invalid ID for associated ingredient, expected uuid, got: ' + id + ' - ignoring');
+                    break;
+                }
+                const ingredientRef = _db.collection('ingredient').doc(id);
+                const ingredientResult = await ingredientRef.get();
+                if (ingredientResult.exists === true) {
+                    unit.usedIn.push(id);
+                } else {
+                    ret.warnings.push('Couldn\'t find ingredient with id: ' + id + ' - ignoring.');
+                }
+            }
+        } else {
+            ret.errors.push('Expected array of ingredients using unit ' + unit.singular + ', instead got ' + typeof ingredients)
+        }
+    } else {
+        ret.errors.push('Expected object type for passed unit, instead got ' + typeof unit)
+    }
+
+    //TODO - finish transaction code
+    let specificUnitRef = _db.collection('ingredient-metadata').doc('specific-units');
+    try {
+        let result = _db.runTransaction(async (t) => {
+            const doc = await t.get(specificUnitRef);
+            let newSpecificUnits = doc.data();
+            if (!newSpecificUnits.keys.includes(unit.singular)){
+                newSpecificUnits.keys.push(unit.singular);
+            }
+            newSpecificUnits[unit.singular] = unit;
+            await t.update(specificUnitRef, newSpecificUnits);
+        })
+        ret.transactionResult = result;
+    } catch (e) {
+        ret.errors.push('Failed to update database with unit: ' + unit.singular + '\nTransaction error message:' + e);
+    }
+
+    return ret;
 }
 
+/**
+ * @func confirmRecipe
+ * Checks the validity of recipe object semantics compared with the list of steps it was generated from.
+ *
+ * @param {Object} candRecipe - The recipe to be validated
+ * @param {Object} candSteps - The steps to be validated against
+ */
 let _confirmRecipe = (candRecipe, candSteps) => {
     let ret = {
         errors: [],
@@ -372,7 +432,15 @@ let _confirmRecipe = (candRecipe, candSteps) => {
     if (candRecipe.steps.length === candSteps.length) {
         msg("Step array lengths good, checking ID and pointer link mismatch")
         msg(strfy(candSteps));
-        for (let i = 0 ; i < candSteps.length ; i++) {
+        if (candSteps[0].previous != uuid.NIL) {
+            ret.errors.push('Step link mismatch, expected previous step id: ' + uuid.NIL + ' for first step, instead got: ' + candSteps[0].id);
+        }
+
+        if (candSteps[candSteps.length-1].next != uuid.NIL) {
+            ret.errors.push('Step link mismatch, expected next step id: ' + uuid.NIL + ' for last step, instead got: ' + candSteps[0].id);
+        }
+
+        for (let i = 1 ; i < candSteps.length - 1 ; i++) {
             if(candSteps[i].id != candRecipe.steps[i]) {
                 ret.errors.push('ID mismatch - recipe has: ' + candRecipe.steps[i] + ' | step has: ' + candSteps[i].id);
             }
@@ -405,22 +473,47 @@ let _confirmRecipe = (candRecipe, candSteps) => {
     return ret;
 }
 
+/**
+ * @func pushIngredient
+ *
+ * Pushes an ingredient candidate to the 'ingredient' firestore collection
+ * WARNING: datatypes are not error checked here!
+ *
+ * @param {Object} candidate
+ */
 let _pushIngredient = async (candidate) => {
     let ret = {
         errors: [],
         recipeCandidate: candidate
     }
     candidate.type = 'ingredient';
+
     const candidateRef = _db.collection('ingredient').doc(candidate.hash)
     return candidateRef.set(candidate)
 }
 
+/**
+ * @func pushStep
+ *
+ * Pushes a recipe step candidate to the 'step' firestore collection
+ * WARNING: datatypes are not error checked here!
+ *
+ * @param {Object} candidate
+ */
 let _pushStep = async (candidate) => {
     candidate.type = 'step';
     const candidateRef = _db.collection('step').doc(candidate.hash)
     return candidateRef.set(candidate)
 }
 
+/**
+ * @func pushRecipe
+ *
+ * Stamps and pushes a recipe candidate along with its associated ordered steps list.
+ *
+ * @param {Object} candRecipe - recipe candidate
+ * @param {Object} steps - step array
+ */
 let _pushRecipe = async (candRecipe, steps) => {
     let ret = {
         errors: [],
@@ -434,7 +527,7 @@ let _pushRecipe = async (candRecipe, steps) => {
         msg('Recipe is stamped with hash  ' + recipe.hash)
     } catch (e) { ret.errors.push(e) }
 
-    for (let step of steps) {
+    for (let step of steps) { // push the steps into the database
         msg('Checking step stamp status:' + strfy(step));
         if (step.hash && step.timestamp) {
             const stepRef = _db.collection('step').doc(step.hash)
@@ -468,12 +561,16 @@ let _pushRecipe = async (candRecipe, steps) => {
     })
 }
 
-let _pushObject = async (candidate, type) => {
-    msg('pushing obj with id: ' + candidate.id + ' | type: ' + type);
-    if (dbTypes.includes(type)){
-        const candidateRef = _db.collection(type).doc(candidate.hash)
-        return candidateRef.set(candidate)
-    }
+
+/**
+ * @func publishRecipe
+ *
+ * Finds object in database, and if it exists, set its status to published
+ */
+let _publishRecipe = async (id) => {
+
+    msg('publishing recipe with id: ' + id + ' | hash: ')
+
 }
 
 let _verifyIdToken = async (idToken) => {
@@ -517,11 +614,11 @@ exports.schemas = _schemas;
 exports.validate = _validate;
 exports.hash = _hash;
 exports.parser = _parser;
+exports.db.addUnit = _addUnit;
 exports.db.buildRecipe = _buildRecipe;
 exports.db.confirmRecipe = _confirmRecipe;
 exports.db.stampObject = _stampObject;
 exports.db.pushIngredient = _pushIngredient;
-exports.db.pushStep = _pushStep;
 exports.db.pushRecipe = _pushRecipe;
-exports.db.pushObject = _pushObject;
+exports.db.publishRecipe = _publishRecipe;
 exports.verifyIdToken = _verifyIdToken;

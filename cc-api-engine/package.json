@@ -7,6 +7,7 @@
     "ccapi-run": "bin/server.js"
   },
   "dependencies": {
+    "@google-cloud/storage": "^5.7.4",
     "ajv": "^6.12.4",
     "express": "^4.17.1",
     "firebase-admin": "^9.3.0",
