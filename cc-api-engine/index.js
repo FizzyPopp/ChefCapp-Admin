@@ -473,6 +473,15 @@ let _confirmRecipe = (candRecipe, candSteps) => {
     return ret;
 }
 
+let _updateIngredientUnitRecord = (ingredient) => {
+    let ret = {
+        errors: [],
+        ingredientOfInterest: ingredient
+    }
+
+}
+
+
 /**
  * @func pushIngredient
  *
@@ -486,10 +495,43 @@ let _pushIngredient = async (candidate) => {
         errors: [],
         recipeCandidate: candidate
     }
+    let units = [];
     candidate.type = 'ingredient';
 
-    const candidateRef = _db.collection('ingredient').doc(candidate.hash)
-    return candidateRef.set(candidate)
+    for (let unitClass in candidate.unit) {
+        if (unitClass.unitCategory === "specific") {
+            units.push({
+                singular: unitClass.singular,
+                plural: unitClass.singular,
+                usedIn: [candidate.id]
+            });
+        }
+    }
+
+    try {
+        const specificUnitDbRef = _db.collection('ingredient-metadata').doc('specific-units');
+        const ingredientRef = _db.collection('ingredient').doc(candidate.hash)
+        const result = _db.runTransaction(async (t) => {
+            const doc = await t.get();
+            let newSpecificUnitDb = doc.data();
+            units.forEach((unit) => {
+                if (!newSpecificUnitDb.keys.includes(unit.singular)){ // no existing entry
+                    newSpecificUnitDb.keys.push(unit.singular);
+                    unit.usedIn = [];
+                    newSpecificUnitDb[unit.singular] = unit;
+                } else {
+                    newSpecificUnitDb[unit.singular].usedIn.push(candidate.id);
+                }
+            })
+            await t.set(ingredientRef, )
+            await t.update(specificUnitDbRef, newSpecificUnitDb);
+        })
+        ret.transactionResult = result;
+    } catch (e) {
+        ret.errors.push('Failed to add ingredient \''+ candidate.name.singular +'\' to database, object ID:' + candidate.id + '\nTransaction error message:' + e);
+    }
+
+    return ret;
 }
 
 /**
