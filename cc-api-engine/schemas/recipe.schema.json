@@ -23,6 +23,16 @@
         "name": { "$ref": "name.schema.json" },
         "tags": { "$ref": "tags.schema.json" },
         "time": { "$ref": "time.schema.json" },
+        "published": {
+            "type": "string",
+            "enum": [
+                "copy",
+                "name",
+                "quantity",
+                "unit",
+                "time"
+            ]
+        },
         "yield": {
             "type": "integer",
             "minimum": 1

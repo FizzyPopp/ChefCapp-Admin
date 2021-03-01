@@ -255,12 +255,12 @@ let _stampObject = async (object, type) => {
                 }
                 ret.id = object.id;
 
-                object.timestamp = Date.now();
-                ret.timestamp = object.timestamp;
                 ret.obj = object;
-                msg('Stamped incoming object with id: ' + object.id + ' and timestamp: ' + object.timestamp);
+                msg('Stamped incoming object with id: ' + object.id);
             }
-
+            object.timestamp = Date.now();
+            ret.timestamp = object.timestamp;
+            msg('Stamped time: ' + object.timestamp);
         } else {
             ret.errors.push(_schemas.validate[object.type].errors);
         }
@@ -287,6 +287,7 @@ let _hash = (obj) => {
     if (dbTypes.includes(obj.type)){
         if ( typeof obj.hash !== 'undefined' ) { delete obj.hash; }
         if ( typeof obj.timestamp !== 'undefined' ) { delete obj.timestamp; }
+        if ( typeof obj.status !== 'undefined' ) { delete obj.status; }
 
         let c = _canonize(obj);
         let h = crypto.createHash('sha256');
@@ -316,9 +317,9 @@ let _canonize = (obj) => {
     var keys = Object.keys(obj);
     var objstr = '{';
     keys.sort();
-    // console.log(keys);
+    // msg("canonize() recieved object with keys: " + keys);
     keys.forEach((val) => {
-        if(val != 'hash'){
+        if(val != 'hash' && val != 'timestamp'){
             objstr = objstr + '"' + val + '":';
             objstr = objstr + _canonize(obj[val]) + ',';
         }
@@ -426,12 +427,12 @@ let _confirmRecipe = (candRecipe, candSteps) => {
         validity: false
     };
 
-    msg("Confirming candidate: ");
-    msg(strfy(candRecipe));
+    msg("Confirming candidate with ID: " + candRecipe.id);
+    // msg(strfy(candRecipe));
 
     if (candRecipe.steps.length === candSteps.length) {
         msg("Step array lengths good, checking ID and pointer link mismatch")
-        msg(strfy(candSteps));
+        //msg(strfy(candSteps));
         if (candSteps[0].previous != uuid.NIL) {
             ret.errors.push('Step link mismatch, expected previous step id: ' + uuid.NIL + ' for first step, instead got: ' + candSteps[0].id);
         }
@@ -562,25 +563,27 @@ let _pushRecipe = async (candRecipe, steps) => {
         writeResults: {}
     };
 
-    var recipe = {}   
+    let recipe = {};
+    let status = candRecipe.status; // for some reason the hash process is destructive to candRecipe
     try {
         let stampedResult = await _stampObject(candRecipe,'recipe')
         recipe = stampedResult.obj;
-        msg('Recipe is stamped with hash  ' + recipe.hash)
-    } catch (e) { ret.errors.push(e) }
+        msg('Recipe stamped with hash ' + recipe.hash)
+    } catch (e) { ret.errors.push(e); }
+    recipe.status = status;
 
     for (let step of steps) { // push the steps into the database
-        msg('Checking step stamp status:' + strfy(step));
+        msg('Checking stamp status of step ID:' + step.id);
         if (step.hash && step.timestamp) {
             const stepRef = _db.collection('step').doc(step.hash)
             try {
-                msg('pushing step id: ' + step.id + ' | hash: ' + step.hash);
+                msg('Pushing step id: ' + step.id + ' | hash: ' + step.hash);
                 ret.writeResults[step.id] = await stepRef.set(step);
             } catch (e) { ret.errors.push(e); }
         } else {
             ret.errors.push({
                 id: step.id,
-                message: 'Step with id ' + step.id + ' is not stamped skipping.'
+                message: 'Step with id ' + step.id + ' is not stamped, skipping.'
             });
         }
     }
@@ -588,12 +591,14 @@ let _pushRecipe = async (candRecipe, steps) => {
     if (ret.errors.length === 0 ) {
         const recipeRef = _db.collection('recipe').doc(recipe.hash)
         try {
-            msg('pushing recipe id: ' + recipe.id + ' | hash: ' + recipe.hash);
+            msg('Pushing recipe id: ' + recipe.id + ' | hash: ' + recipe.hash);
+            msg('Recipe object : ' + strfy(recipe));
             ret.writeResults[recipe.id] = await recipeRef.set(recipe);
         } catch (e) { ret.errors.push(e); }
     }
 
     return new Promise ((resolve, reject) => {
+        msg('pushRecipe() returning, ret.errors: ' + strfy(ret.errors));
         if (ret.errors.length === 0) {
             ret.errors = null
             resolve(ret);
@@ -610,9 +615,7 @@ let _pushRecipe = async (candRecipe, steps) => {
  * Finds object in database, and if it exists, set its status to published
  */
 let _publishRecipe = async (id) => {
-
     msg('publishing recipe with id: ' + id + ' | hash: ')
-
 }
 
 let _verifyIdToken = async (idToken) => {
