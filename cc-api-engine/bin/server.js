@@ -34,65 +34,36 @@ app.get('/', (req, res) => {
     res.send('index.html');
 });
 
-app.post('/recipe/save', (req,res) => {
-           let steps = req.body.steps;
-           let recipe = req.body.recipe;
-           let idToken = req.body.idToken;
-           msg('recipe candidate: ' + strfy(recipe));
-           msg('step candidate: ' + strfy(steps));
-           let result = cca.db.confirmRecipe(recipe, steps)
-
-           if (result.validity === false) {
-               msg('Invalid recipe/step semantics');
-               msg(strfy(result))
-               res.json(result);
-           } else {
-               msg('Valid recipe/step semantics, attempting push');
-               cca.db.pushRecipe(recipe, steps)
-                  .then((ret) => {
-                      msg('returned good: ')
-                      msg (ret);
-                      res.json(ret)
-                  })
-                  .catch((ret) => {
-                      msg('recipe/add returned errors: ')
-                      msg (strfy(ret));
-                      res.json(ret)
-                  });
-           }
-
-})
-
 app.post('/recipe/add', (req, res) => {
     // let idToken = req.idToken;
     // let idToken = '000';
     // cca.verifyIdToken(idToken)
     //    .then((uid) => {
-           let steps = req.body.steps;
-           let recipe = req.body.recipe;
-           let idToken = req.body.idToken;
-           msg('recipe candidate: ' + strfy(recipe));
-           msg('step candidate: ' + strfy(steps));
-           let result = cca.db.confirmRecipe(recipe, steps)
+    let steps = req.body.steps;
+    let recipe = req.body.recipe;
+    let idToken = req.body.idToken;
+    msg('recipe/add candidate: ' + strfy(recipe));
+    msg('step candidate: ' + strfy(steps));
+    let result = cca.db.confirmRecipe(recipe, steps)
 
-           if (result.validity === false) {
-               msg('Invalid recipe/step semantics');
-               msg(strfy(result))
-               res.json(result);
-           } else {
-               msg('Valid recipe/step semantics, attempting push');
-               cca.db.pushRecipe(recipe, steps)
-                  .then((ret) => {
-                      msg('returned good: ')
-                      msg (ret);
-                      res.json(ret)
-                  })
-                  .catch((ret) => {
-                      msg('recipe/add returned errors: ')
-                      msg (strfy(ret));
-                      res.json(ret)
-                  });
-           }
+    if (result.validity === false) {
+        msg('Invalid recipe/step semantics');
+        msg(strfy(result))
+        res.json(result);
+    } else {
+        msg('Valid recipe and step semantics, attempting push');
+        cca.db.pushRecipe(recipe, steps)
+           .then((ret) => {
+               msg('returned good: ')
+               msg (strfy(ret));
+               res.json(ret)
+           })
+           .catch((ret) => {
+               msg('recipe/add returned errors: ')
+               msg (strfy(ret));
+               res.json(ret)
+           });
+    }
        // }).catch((error) => {
        //     msg("Failed to validate uid: " + idToken);
        //     msg("Got error:  op" + strfy(error))
@@ -102,14 +73,13 @@ app.post('/recipe/add', (req, res) => {
 
 app.post('/recipe/build', (req, res) => {
     let candidate = req.body;
-    msg('got request with body: ' + strfy(candidate));
+    msg('recipe/build got request with body: ' + strfy(candidate));
     cca.db.buildRecipe(candidate)
        .then((ret) => res.json(ret))
        .catch((ret) => res.json(ret));
 })
 
 app.post('/instruction/parse', (req, res) => {
-
     let instr = req.body.instructions;
     let instructions = cca.parser.transform(instr);
     // msg('request body:' + strfy(req.body));
@@ -122,22 +92,22 @@ app.post('/ingredient/add', (req, res) => {
     // let idToken = '000';
     // cca.verifyIdToken(idToken)
     //    .then((uid) => {
-        let obj = req.body;
-        cca.db.stampObject(obj, 'ingredient')
-           .then((ret) => {
-               msg('object stamped: ' + strfy(ret));
-               let candidate = ret.obj;
-               return cca.db.pushIngredient(candidate)
-           }).then((ret) => {
-               msg('object pushed: ' + strfy(ret));
-               msg(strfy(ret));
-               res.json(ret)
-           })
-           .catch((ret) => {
-               msg('err found: ' + strfy(ret));
-               msg(strfy(ret));
-               res.json(ret.errors)
-           })
+    let obj = req.body;
+    cca.db.stampObject(obj, 'ingredient')
+       .then((ret) => {
+           msg('object stamped: ' + strfy(ret));
+           let candidate = ret.obj;
+           return cca.db.pushIngredient(candidate)
+       }).then((ret) => {
+           msg('object pushed: ' + strfy(ret));
+           msg(strfy(ret));
+           res.json(ret)
+       })
+       .catch((ret) => {
+           msg('err found: ' + strfy(ret));
+           msg(strfy(ret));
+           res.json(ret.errors)
+       })
        // })
        // .catch((error) => {
        //     msg("Failed to validate uid: " + idToken);
