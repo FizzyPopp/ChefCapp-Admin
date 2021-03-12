@@ -487,7 +487,40 @@ let _pushIngredient = async (candidate) => {
         errors: [],
         recipeCandidate: candidate
     }
+    if (candidate.hash) {
+        //TODO: check for stamped status?
+    }
+
     candidate.type = 'ingredient';
+    let specificUnits = [];
+
+    for (const type in candidate.unit) {
+        if (candidate.unit[type].unitCategory === 'specific') {
+            specificUnits.push({
+                singular: candidate.unit[type].singular,
+                plural: candidate.unit[type].plural,
+                usedIn: [candidate.id]
+            });
+        }
+    }
+    // Update the unit/ingredient connection
+    let dbSpecificUnitRef = _db.collection('ingredient-metadata').doc('specific-units');
+    try {
+        let result = _db.runTransaction(async (t) => {
+            const doc = await t.get(dbSpecificUnitRef);
+            let dbNewSpecificUnits = doc.data();
+            for (const unit of specificUnits) {
+                if (!dbNewSpecificUnits.keys.includes(unit.singular)){
+                    dbNewSpecificUnits.keys.push(unit.singular);
+                }
+                dbNewSpecificUnits[unit.singular] = unit;
+            }
+            await t.update(dbSpecificUnitRef, dbNewSpecificUnits);
+        })
+        ret.transactionResult = result;
+    } catch (e) {
+        ret.errors.push('Failed to update database with units: ' + strfy(specificUnits) + '\nTransaction error message:' + e);
+    }
 
     const candidateRef = _db.collection('ingredient').doc(candidate.hash)
     return candidateRef.set(candidate)
@@ -566,16 +599,6 @@ let _pushRecipe = async (candRecipe, steps) => {
     })
 }
 
-
-/**
- * @func publishRecipe
- *
- * Finds object in database, and if it exists, set its status to published
- */
-let _publishRecipe = async (id) => {
-    msg('publishing recipe with id: ' + id + ' | hash: ')
-}
-
 let _verifyIdToken = async (idToken) => {
     _admin.auth().verifyIdToken(idToken)
         .then((decodedToken) => {
@@ -623,5 +646,4 @@ exports.db.confirmRecipe = _confirmRecipe;
 exports.db.stampObject = _stampObject;
 exports.db.pushIngredient = _pushIngredient;
 exports.db.pushRecipe = _pushRecipe;
-exports.db.publishRecipe = _publishRecipe;
 exports.verifyIdToken = _verifyIdToken;
