@@ -1,4 +1,6 @@
-FROM https://hub.docker.com/layers/node/library/node/dubnium-buster/images/sha256-5f5bd232f271263ac1c625b36449e3c3f744b450cbe8786722aa0c659b1c04fe 
+FROM node:14-buster
+
+ENV NODE_ENV=production
 
 # Create app directory
 WORKDIR /usr/src/cca
@@ -12,8 +14,10 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
+WORKDIR /ccapi
+
 # Bundle app source
 COPY . .
 
 EXPOSE 8080
-CMD [ "ccapi-run" ]
+CMD [ "node", "bin/server.js" ]
