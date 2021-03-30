@@ -10,7 +10,7 @@ WORKDIR /usr/src/cca
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install -g
+RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
@@ -20,4 +20,4 @@ WORKDIR /ccapi
 COPY . .
 
 EXPOSE 8080
-CMD [ "node", "bin/server.js" ]
+CMD [ "node", "server.js" ]
