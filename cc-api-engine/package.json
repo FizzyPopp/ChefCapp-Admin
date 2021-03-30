@@ -2,9 +2,9 @@
   "name": "cc-api-engine",
   "version": "0.0.3",
   "description": "API engine for ChefCapp",
-  "main": "index.js",
+  "main": "server.js",
   "bin": {
-    "ccapi-run": "bin/server.js"
+    "ccapi-run": "server.js"
   },
   "dependencies": {
     "@google-cloud/storage": "^5.7.4",
