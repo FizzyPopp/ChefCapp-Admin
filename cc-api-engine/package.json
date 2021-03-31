@@ -1,8 +1,8 @@
 {
   "name": "cc-api-engine",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "API engine for ChefCapp",
-  "main": "server.js",
+  "main": "index.js",
   "bin": {
     "ccapi-run": "server.js"
   },
