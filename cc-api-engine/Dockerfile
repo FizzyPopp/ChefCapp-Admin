@@ -1,22 +1,24 @@
 FROM node:14-buster
 
+ARG npm_package=build/deploy.tgz
+
 ENV NODE_ENV=production
+ENV GOOGLE_APPLICATION_CREDENTIALS="/run/secrets/chefcapp_service_key.json"
+ENV FIREBASE_CONFIG={}
+ENV GCLOUD_PROJECT={}
+
 
 # Create app directory
 WORKDIR /ccapi
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
 # Bundle app source
-COPY . .
+COPY $npm_package ./
 
 # Install app dependencies
-RUN npm install
+RUN npm install -g /ccapi/deploy.tgz
 # If you are building your code for production
 # RUN npm ci --only=production
 
-EXPOSE 6968
+EXPOSE 3000
 
-CMD [ "node", "server.js" ]
+CMD [ "ccapi-run" ]

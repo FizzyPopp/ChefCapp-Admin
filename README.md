@@ -2,9 +2,9 @@
 
 Administration interface for ChefCapp assists in parsing, uploads, database fiddling, etc.
 
-# How to set up the Admin Repo
+# How to set up the Admin Repo for Development
 
-1. Set up nodejs ~~v8.x.x~~ (DEPRECATED) v10.x.x (`lts/dubnium`)
+1. Set up nodejs (lts/fermium - 14.x.x)
 1. Obtaining service account key
 1. Installing [`jq`](https://stedolan.github.io/jq/) is required if you want to run `build.sh`
 1. Clone repo and update the submodule
@@ -13,27 +13,21 @@ Administration interface for ChefCapp assists in parsing, uploads, database fidd
 
 If you have both of them already, read ahead to **Installation**
 
-## Get Nodejs v8/10
+## Get Nodejs
 
 Use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-### using nvm
+### Getting nvm installed
 
-The repository comes with .nvmrc that points to `lts/carbon` (i.e. node v8) or `lts/dubnium` (i.e. node v10), so the version should be pinned and one just needs to run the commands and the correct version will be obtained.
+The repository comes with .nvmrc that points to a pinned version of node, so one just needs to run the commands and the correct version will be obtained.
 
-1. Install nvm:
+1. Install nvm from the the [official nvm readme](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-``` sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-more details can be found on the [official nvm readme](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-2. Install/update nodejs v8:
+2. Install/update nodejs (same command)
 
 ``` sh
-nvm install lts/dubnium
+nvm install lts/fermium
 ```
-dubnium is always set to track the latest v10.whatever LTS release, and will keep it up to date whenever you run the command again.
 
 ## Service Account Key 
 
@@ -120,13 +114,9 @@ The `ChefCapp-Admin/secrets` directory is used by firebase to house keys and tok
 
 **The secrets folder is already inside `.gitignore`, do not move secrets outside the secrets folder unless you want to accidentally commit them (like James has already done sort of once).**
 
-I've added the private key file name and the init.sh into .gitignore, so it'll be
-okay if you accidentally leave them in the source dir.
-
 ### Alternatives to the init script
 
-It is possible to add the variables into your bash environment so that you do 
-not need to source `init.sh` every time, but it's personal preference. This is the way that our live server will be provisioned.
+It is possible to add the variables into your bash environment so that you do not need to source `init.sh` every time, but it's personal preference. This is the way that our live server will be provisioned.
 
 
 # Working with the project
@@ -134,7 +124,6 @@ not need to source `init.sh` every time, but it's personal preference. This is t
 EEEEEE.wmv
 
 ## Building
-
 
 Make sure you have the `init.sh` edited and sourced.
 

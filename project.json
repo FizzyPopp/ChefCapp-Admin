@@ -1,8 +1,15 @@
 {
     "targets": [
         "adminClient",
-        "ccAdmin"
+        "ccApiEngine"
     ],
+    "services": {
+        "ccApiEngine": {
+            "docker": {
+                "repository": "chefcapp/ccapi"
+            }
+        }
+    }
     "paths":{
         "adminClient": {
             "src": {
