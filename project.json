@@ -9,7 +9,7 @@
                 "repository": "chefcapp/ccapi"
             }
         }
-    }
+    },
     "paths":{
         "adminClient": {
             "src": {

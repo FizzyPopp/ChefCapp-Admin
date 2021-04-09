@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+die() {
+    printf '%s\n' "$1" >&2
+    exit 1
+}
+
+set_ccapi_build_vars() {
+    # setup directory path variables
+    export _conf="/project.json"
+
+    # load in source directories
+    export _src=$($jq -r .paths.$name.src.root "$cca$_conf")
+
+    # load in build output directories
+    export _module_root=$($jq -r .paths.$name.src.root "$cca$_conf")
+
+    export _package_dir=$($jq -r .paths.$name.src.package "$cca$_conf")
+
+    export _temp=$($jq -r .paths.$name.dest.temp "$cca$_conf")
+    export _develop=$($jq -r .paths.$name.dest.develop "$cca$_conf")
+    export _release=$($jq -r .paths.$name.dest.release "$cca$_conf")
+
+    # load in docker stuff
+    export docker_repo=$($jq -r .services.$name.docker.repository "$cca$_conf")
+
+    # save current git branch so it could be returned to
+    export current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+}
+
+unset_ccapi_build_vars() {
+    # setup directory path variables
+    unset _conf
+
+    # load in source directories
+    unset _src
+
+    # load in build output directories
+    unset _module_root
+    unset _package_dir
+
+    unset _temp
+    unset _develop
+    unset _release
+
+    # load in docker stuff
+    unset docker_repo
+
+    # save current git branch so it could be returned to
+    unset current_branch
+}
+
+export set_ccapi_build_vars
+export unset_ccapi_build_vars

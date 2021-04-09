@@ -1,48 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ -z "${cca+1}" ]]
-then
-    printf "Project root not set, make sure \$cca is set then try building."
-    exit 1;
-fi
+# checks if $cca is set - i.e. if project environment has been set up
+preshow
 
-if [[ -z "${jq+1}" ]]
-then
-    printf "Executable jq unavailable, install jq or point \$jq at ./ChefCapp-Admin/tools/\{jq-version-for-your-OS\}, then try building."
-    exit 2;
-fi
+. ccapi_build_vars
 
-
-
-target="DEVELOPMENT"
 name="ccApiEngine"
 
-# setup directory path variables
-_conf="/project.json"
+# load in pathing and target names from ./project.json
+set_ccapi_build_vars
 
-# load in source directories
-_src=$($jq -r .paths.$name.src.root "$cca$_conf")
+name="ccApiEngine"
 
-# load in build output directories
-_module_root=$($jq -r .paths.$name.src.root "$cca$_conf")
-_package_dir=$($jq -r .paths.$name.src.package "$cca$_conf")
-
-_temp=$($jq -r .paths.$name.dest.temp "$cca$_conf")
-_develop=$($jq -r .paths.$name.dest.develop "$cca$_conf")
-_release=$($jq -r .paths.$name.dest.release "$cca$_conf")
-
-# load in docker stuff
-docker_repo=$($jq -r .services.$name.docker.repository "$cca$_conf")
-
+target="DEVELOPMENT"
 
 # read package name and tagging data from package.json
-package_json="$cca$_src/package.json"
-version=$($jq -r .version "$package_json")
-
-# save current git branch so it could be returned to
-current_branch=$(git rev-parse --abbrev-ref HEAD)
-
+export package_json="$cca$_src/package.json"
+export version=$($jq -r .version "$package_json")
 
 # Assigning the correct directories based on target
 if [[ "$target" = "DEVELOPMENT" ]]
@@ -84,14 +59,15 @@ build_npm() {
     # printf 'npm install\n'
     # printf 'npm pack\n'
 
+    # running updates and packaging
     npm install
     npm pack
 
     printf 'Moving package to build output directory and updating deploy.tgz (%s)\n' "$cca$_package_dir/$package_file"
-    # printf 'mkdir -p %s \n' "$cca$_package_dir"
     mkdir -p "$cca$_package_dir"
-    # printf 'mv %s %s \n' "$cca$_module_root/$package_file" "$cca$_module_root/build/$package_file"
+    # create deploy.tgz for immediate builds
     cp "$cca$_module_root/$package_file" "$cca$_package_dir/deploy.tgz"
+    # archiving build result and cleaning up workspace
     mv "$cca$_module_root/$package_file" "$cca$_package_dir/$build_name.tgz"
 }
 
@@ -100,4 +76,3 @@ build_docker() {
 }
 
 build_npm
-

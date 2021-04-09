@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# check for environment setup, if it's not there, exit
+if [[ -z "${cca+1}" ]]
+then
+    printf "Project root not set, make sure \$cca is set then try building."
+    exit 1;
+fi
+
+if [[ -z "${jq+1}" ]]
+then
+    printf "Executable jq unavailable, install jq or point \$jq at ./ChefCapp-Admin/tools/\{jq-version-for-your-OS\}, then try building."
+    exit 2;
+fi
+
