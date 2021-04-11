@@ -1,36 +1,42 @@
 {
     "targets": [
-        "adminClient",
-        "ccApiEngine"
+        "chef_capp_admin_client",
+        "cc_api_engine",
+        "cc_landing"
     ],
     "services": {
-        "ccApiEngine": {
+        "cc-api-engine": {
             "docker": {
                 "repository": "chefcapp/ccapi"
             }
         }
     },
     "paths":{
-        "adminClient": {
+        "chef_capp_admin_client": {
             "src": {
                 "root": "/cc-admin-client/chef_capp_admin_client",
-                "build": "/cc-admin-client/chef_capp_admin_client/build/web"
-            },
-            "dest":{
-                "develop": "/public/admin-client/develop",
-                "release": "/public/admin-client/release"
-            }
-        },
-        "ccApiEngine": {
-            "src": {
-                "root": "/cc-api-engine",
-                "package": "/cc-api-engine/build",
-                "temp": "/cc-api-engine/temp"
+                "build": "/cc-admin-client/chef_capp_admin_client/build/web",
+                "package": "/cc-admin-client/chef_capp_admin_client/build/web"
             },
             "dest": {
-                "temp": "/public/admin-server/tmp",
-                "develop": "/public/admin-server/develop",
-                "release": "/public/admin-server/release"
+                "root": "/public/admin-client/release"
+            }
+        },
+        "cc_api_engine": {
+            "src": {
+                "root": "/cc-api-engine"
+            },
+            "dest": {
+                "root": "/public/cc-api-engine",
+                "package": "/cc-api-engine/build"
+            }
+        },
+        "cc_landing": {
+            "src": {
+                "root": "/cc-landing"
+            },
+            "dest": {
+                "root": "/public/cc-landing"
             }
         }
     }
