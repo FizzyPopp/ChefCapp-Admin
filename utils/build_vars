@@ -8,10 +8,9 @@ die() {
 set_build_vars() {
     # setup directory path variables
     export _conf="/project.json"
-    echo "what is in a $name"
     # load in source directories
-    export _src=$($jq -r .paths."$name".src.root "$cca$_conf")
-    export _dest=$($jq -r .paths."$name".dest.root "$cca$_conf")
+    export _src=$($jq -r .paths.\""$name"\".src.root "$cca$_conf")
+    export _dest=$($jq -r .paths.\""$name"\".dest.root "$cca$_conf")
 }
 
 unset_build_vars() {

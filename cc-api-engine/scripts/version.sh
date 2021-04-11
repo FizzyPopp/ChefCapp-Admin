@@ -83,13 +83,17 @@ case $target in
         ;;
     'STAGING')
         branch="master"
-        target_version=$(semver bump build $branch.$commit $version)
+        git stash
+        git checkout "$branch" --quiet
+        target_version=$version
         docker_tag="$docker_repo:staging"
         dest_dir="$dest_dir$staging_dir"
         ;;
     'PRODUCTION')
         branch="master"
+        git stash
         target_version=$(semver get release $version)
+        git checkout "$target_version" --quiet
         docker_tag="$docker_repo:stable"
         dest_dir="$dest_dir$production_dir"
         ;;
@@ -99,8 +103,6 @@ esac
 
 export archive_file="$package_name-v$target_version.tgz"
 
-# git stash
-# git checkout "$branch" --quiet
 
 printf '<== BUILD VARIABLES ==>\n'
 printf 'target: %s\n' "$target"
@@ -117,36 +119,34 @@ build_npm() {
     ## The node build is basically just running npm install to update and then npm pack to generate the package
     printf 'Building npm package for %s version %s...\n' "$package_name" "$target_version"
 
-    printf 'cd %s\n' "$src_dir"
+    # printf 'cd %s\n' "$src_dir"
     cd "$src_dir"
 
     # running updates and packaging
-    printf 'npm install\n'
-    printf 'npm pack\n'
-    # npm install
-    # npm pack
+    # printf 'npm install\n'
+    # printf 'npm pack\n'
+    npm install
+    npm pack
 
     printf 'Moving package to build output directory and updating deploy.tgz (%s)\n' "$src_dir/$npm_package_file"
-
-    printf 'mkdir -p %s/build\n' "$src_dir"
-    # mkdir -p "$src_dir/build"
-
+    # printf 'mkdir -p %s/build\n' "$src_dir"
+    mkdir -p "$src_dir/build"
     # create deploy.tgz for immediate builds with docker, or other voodoos
-    printf 'cp %s/%s %s/build/deploy.tgz\n' "$src_dir" "$npm_package_file" "$src_dir"
-    # cp "$src_dir/$npm_package_file" "$src_dir/build/deploy.tgz"
+    # printf 'cp %s/%s %s/build/deploy.tgz\n' "$src_dir" "$npm_package_file" "$src_dir"
+    cp "$src_dir/$npm_package_file" "$src_dir/build/deploy.tgz"
 
-    # archiving build result and cleaning up workspace
-    printf 'mkdir -p %s\n' "$dest_dir"
-    printf 'mv %s/%s %s/%s.tgz\n' "$src_dir" "$npm_package_file" "$dest_dir" "$archive_file"
-    # mkdir -p "$dest_dir"
-    # mv "$src_dir/$npm_package_file" "$dest_dir/$archive_file.tgz"
+    printf 'Archiving build result to %s as %s\n' "$dest_dir" "$archive_file"
+    # printf 'mkdir -p %s\n' "$dest_dir"
+    # printf 'mv %s/%s %s/%s.tgz\n' "$src_dir" "$npm_package_file" "$dest_dir" "$archive_file"
+    mkdir -p "$dest_dir"
+    mv "$src_dir/$npm_package_file" "$dest_dir/$archive_file"
 }
 
 build_npm
 # return to previous branch
-# git checkout $current_branch --quiet
+git checkout $current_branch --quiet
 # pop any workspace clutter back out
-# git stash pop --quiet
+git stash pop --quiet
 
 # clean up environment
 unset_build_vars
