@@ -103,6 +103,8 @@ esac
 
 export archive_file="$package_name-v$target_version.tgz"
 
+git stash
+git checkout "$branch" --quiet
 
 printf '<== BUILD VARIABLES ==>\n'
 printf 'target: %s\n' "$target"
