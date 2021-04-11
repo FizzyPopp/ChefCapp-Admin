@@ -8,7 +8,6 @@ preshow
 name="cc_api_engine"
 set_build_vars
 
-echo "whats out a $_src"
 err_exit() {
     printf 'ERROR: %s\n' "$1" >&2
     exit 1
