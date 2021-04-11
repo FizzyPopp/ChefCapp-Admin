@@ -148,8 +148,9 @@ build_npm
 # return to previous branch
 git checkout $current_branch --quiet
 # pop any workspace clutter back out
-git stash pop --quiet
 
 # clean up environment
 unset_build_vars
 unset name
+
+printf "Any workspace changes have been stashed to git, commit any changes before reapplying them!\n"
