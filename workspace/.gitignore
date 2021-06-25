@@ -73,14 +73,5 @@ firestore.indexes.json
 # SECRETS
 secrets/
 
-# don't bother uploading staging/dev directories
-public/admin/
-public/admin-server/*
-public/tmp/
-
-# ignore emulator export data in the workspace
-workspace/emulator-data/
-
-# PRIVATE KEY
-chef-capp-firebase-adminsdk*
-init.sh
+# Don't bother uploading emulator exports, do those manually
+./emulator-data/

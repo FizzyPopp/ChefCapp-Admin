@@ -2,7 +2,7 @@
 
 Administration interface for ChefCapp assists in parsing, uploads, database fiddling, etc.
 
-# How to set up the Admin Repo for Development
+# How to set up the Admin Toolkit
 
 1. Set up nodejs (lts/fermium - 14.x.x)
 1. Obtaining service account key
@@ -35,21 +35,6 @@ If you're running on windows, may the lord have mercy on your soul. Otherwise he
 
 **Don't change the name of the key file after you download it, or you might accidentally commit it.**
 
-## Install `jq` (optional, sorta)
-
-The handy `jq` utility is used in the build scripts, if you want to run `build.sh`, then you need a working jq executable. A set of cross platform binaries can be found in the `tools/` folder.
-
-If you are on OSX, you can install jq with brew or macports -
-
-``` sh
-brew install jq
-```
-
-``` sh
-port install jq
-```
-
-If you're on linux, jq is officially available for Debian, Ubuntu, Fedora, openSUSE, and Arch.
 
 ## Clone Repo and update Submodules
 

@@ -1,0 +1,20 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "away": "bash scripts/run_workspace.sh",
+    "fbemu": "bash scripts/run_firebase_emulators.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chefcapp/chefcapp-api-engine": "^0.2.6",
+    "firebase-tools": "^9.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
