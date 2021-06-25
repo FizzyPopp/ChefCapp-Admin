@@ -74,4 +74,4 @@ firestore.indexes.json
 secrets/
 
 # Don't bother uploading emulator exports, do those manually
-emulator-data/
+./emulator-data/

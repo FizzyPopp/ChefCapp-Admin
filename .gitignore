@@ -78,6 +78,9 @@ public/admin/
 public/admin-server/*
 public/tmp/
 
+# ignore emulator export data in the workspace
+workspace/emulator-data/
+
 # PRIVATE KEY
 chef-capp-firebase-adminsdk*
 init.sh
