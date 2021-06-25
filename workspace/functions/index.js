@@ -3,6 +3,11 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 
+// chopped walnuts
+var testIngredient = ["00c938a9-cd16-4738-94ea-eff0b1335f4c"];
+
+
+
 // exports.addToWaitingList = functions.https.onRequest((req, res) => {
 //     if (req.body.email) {
 //         var maillingListRef = admin.firestore().collection('communication').doc('maillingList');
