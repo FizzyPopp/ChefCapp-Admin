@@ -26,22 +26,32 @@ var frzavosID = "05d7a0f3-1d0b-4602-8777-0b8709b3a956";
 var bayleefRef = ccaDev.db.collection('ingredients').doc(bayleefID);
 var frzavosRef = ccaDev.db.collection('ingredients').doc(frzavosID);
 
-bayleefRef.get().then((doc) => {
-  return doc.data();
-}).then((data) => {
-  let one = data;
-  one.name.plural = "toasted poop";
+var toast = [
+  "00c938a9-cd16-4738-94ea-eff0b1335f4c",
+  "20bff36a-88f3-487f-a438-98c7ad7456a7"
+]
 
-  bayleefRef.get().then((doc) => {
-    return doc.data();
-  }).then((data) => {
-    let two = data;
-    console.log(one);
-    console.log(two);
-    let diffRes = ccaDev.diff(two, one);
-    console.log(JSON.stringify(diffRes, null ,2));
-  }).catch((e) => {console.log(e);});
-}).catch((e) => {console.log(e);});
+ccaDev.addAllergen(toast, 'tree nuts')
+      .then((r) => {
+        console.log(r);
+      });
+
+// bayleefRef.get().then((doc) => {
+//   return doc.data();
+// }).then((data) => {
+//   let one = data;
+//   one.name.plural = "toasted poop";
+
+//   bayleefRef.get().then((doc) => {
+//     return doc.data();
+//   }).then((data) => {
+//     let two = data;
+//     console.log(one);
+//     console.log(two);
+//     let diffRes = ccaDev.diff(two, one);
+//     console.log(JSON.stringify(diffRes, null ,2));
+//   }).catch((e) => {console.log(e);});
+// }).catch((e) => {console.log(e);});
 
 // function dumpCollection(colname) {
 //     cca.db.collection(colname).get()
