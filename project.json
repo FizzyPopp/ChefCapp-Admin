@@ -14,9 +14,9 @@
     "paths":{
         "chef_capp_admin_client": {
             "src": {
-                "root": "/cc-admin-client/chef_capp_admin_client",
-                "build": "/cc-admin-client/chef_capp_admin_client/build/web",
-                "package": "/cc-admin-client/chef_capp_admin_client/build/web"
+                "root": "/cc-admin-client",
+                "build": "/cc-admin-client/build/web",
+                "package": "/cc-admin-client/build/web"
             },
             "dest": {
                 "root": "/public/admin-client/release"
